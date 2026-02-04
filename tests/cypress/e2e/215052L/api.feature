@@ -73,3 +73,39 @@ Feature: Dashboard & Data Integration - API Test
       """
     Then the response status should be 201
     And the response body should be valid JSON
+
+  Scenario: API-DI-E-004 Admin validates plant-category relationship integrity
+    When I authenticate as "admin"
+    And I request "POST" "/api/categories" with body:
+      """
+      {
+        "name": "PRC_{timestamp}"
+      }
+      """
+    Then the response status should be 201
+    When I capture the id as "parentRelId"
+    And I request "POST" "/api/categories" with body using "parentRelId" as "parentId":
+      """
+      {
+        "name": "SRC_{timestamp}",
+        "parent": {
+          "id": {parentId}
+        }
+      }
+      """
+    Then the response status should be 201
+    When I capture the id as "subRelId"
+    And I request "POST" "/api/plants/category/{id}" with "subRelId" as "id" and body:
+      """
+      {
+        "name": "RP_{timestamp}",
+        "price": 15.0,
+        "quantity": 20
+      }
+      """
+    Then the response status should be 201
+    When I capture the id as "plantId"
+    And I request "GET" "/api/plants/{id}" with "plantId" as "id"
+    Then the response status should be 200
+    And the response body should be valid JSON
+    And the response body "categoryId" should match captured "subRelId"

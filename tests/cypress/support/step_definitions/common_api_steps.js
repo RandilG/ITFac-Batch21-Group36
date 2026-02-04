@@ -159,3 +159,12 @@ When("I request {string} {string} with body using {string} as {string}:", (metho
         }).as('response');
     });
 });
+
+Then("the response body {string} should match captured {string}", (property, alias) => {
+    const expectedVal = sharedState[alias];
+    cy.get('@response').its('body').then((body) => {
+        // Handle nested properties like 'category.id'
+        const actualVal = property.split('.').reduce((obj, key) => obj && obj[key], body);
+        expect(actualVal).to.eq(expectedVal);
+    });
+});
