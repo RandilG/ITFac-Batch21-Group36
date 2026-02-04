@@ -8,9 +8,18 @@ Given("I assume the application is running", () => {
 });
 
 When("I authenticate as {string}", (role) => {
-    const credentials = role === 'admin' ? 'admin:admin123' : 'user:test123'; // Guessing password for user
-    const encoded = btoa(credentials);
-    authToken = `Basic ${encoded}`;
+    const username = role === 'admin' ? 'admin' : 'testuser';
+    const password = role === 'admin' ? 'admin123' : 'test123';
+
+    cy.request({
+        method: 'POST',
+        url: '/api/auth/login',
+        body: { username, password },
+        headers: { 'Content-Type': 'application/json' }
+    }).then((res) => {
+        expect(res.status).to.eq(200);
+        authToken = `Bearer ${res.body.token}`;
+    });
 });
 
 When("I request {string} {string}", (method, url) => {

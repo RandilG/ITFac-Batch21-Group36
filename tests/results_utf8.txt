@@ -1,0 +1,330 @@
+﻿
+node.exe : 
+At line:1 char:1
++ & "C:\Program Files
+\nodejs/node.exe" "C:
+\Users\uvher\AppData\
+Roaming\ ...
++ ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (:String   
+ ) [], RemoteExce    
+ption
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+DevTools listening 
+on ws://127.0.0.1:515
+11/devtools/browser/d
+46bd15a-3069-4697-9e6
+4-114eb3411d07
+
+====================================================================================================
+
+  (Run Starting)
+
+  ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+  Γöé Cypress:        13.13.0                                                                        Γöé
+  Γöé Browser:        Electron 118 (headless)                                                        Γöé
+  Γöé Node Version:   v24.13.0 (C:\Program Files\nodejs\node.exe)                                    Γöé
+  Γöé Specs:          1 found (api.feature)                                                          Γöé
+  Γöé Searched:       E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\e2e\215052L\api.feature      Γöé
+  ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+
+
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+                                                                                                    
+  Running:  api.feature                                                                     (1 of 1)
+
+
+  Dashboard & Data Integration - API Test
+    1) API-DI-E-001 Admin retrieves dashboard summary data
+    2) API-DI-E-002 Admin creates category hierarchy
+    3) API-DI-E-003 Admin creates plant under sub-category
+    4) API-DI-E-004 Verify plant category reference
+    5) API-DI-E-007 Error for non-existent category
+    6) API-DI-E-008 User retrieves dashboard data read-only
+    7) API-DI-E-009 User prohibited from creating plant
+    8) API-DI-E-010 Unsupported HTTP method handling
+    9) API-INV-E-001 Admin adjusts stock IN for a plant
+    10) API-INV-E-002 Admin adjusts stock OUT for a plant
+    11) API-INV-E-003 Admin retrieves inventory history for a plant
+    12) API-INV-E-004 User prohibited from adjusting stock
+    13) API-INV-E-005 Error for non-existent plant during stock adjustment
+
+
+  0 passing (4s)
+  13 failing
+
+  1) Dashboard & Data Integration - API Test
+       API-DI-E-001 Admin retrieves dashboard summary data:
+
+      AssertionError: expected 401 to equal 200
+      + expected - actual
+
+      -401
+      +200
+      
+      at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:16573:36)
+      at Registry.runStepDefininition (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:8551:48)
+      at Object.fn (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15808:43)
+      at runStepWithLogGroup (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15276:29)
+      at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15804:62)
+
+  2) Dashboard & Data Integration - API Test
+       API-DI-E-002 Admin creates category hierarchy:
+
+      AssertionError: expected 401 to equal 201
+      + expected - actual
+
+      -401
+      +201
+      
+      at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:16573:36)
+      at Registry.runStepDefininition (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:8551:48)
+      at Object.fn (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15808:43)
+      at runStepWithLogGroup (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15276:29)
+      at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15804:62)
+
+  3) Dashboard & Data Integration - API Test
+       API-DI-E-003 Admin creates plant under sub-category:
+
+      AssertionError: expected 401 to equal 201
+      + expected - actual
+
+      -401
+      +201
+      
+      at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:16573:36)
+      at Registry.runStepDefininition (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:8551:48)
+      at Object.fn (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15808:43)
+      at runStepWithLogGroup (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15276:29)
+      at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15804:62)
+
+  4) Dashboard & Data Integration - API Test
+       API-DI-E-004 Verify plant category reference:
+
+      AssertionError: expected 401 to equal 200
+      + expected - actual
+
+      -401
+      +200
+      
+      at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:16573:36)
+      at Registry.runStepDefininition (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:8551:48)
+      at Object.fn (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15808:43)
+      at runStepWithLogGroup (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15276:29)
+      at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15804:62)
+
+  5) Dashboard & Data Integration - API Test
+       API-DI-E-007 Error for non-existent category:
+
+      AssertionError: expected 401 to equal 404
+      + expected - actual
+
+      -401
+      +404
+      
+      at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:16573:36)
+      at Registry.runStepDefininition (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:8551:48)
+      at Object.fn (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15808:43)
+      at runStepWithLogGroup (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15276:29)
+      at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15804:62)
+
+  6) Dashboard & Data Integration - API Test
+       API-DI-E-008 User retrieves dashboard data read-only:
+
+      AssertionError: expected 401 to equal 200
+      + expected - actual
+
+      -401
+      +200
+      
+      at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:16573:36)
+      at Registry.runStepDefininition (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:8551:48)
+      at Object.fn (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15808:43)
+      at runStepWithLogGroup (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15276:29)
+      at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15804:62)
+
+  7) Dashboard & Data Integration - API Test
+       API-DI-E-009 User prohibited from creating plant:
+
+      AssertionError: expected 401 to equal 403
+      + expected - actual
+
+      -401
+      +403
+      
+      at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:16573:36)
+      at Registry.runStepDefininition (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:8551:48)
+      at Object.fn (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15808:43)
+      at runStepWithLogGroup (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15276:29)
+      at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15804:62)
+
+  8) Dashboard & Data Integration - API Test
+       API-DI-E-010 Unsupported HTTP method handling:
+
+      AssertionError: expected 401 to equal 405
+      + expected - actual
+
+      -401
+      +405
+      
+      at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:16573:36)
+      at Registry.runStepDefininition (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:8551:48)
+      at Object.fn (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15808:43)
+      at runStepWithLogGroup (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15276:29)
+      at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15804:62)
+
+  9) Dashboard & Data Integration - API Test
+       API-INV-E-001 Admin adjusts stock IN for a plant:
+
+      AssertionError: expected 401 to equal 201
+      + expected - actual
+
+      -401
+      +201
+      
+      at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:16573:36)
+      at Registry.runStepDefininition (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:8551:48)
+      at Object.fn (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15808:43)
+      at runStepWithLogGroup (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15276:29)
+      at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15804:62)
+
+  10) Dashboard & Data Integration - API Test
+       API-INV-E-002 Admin adjusts stock OUT for a plant:
+
+      AssertionError: expected 401 to equal 201
+      + expected - actual
+
+      -401
+      +201
+      
+      at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:16573:36)
+      at Registry.runStepDefininition (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:8551:48)
+      at Object.fn (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15808:43)
+      at runStepWithLogGroup (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15276:29)
+      at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15804:62)
+
+  11) Dashboard & Data Integration - API Test
+       API-INV-E-003 Admin retrieves inventory history for a plant:
+
+      AssertionError: expected 401 to equal 200
+      + expected - actual
+
+      -401
+      +200
+      
+      at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:16573:36)
+      at Registry.runStepDefininition (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:8551:48)
+      at Object.fn (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15808:43)
+      at runStepWithLogGroup (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15276:29)
+      at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15804:62)
+
+  12) Dashboard & Data Integration - API Test
+       API-INV-E-004 User prohibited from adjusting stock:
+
+      AssertionError: expected 401 to equal 403
+      + expected - actual
+
+      -401
+      +403
+      
+      at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:16573:36)
+      at Registry.runStepDefininition (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:8551:48)
+      at Object.fn (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15808:43)
+      at runStepWithLogGroup (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15276:29)
+      at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15804:62)
+
+  13) Dashboard & Data Integration - API Test
+       API-INV-E-005 Error for non-existent plant during stock adjustment:
+
+      AssertionError: expected 401 to equal 404
+      + expected - actual
+
+      -401
+      +404
+      
+      at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:16573:36)
+      at Registry.runStepDefininition (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:8551:48)
+      at Object.fn (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15808:43)
+      at runStepWithLogGroup (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15276:29)
+      at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\e2e\215052L\api.feature:15804:62)
+
+
+
+
+  (Results)
+
+  ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+  Γöé Tests:        13                                                                               Γöé
+  Γöé Passing:      0                                                                                Γöé
+  Γöé Failing:      13                                                                               Γöé
+  Γöé Pending:      0                                                                                Γöé
+  Γöé Skipped:      0                                                                                Γöé
+  Γöé Screenshots:  13                                                                               Γöé
+  Γöé Video:        false                                                                            Γöé
+  Γöé Duration:     3 seconds                                                                        Γöé
+  Γöé Spec Ran:     api.feature                                                                      Γöé
+  ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+
+
+  (Screenshots)
+
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-DI-E-001 Admin retrieves dashboard summ               
+     ary data (failed).png                                                                          
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-DI-E-002 Admin creates category hierarc               
+     hy (failed).png                                                                                
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-DI-E-003 Admin creates plant under sub-               
+     category (failed).png                                                                          
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-DI-E-004 Verify plant category referenc               
+     e (failed).png                                                                                 
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-DI-E-007 Error for non-existent categor               
+     y (failed).png                                                                                 
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-DI-E-008 User retrieves dashboard data                
+     read-only (failed).png                                                                         
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-DI-E-009 User prohibited from creating                
+     plant (failed).png                                                                             
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-DI-E-010 Unsupported HTTP method handli               
+     ng (failed).png                                                                                
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-INV-E-001 Admin adjusts stock IN for a                
+     plant (failed).png                                                                             
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-INV-E-002 Admin adjusts stock OUT for a               
+      plant (failed).png                                                                            
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-INV-E-003 Admin retrieves inventory his               
+     tory for a plant (failed).png                                                                  
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-INV-E-004 User prohibited from adjustin               
+     g stock (failed).png                                                                           
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-INV-E-005 Error for non-existent plant                
+     during stock adjustment (failed).png                                                           
+
+
+====================================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped  
+  ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+  Γöé ├ù  api.feature                              00:03       13        -       13        -        - Γöé
+  ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+    ├ù  1 of 1 failed (100%)                     00:03       13        -       13        -        -  
+

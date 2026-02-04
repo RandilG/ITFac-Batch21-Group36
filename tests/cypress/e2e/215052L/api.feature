@@ -17,11 +17,11 @@ Feature: Dashboard & Data Integration - API Test
     When I authenticate as "admin"
     And I request "POST" "/api/categories" with body:
       """
-      { "name": "Indoor Plants" }
+      { "name": "Indoor" }
       """
     Then the response status should be 201
     And I request "GET" "/api/categories"
-    Then the response body should contain "Indoor Plants"
+    Then the response body should contain "Indoor"
 
   Scenario: API-DI-E-003 Admin creates plant under sub-category
     When I authenticate as "admin"
@@ -61,3 +61,42 @@ Feature: Dashboard & Data Integration - API Test
     When I authenticate as "admin"
     And I request "PUT" "/api/categories"
     Then the response status should be 405
+
+  Scenario: API-INV-E-001 Admin adjusts stock IN for a plant
+    When I authenticate as "admin"
+    # Assuming plant ID 1 exists
+    And I request "POST" "/api/inventory/plant/1" with body:
+      """
+      { "quantity": 10, "type": "IN", "remark": "Restock" }
+      """
+    Then the response status should be 201
+
+  Scenario: API-INV-E-002 Admin adjusts stock OUT for a plant
+    When I authenticate as "admin"
+    And I request "POST" "/api/inventory/plant/1" with body:
+      """
+      { "quantity": 5, "type": "OUT", "remark": "Sale" }
+      """
+    Then the response status should be 201
+
+  Scenario: API-INV-E-003 Admin retrieves inventory history for a plant
+    When I authenticate as "admin"
+    And I request "GET" "/api/inventory/plant/1"
+    Then the response status should be 200
+    And the response body should be valid JSON
+
+  Scenario: API-INV-E-004 User prohibited from adjusting stock
+    When I authenticate as "user"
+    And I request "POST" "/api/inventory/plant/1" with body:
+      """
+      { "quantity": 10, "type": "IN", "remark": "Unauthorized" }
+      """
+    Then the response status should be 403
+
+  Scenario: API-INV-E-005 Error for non-existent plant during stock adjustment
+    When I authenticate as "admin"
+    And I request "POST" "/api/inventory/plant/999999" with body:
+      """
+      { "quantity": 10, "type": "IN", "remark": "Non-existent plant" }
+      """
+    Then the response status should be 404
