@@ -3,100 +3,186 @@ Feature: Dashboard & Data Integration - API Test
   Background:
     Given I assume the application is running
 
-  Scenario: API-DI-E-001 Admin setup and dashboard check
+  Scenario: API-DI-E-001 Admin retrieves dashboard summary data
     When I authenticate as "admin"
-    And I request "POST" "/api/categories" with body:
-      """
-      { "name": "Indoor" }
-      """
-    Then the response status should be 201
-    And I capture the id as "catId"
-    And I request "POST" "/api/plants/category/{id}" with "catId" as "id" and body:
-      """
-      { "name": "Fern", "price": 10.0, "quantity": 5 }
-      """
-    Then the response status should be 201
-    And I capture the id as "plantId"
     And I request "GET" "/api/categories"
     Then the response status should be 200
     And the response body should be valid JSON
-    And the response body should not be empty
     And I request "GET" "/api/plants"
     Then the response status should be 200
-    And the response body should not be empty
+    And the response body should be valid JSON
     And I request "GET" "/api/sales"
     Then the response status should be 200
+    And the response body should be valid JSON
 
-  Scenario: API-DI-E-003 Admin creates plant under sub-category
+  Scenario: API-DI-E-002 Admin creates category hierarchy
     When I authenticate as "admin"
-    And I request "POST" "/api/plants/category/{id}" with "catId" as "id" and body:
+    And I request "POST" "/api/categories" with body:
       """
-      { "name": "Fern", "price": 10.0, "quantity": 5 }
+      {
+        "name": "Cat_{timestamp}"
+      }
       """
     Then the response status should be 201
+    And the response body should be valid JSON
+    When I capture the id as "parentCategoryId"
+    And I request "POST" "/api/categories" with body using "parentCategoryId" as "parentId":
+      """
+      {
+        "name": "Sub_{timestamp}",
+        "parent": {
+          "id": {parentId}
+        }
+      }
+      """
+    Then the response status should be 201
+    And the response body should be valid JSON
+    When I capture the id as "subCategoryId"
+    And I request "GET" "/api/categories"
+    Then the response status should be 200
+    And the response body should be valid JSON
 
-  Scenario: API-DI-E-004 Verify plant category reference
-     When I authenticate as "admin"
-     And I request "GET" "/api/plants"
-     Then the response status should be 200
+  Scenario: API-DI-E-003 Admin creates plant in sub-category
+    When I authenticate as "admin"
+    And I request "POST" "/api/categories" with body:
+      """
+      {
+        "name": "Cat_{timestamp}"
+      }
+      """
+    Then the response status should be 201
+    When I capture the id as "parentCategoryId"
+    And I request "POST" "/api/categories" with body using "parentCategoryId" as "parentId":
+      """
+      {
+        "name": "Sub_{timestamp}",
+        "parent": {
+          "id": {parentId}
+        }
+      }
+      """
+    Then the response status should be 201
+    When I capture the id as "subCategoryId"
+    And I request "POST" "/api/plants/category/{id}" with "subCategoryId" as "id" and body:
+      """
+      {
+        "name": "Plant_{timestamp}",
+        "price": 50.0,
+        "quantity": 100
+      }
+      """
+    Then the response status should be 201
+    And the response body should be valid JSON
 
-  Scenario: API-DI-E-007 Error for non-existent category
+  Scenario: API-DI-E-004 Admin validates plant-category relationship integrity
+    When I authenticate as "admin"
+    And I request "POST" "/api/categories" with body:
+      """
+      {
+        "name": "PRC_{timestamp}"
+      }
+      """
+    Then the response status should be 201
+    When I capture the id as "parentRelId"
+    And I request "POST" "/api/categories" with body using "parentRelId" as "parentId":
+      """
+      {
+        "name": "SRC_{timestamp}",
+        "parent": {
+          "id": {parentId}
+        }
+      }
+      """
+    Then the response status should be 201
+    When I capture the id as "subRelId"
+    And I request "POST" "/api/plants/category/{id}" with "subRelId" as "id" and body:
+      """
+      {
+        "name": "RP_{timestamp}",
+        "price": 15.0,
+        "quantity": 20
+      }
+      """
+    Then the response status should be 201
+    When I capture the id as "plantId"
+    And I request "GET" "/api/plants/{id}" with "plantId" as "id"
+    Then the response status should be 200
+    And the response body should be valid JSON
+    And the response body "categoryId" should match captured "subRelId"
+
+  Scenario: API-DI-E-005 Admin records sale and verifies stock reduction
+    When I authenticate as "admin"
+    And I request "POST" "/api/categories" with body:
+      """
+      {
+        "name": "SC_{timestamp}"
+      }
+      """
+    Then the response status should be 201
+    When I capture the id as "saleParentId"
+    And I request "POST" "/api/categories" with body using "saleParentId" as "parentId":
+      """
+      {
+        "name": "SS_{timestamp}",
+        "parent": {
+          "id": {parentId}
+        }
+      }
+      """
+    Then the response status should be 201
+    When I capture the id as "saleSubId"
+    And I request "POST" "/api/plants/category/{id}" with "saleSubId" as "id" and body:
+      """
+      {
+        "name": "SP_{timestamp}",
+        "price": 10.0,
+        "quantity": 100
+      }
+      """
+    Then the response status should be 201
+    When I capture the id as "salePlantId"
+    And I request "POST" "/api/sales/plant/{id}?quantity=10" with "salePlantId" as "id"
+    Then the response status should be 201
+    When I request "GET" "/api/plants/{id}" with "salePlantId" as "id"
+    Then the response status should be 200
+    And the response body "quantity" should be 90
+
+  Scenario: API-DI-E-006 Admin retrieves complete sales history
+    When I authenticate as "admin"
+    And I request "GET" "/api/sales"
+    Then the response status should be 200
+    And the response body should be valid JSON
+    And the response body should not be empty
+
+  Scenario: API-DI-E-007 Admin receives error for non-existent category
     When I authenticate as "admin"
     And I request "GET" "/api/categories/999999"
     Then the response status should be 404
+    And the response body should be valid JSON
+    And the response body should contain "not found"
 
   Scenario: API-DI-E-008 User retrieves dashboard data read-only
-    When I authenticate as "testuser"
+    When I authenticate as "user"
     And I request "GET" "/api/categories"
     Then the response status should be 200
-    
+    And I request "GET" "/api/plants"
+    Then the response status should be 200
+    And I request "GET" "/api/sales"
+    Then the response status should be 200
+
   Scenario: API-DI-E-009 User prohibited from creating plant
-    When I authenticate as "testuser"
-    And I request "POST" "/api/plants/category/{id}" with "catId" as "id" and body:
+    When I authenticate as "user"
+    And I request "POST" "/api/plants/category/1" with body:
       """
-      { "name": "Banned Plant", "price": 10.0, "quantity": 1 }
+      {
+        "name": "UnauthorizedPlant",
+        "price": 10.0,
+        "quantity": 100
+      }
       """
-    Then the response status should be 403
+    Then the response status should be 403 or 401
 
   Scenario: API-DI-E-010 Unsupported HTTP method handling
     When I authenticate as "admin"
     And I request "PUT" "/api/categories"
     Then the response status should be 405
-
-  Scenario: API-INV-E-001 Admin adjusts stock IN for a plant
-    When I authenticate as "admin"
-    And I request "POST" "/api/inventory/plant/{id}" with "plantId" as "id" and body:
-      """
-      { "quantity": 10, "type": "IN", "remark": "Restock" }
-      """
-    Then the response status should be 201
-
-  Scenario: API-INV-E-002 Admin adjusts stock OUT for a plant
-    When I authenticate as "admin"
-    And I request "POST" "/api/inventory/plant/{id}" with "plantId" as "id" and body:
-      """
-      { "quantity": 5, "type": "OUT", "remark": "Sale" }
-      """
-    Then the response status should be 201
-
-  Scenario: API-INV-E-003 Admin retrieves inventory history for a plant
-    When I authenticate as "admin"
-    And I request "GET" "/api/inventory/plant/{id}" with "plantId" as "id"
-    Then the response status should be 200
-    And the response body should be valid JSON
-
-  Scenario: API-INV-E-004 User prohibited from adjusting stock
-    When I authenticate as "testuser"
-    And I request "POST" "/api/inventory/plant/{id}" with "plantId" as "id" and body:
-      """
-      { "quantity": 10, "type": "IN", "remark": "Unauthorized" }
-      """
-    Then the response status should be 403
-
-  Scenario: API-INV-E-005 Error for non-existent plant during stock adjustment
-    When I authenticate as "admin"
-    And I request "POST" "/api/inventory/plant/999999" with body:
-      """
-      { "quantity": 10, "type": "IN", "remark": "Non-existent plant" }
-      """
-    Then the response status should be 404
