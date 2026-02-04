@@ -109,3 +109,40 @@ Feature: Dashboard & Data Integration - API Test
     Then the response status should be 200
     And the response body should be valid JSON
     And the response body "categoryId" should match captured "subRelId"
+
+  Scenario: API-DI-E-005 Admin records sale and verifies stock reduction
+    When I authenticate as "admin"
+    And I request "POST" "/api/categories" with body:
+      """
+      {
+        "name": "SC_{timestamp}"
+      }
+      """
+    Then the response status should be 201
+    When I capture the id as "saleParentId"
+    And I request "POST" "/api/categories" with body using "saleParentId" as "parentId":
+      """
+      {
+        "name": "SS_{timestamp}",
+        "parent": {
+          "id": {parentId}
+        }
+      }
+      """
+    Then the response status should be 201
+    When I capture the id as "saleSubId"
+    And I request "POST" "/api/plants/category/{id}" with "saleSubId" as "id" and body:
+      """
+      {
+        "name": "SP_{timestamp}",
+        "price": 10.0,
+        "quantity": 100
+      }
+      """
+    Then the response status should be 201
+    When I capture the id as "salePlantId"
+    And I request "POST" "/api/sales/plant/{id}?quantity=10" with "salePlantId" as "id"
+    Then the response status should be 201
+    When I request "GET" "/api/plants/{id}" with "salePlantId" as "id"
+    Then the response status should be 200
+    And the response body "quantity" should be 90

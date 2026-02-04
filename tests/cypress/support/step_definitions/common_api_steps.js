@@ -168,3 +168,10 @@ Then("the response body {string} should match captured {string}", (property, ali
         expect(actualVal).to.eq(expectedVal);
     });
 });
+
+Then("the response body {string} should be {int}", (property, expectedVal) => {
+    cy.get('@response').its('body').then((body) => {
+        const actualVal = property.split('.').reduce((obj, key) => obj && obj[key], body);
+        expect(actualVal).to.eq(expectedVal);
+    });
+});
