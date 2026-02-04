@@ -1,31 +1,34 @@
 const { Given, When, Then } = require("@badeball/cypress-cucumber-preprocessor");
 
 Given("I am on the login page", () => {
-    cy.visit('/'); // Assuming root is login or redirects to login
+    cy.visit('/ui/login');
 });
 
 When("I login as {string} with password {string}", (username, password) => {
-    // Adjust selectors based on actual app HTML if known. 
-    // Standard guess: input[name=username], etc.
-    cy.get('input').first().type(username); // Try to find first input usually username
-    // Or better generic:
-    // cy.get('input[type="text"]').type(username);
-    cy.get('input[type="password"]').type(password);
-    cy.get('button').click();
+    cy.get('input').filter('[name="username"],#username').type(username);
+    cy.get('input').filter('[name="password"],#password').type(password);
+    cy.get('button').filter('[type="submit"],.btn-primary').click();
 });
 
 Then("I should see the dashboard", () => {
-    cy.url().should('include', 'dashboard');
-    cy.contains('Dashboard');
+    cy.url().should('include', '/dashboard');
+    cy.contains('h3', 'Dashboard').should('be.visible');
+});
+
+Then("I should see summary statistics for {string}, {string}, and {string}", (stat1, stat2, stat3) => {
+    cy.get('.dashboard-card').should('have.length.at.least', 3);
+    cy.get('.dashboard-card').contains(stat1).should('be.visible');
+    cy.get('.dashboard-card').contains(stat2).should('be.visible');
+    cy.get('.dashboard-card').contains(stat3).should('be.visible');
 });
 
 Then("I should see summary statistics", () => {
-    // Look for any stats container
-    cy.get('div').filter((index, elt) => elt.innerText.includes('Total')).should('exist');
+    cy.get('.dashboard-card').should('exist');
 });
 
 Then("I should see the navigation menu", () => {
-    cy.get('nav').should('exist');
+    cy.get('.sidebar').should('be.visible');
+    cy.get('.sidebar .nav-link').should('have.length.at.least', 4);
 });
 
 Then("I click {string} in navigation", (linkText) => {
