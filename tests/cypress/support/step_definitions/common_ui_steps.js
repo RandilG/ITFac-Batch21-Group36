@@ -39,6 +39,10 @@ Then("I should see {string} button", (btnText) => {
     cy.contains(btnText).should('be.visible');
 });
 
+Then("I should see the heading {string}", (headingText) => {
+    cy.get('h2, h3').contains(headingText).should('be.visible');
+});
+
 Then("I should not see {string} button", (btnText) => {
     cy.contains(btnText).should('not.exist');
 });
