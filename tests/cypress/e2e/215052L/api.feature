@@ -146,3 +146,10 @@ Feature: Dashboard & Data Integration - API Test
     When I request "GET" "/api/plants/{id}" with "salePlantId" as "id"
     Then the response status should be 200
     And the response body "quantity" should be 90
+
+  Scenario: API-DI-E-006 Admin retrieves complete sales history
+    When I authenticate as "admin"
+    And I request "GET" "/api/sales"
+    Then the response status should be 200
+    And the response body should be valid JSON
+    And the response body should not be empty

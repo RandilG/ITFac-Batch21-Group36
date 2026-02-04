@@ -87,17 +87,6 @@ Then("the response body should contain {string}", (content) => {
     });
 });
 
-Then("the response body should not be empty", () => {
-    if (Array.isArray(response.body)) {
-        expect(response.body.length).to.be.greaterThan(0);
-    } else if (typeof response.body === 'object') {
-        expect(Object.keys(response.body).length).to.be.greaterThan(0);
-    } else {
-        expect(response.body).to.exist;
-        expect(response.body).to.not.be.empty;
-    }
-});
-
 When("I capture the id as {string}", (alias) => {
     cy.get('@response').its('body.id').then((id) => {
         sharedState[alias] = id;
