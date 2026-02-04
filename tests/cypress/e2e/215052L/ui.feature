@@ -63,3 +63,16 @@ Feature: Dashboard & Data Integration - UI Test
     And I should not see "Add A Category" button
     And I should not see "Add a Plant" button
     And I should not see "Sell Plant" button
+
+  Scenario: UI-USR-E-02 User navigates read-only pages
+    Given I am on the login page
+    When I login as "testuser" with password "test123"
+    And I click "Categories" in navigation
+    Then I should see the "Categories" table with data
+    And I should not see "Add A Category" button
+    When I click "Plants" in navigation
+    Then I should see the "Plants" table with data
+    And I should not see "Add a Plant" button
+    When I click "Sales" in navigation
+    Then I should see the "Sales" table with data
+    And I should not see "Sell Plant" button
