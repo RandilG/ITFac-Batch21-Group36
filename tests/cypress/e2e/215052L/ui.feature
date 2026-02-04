@@ -23,6 +23,6 @@ Feature: Dashboard & Data Integration - UI Test
 
   Scenario: UI-USR-E-01 User dashboard without admin actions
     Given I am on the login page
-    When I login as "user" with password "test123"
+    When I login as "testuser" with password "test123"
     Then I should see the dashboard
     And I should not see "Add Category" button
