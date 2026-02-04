@@ -101,3 +101,14 @@ Feature: Dashboard & Data Integration - UI Test
     Then I should see the heading "Sales"
     When I click "Dashboard" in navigation
     Then I should see the heading "Dashboard"
+
+  Scenario: UI-USR-E-05 User browser navigation
+    Given I am on the login page
+    When I login as "testuser" with password "test123"
+    And I click "Categories" in navigation
+    Then I should see the heading "Categories"
+    When I click "Plants" in navigation
+    Then I should see the heading "Plants"
+    When I go back in browser history
+    Then I should see the heading "Categories"
+    And I should still be logged in as "testuser"

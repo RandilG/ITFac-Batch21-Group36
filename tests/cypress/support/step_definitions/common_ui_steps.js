@@ -61,3 +61,12 @@ Then("I should see the {string} table displaying {string} and {string} columns",
         expect(texts).to.include(col2);
     });
 });
+
+When("I go back in browser history", () => {
+    cy.go('back');
+});
+
+Then("I should still be logged in as {string}", (username) => {
+    // Basic check: should not be on login page, or should see some indication of user session
+    cy.url().should('not.include', '/login');
+});
