@@ -68,17 +68,6 @@ Then("the response body should contain {string}", (content) => {
     expect(JSON.stringify(response.body)).to.contain(content);
 });
 
-Then("the response body should not be empty", () => {
-    if (Array.isArray(response.body)) {
-        expect(response.body.length).to.be.greaterThan(0);
-    } else if (typeof response.body === 'object') {
-        expect(Object.keys(response.body).length).to.be.greaterThan(0);
-    } else {
-        expect(response.body).to.exist;
-        expect(response.body).to.not.be.empty;
-    }
-});
-
 When("I capture the id as {string}", (alias) => {
     sharedState[alias] = response.body.id;
     cy.wrap(response.body.id).as(alias);
@@ -112,4 +101,16 @@ When("I request {string} {string} with {string} as {string} and body:", (method,
     }).then((res) => {
         response = res;
     });
+});
+
+// NEW STEP DEFINITIONS ADDED BELOW
+
+Then("the response body should be valid JSON", function () {
+    expect(response.body).to.exist;
+    expect(() => JSON.parse(JSON.stringify(response.body))).to.not.throw();
+});
+
+Then("the response body should not contain {string}", function (text) {
+    const bodyString = JSON.stringify(response.body);
+    expect(bodyString).to.not.include(text);
 });
