@@ -88,9 +88,13 @@ Then("the response body should not be empty", () => {
 });
 
 Then("the response body should contain {string}", (content) => {
+<<<<<<< HEAD
+    expect(JSON.stringify(response.body)).to.contain(content);
+=======
     cy.get('@response').its('body').then((body) => {
         expect(JSON.stringify(body)).to.contain(content);
     });
+>>>>>>> 5e80f97623c23038588444913edb6dbdd60f389e
 });
 
 When("I capture the id as {string}", (alias) => {
@@ -169,4 +173,16 @@ Then("the response body {string} should be {int}", (property, expectedVal) => {
         const actualVal = property.split('.').reduce((obj, key) => obj && obj[key], body);
         expect(actualVal).to.eq(expectedVal);
     });
+});
+
+// NEW STEP DEFINITIONS ADDED BELOW
+
+Then("the response body should be valid JSON", function () {
+    expect(response.body).to.exist;
+    expect(() => JSON.parse(JSON.stringify(response.body))).to.not.throw();
+});
+
+Then("the response body should not contain {string}", function (text) {
+    const bodyString = JSON.stringify(response.body);
+    expect(bodyString).to.not.include(text);
 });
