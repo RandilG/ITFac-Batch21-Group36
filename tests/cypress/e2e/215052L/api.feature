@@ -153,3 +153,10 @@ Feature: Dashboard & Data Integration - API Test
     Then the response status should be 200
     And the response body should be valid JSON
     And the response body should not be empty
+
+  Scenario: API-DI-E-007 Admin receives error for non-existent category
+    When I authenticate as "admin"
+    And I request "GET" "/api/categories/999999"
+    Then the response status should be 404
+    And the response body should be valid JSON
+    And the response body should contain "not found"
