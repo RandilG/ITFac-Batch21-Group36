@@ -34,11 +34,15 @@ When("I request {string} {string}", (method, url) => {
 });
 
 When("I request {string} {string} with body:", (method, url, body) => {
+    const timestamp = new Date().getTime().toString().slice(-5);
+    const finalUrl = url.replace(/{timestamp}/g, timestamp);
+    const bodyWithTimestamp = body.replace(/{timestamp}/g, timestamp);
+
     cy.get('@authToken', { log: false }).then((authToken) => {
         cy.request({
             method: method,
-            url: url,
-            body: JSON.parse(body),
+            url: finalUrl,
+            body: JSON.parse(bodyWithTimestamp),
             failOnStatusCode: false,
             headers: {
                 'Content-Type': 'application/json',
@@ -49,7 +53,12 @@ When("I request {string} {string} with body:", (method, url, body) => {
 });
 
 Then("the response status should be {int}", (statusCode) => {
-    cy.get('@response').its('status').should('eq', statusCode);
+    cy.get('@response').then((res) => {
+        if (res.status !== statusCode) {
+            cy.log('Error Response:', JSON.stringify(res.body));
+        }
+        expect(res.status).to.eq(statusCode);
+    });
 });
 
 Then("the response body should be valid JSON", () => {
@@ -117,6 +126,28 @@ When("I request {string} {string} with {string} as {string} and body:", (method,
             method: method,
             url: finalUrl,
             body: JSON.parse(body),
+            failOnStatusCode: false,
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': authToken
+            }
+        }).as('response');
+    });
+});
+
+When("I request {string} {string} with body using {string} as {string}:", (method, url, alias, placeholder, body) => {
+    const val = sharedState[alias];
+    const timestamp = new Date().getTime().toString().slice(-5);
+    let bodyWithReplacement = body.replace(new RegExp(`{${placeholder}}`, 'g'), val);
+    bodyWithReplacement = bodyWithReplacement.replace(/{timestamp}/g, timestamp);
+
+    const finalUrl = url.replace(/{timestamp}/g, timestamp);
+
+    cy.get('@authToken', { log: false }).then((authToken) => {
+        cy.request({
+            method: method,
+            url: finalUrl,
+            body: JSON.parse(bodyWithReplacement),
             failOnStatusCode: false,
             headers: {
                 'Content-Type': 'application/json',
