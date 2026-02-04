@@ -19,3 +19,13 @@ Feature: Dashboard & Data Integration - UI Test
     Then I should see the heading "Sales"
     When I click "Dashboard" in navigation
     Then I should see the heading "Dashboard"
+
+  Scenario: UI-ADM-E-03 Data tables display correctly
+    Given I am on the login page
+    When I login as "admin" with password "admin123"
+    When I click "Categories" in navigation
+    Then I should see the "Categories" table with data
+    When I click "Plants" in navigation
+    Then I should see the "Plants" table displaying "Price" and "Stock" columns
+    When I click "Sales" in navigation
+    Then I should see the "Sales" table with data

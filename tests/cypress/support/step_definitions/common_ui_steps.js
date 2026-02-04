@@ -46,3 +46,18 @@ Then("I should see the heading {string}", (headingText) => {
 Then("I should not see {string} button", (btnText) => {
     cy.contains(btnText).should('not.exist');
 });
+
+Then("I should see the {string} table with data", (tableName) => {
+    cy.get('table').should('be.visible');
+    cy.get('tbody tr').should('have.length.at.least', 1);
+});
+
+Then("I should see the {string} table displaying {string} and {string} columns", (tableName, col1, col2) => {
+    cy.get('table').should('be.visible');
+    // Check that both col1 and col2 are present in the headers
+    cy.get('thead th').then($ths => {
+        const texts = $ths.map((i, el) => Cypress.$(el).text().trim()).get();
+        expect(texts).to.include(col1);
+        expect(texts).to.include(col2);
+    });
+});
