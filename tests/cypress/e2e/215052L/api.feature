@@ -160,3 +160,12 @@ Feature: Dashboard & Data Integration - API Test
     Then the response status should be 404
     And the response body should be valid JSON
     And the response body should contain "not found"
+
+  Scenario: API-DI-E-008 User retrieves dashboard data read-only
+    When I authenticate as "user"
+    And I request "GET" "/api/categories"
+    Then the response status should be 200
+    And I request "GET" "/api/plants"
+    Then the response status should be 200
+    And I request "GET" "/api/sales"
+    Then the response status should be 200
