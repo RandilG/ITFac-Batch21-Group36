@@ -29,3 +29,14 @@ Feature: Dashboard & Data Integration - UI Test
     Then I should see the "Plants" table displaying "Price" and "Stock" columns
     When I click "Sales" in navigation
     Then I should see the "Sales" table with data
+
+  Scenario: UI-ADM-E-04 Admin action buttons visible
+    Given I am on the login page
+    When I login as "admin" with password "admin123"
+    When I click "Categories" in navigation
+    Then I should see "Add A Category" button
+    When I click "Plants" in navigation
+    Then I should see "Add a Plant" button
+    When I click "Sales" in navigation
+    Then I should see the heading "Sales"
+    And I should see "Sell Plant" button
