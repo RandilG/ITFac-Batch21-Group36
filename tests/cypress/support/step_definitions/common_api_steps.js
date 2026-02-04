@@ -120,12 +120,15 @@ When("I request {string} {string} with {string} as {string}", (method, url, alia
 
 When("I request {string} {string} with {string} as {string} and body:", (method, url, alias, placeholder, body) => {
     const val = sharedState[alias] || 1;
+    const timestamp = new Date().getTime().toString().slice(-5);
     const finalUrl = url.replace(`{${placeholder}}`, val);
+    const bodyWithTimestamp = body.replace(/{timestamp}/g, timestamp);
+
     cy.get('@authToken', { log: false }).then((authToken) => {
         cy.request({
             method: method,
             url: finalUrl,
-            body: JSON.parse(body),
+            body: JSON.parse(bodyWithTimestamp),
             failOnStatusCode: false,
             headers: {
                 'Content-Type': 'application/json',
