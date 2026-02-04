@@ -61,6 +61,12 @@ Then("the response status should be {int}", (statusCode) => {
     });
 });
 
+Then("the response status should be {int} or {int}", (status1, status2) => {
+    cy.get('@response').its('status').then((actualStatus) => {
+        expect([status1, status2]).to.include(actualStatus);
+    });
+});
+
 Then("the response body should be valid JSON", () => {
     cy.get('@response').its('body').then((body) => {
         expect(typeof body).to.be.oneOf(['object', 'array']);

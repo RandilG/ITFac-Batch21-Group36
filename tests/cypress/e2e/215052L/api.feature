@@ -169,3 +169,15 @@ Feature: Dashboard & Data Integration - API Test
     Then the response status should be 200
     And I request "GET" "/api/sales"
     Then the response status should be 200
+
+  Scenario: API-DI-E-009 User prohibited from creating plant
+    When I authenticate as "user"
+    And I request "POST" "/api/plants/category/1" with body:
+      """
+      {
+        "name": "UnauthorizedPlant",
+        "price": 10.0,
+        "quantity": 100
+      }
+      """
+    Then the response status should be 403 or 401
