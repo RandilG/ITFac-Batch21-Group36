@@ -54,3 +54,12 @@ Feature: Dashboard & Data Integration - UI Test
     Then I should see the heading "Dashboard"
     And I should see summary statistics for "Categories", "Plants", and "Sales"
     And I should see the navigation menu
+
+  Scenario: UI-USR-E-01 User dashboard without admin actions
+    Given I am on the login page
+    When I login as "testuser" with password "test123"
+    Then I should see the dashboard
+    And I should see the navigation menu
+    And I should not see "Add A Category" button
+    And I should not see "Add a Plant" button
+    And I should not see "Sell Plant" button
