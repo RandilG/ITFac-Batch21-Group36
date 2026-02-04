@@ -40,3 +40,17 @@ Feature: Dashboard & Data Integration - UI Test
     When I click "Sales" in navigation
     Then I should see the heading "Sales"
     And I should see "Sell Plant" button
+
+  Scenario: UI-ADM-E-05 Admin session stability
+    Given I am on the login page
+    When I login as "admin" with password "admin123"
+    And I click "Categories" in navigation
+    Then I should see the heading "Categories"
+    When I click "Plants" in navigation
+    Then I should see the heading "Plants"
+    When I click "Sales" in navigation
+    Then I should see the heading "Sales"
+    When I click "Dashboard" in navigation
+    Then I should see the heading "Dashboard"
+    And I should see summary statistics for "Categories", "Plants", and "Sales"
+    And I should see the navigation menu
