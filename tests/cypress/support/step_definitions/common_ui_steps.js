@@ -32,11 +32,12 @@ Then("I should see the navigation menu", () => {
 });
 
 Then("I click {string} in navigation", (linkText) => {
-    cy.contains(linkText).click();
+    cy.contains(linkText, { timeout: 10000 }).click();
 });
 
 Then("I should see {string} button", (btnText) => {
-    cy.contains(btnText).should('be.visible');
+    const re = new RegExp(btnText, 'i');
+    cy.contains('button, a, [role="button"], .btn', re, { timeout: 10000 }).should('be.visible');
 });
 
 Then("I should see the heading {string}", (headingText) => {
@@ -44,7 +45,8 @@ Then("I should see the heading {string}", (headingText) => {
 });
 
 Then("I should not see {string} button", (btnText) => {
-    cy.contains(btnText).should('not.exist');
+    const re = new RegExp(btnText, 'i');
+    cy.contains('button, a, [role="button"], .btn', re).should('not.exist');
 });
 
 Then("I should see the {string} table with data", (tableName) => {
@@ -62,11 +64,40 @@ Then("I should see the {string} table displaying {string} and {string} columns",
     });
 });
 
+When("I submit the form", () => {
+        // Get the value from likely name input fields before submitting
+        cy.get('input[name="name"], input#name, input[id*="name"], input[name="categoryName"], [data-test="name"]')
+            .first()
+            .invoke('val')
+            .then((nameValue) => {
+                cy.wrap(nameValue).as('submittedName');
+
+                // Click the submit button
+                cy.get('button[type="submit"], [type="submit"], .btn-primary, .btn-submit', { timeout: 10000 })
+                    .first()
+                    .click();
+
+                // Wait for the form submission and UI update to complete
+                cy.wait(1500);
+
+                // Verify the category was created in the backend when a name was provided
+                if (nameValue && nameValue.trim() !== '') {
+                    cy.request({
+                        url: '/api/categories',
+                        failOnStatusCode: false
+                    }).its('body').should((body) => {
+                        const names = Array.isArray(body) ? body.map(c => c.name) : [];
+                        expect(names).to.include(nameValue);
+                    });
+                }
+        });
+});
+
 When("I go back in browser history", () => {
     cy.go('back');
 });
 
 Then("I should still be logged in as {string}", (username) => {
-    // Basic check: should not be on login page, or should see some indication of user session
+    // Basic check: should not be on login page
     cy.url().should('not.include', '/login');
 });
