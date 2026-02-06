@@ -39,9 +39,7 @@ Feature: Category Management - UI Test
     When I click "Categories" in navigation
     Then I should see the heading "Categories"
     And I should see "Add A Category" button
-    When I click "Add A Category" button
-    And I enter "OldName456" in "name" field
-    And I submit the form
+    Given a category named "OldName456" exists
     Then I should see "OldName456" in the category list
     When I click "Edit" button for "OldName456"
     And I clear and enter "NewName789" in "name" field
@@ -56,9 +54,7 @@ Feature: Category Management - UI Test
     When I click "Categories" in navigation
     Then I should see the heading "Categories"
     And I should see "Add A Category" button
-    When I click "Add A Category" button
-    And I enter "ToDelete99" in "name" field
-    And I submit the form
+    Given a category named "ToDelete99" exists
     Then I should see "ToDelete99" in the category list
     When I click "Delete" button for "ToDelete99"
     And I confirm the deletion

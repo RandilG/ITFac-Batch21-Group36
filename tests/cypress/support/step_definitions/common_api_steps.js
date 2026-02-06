@@ -34,9 +34,25 @@ When("I request {string} {string}", (method, url) => {
 });
 
 When("I request {string} {string} with body:", (method, url, body) => {
-    const timestamp = new Date().getTime().toString().slice(-5);
+    const timestamp = new Date().getTime().toString().slice(-2);
     const finalUrl = url.replace(/{timestamp}/g, timestamp);
-    const bodyWithTimestamp = body.replace(/{timestamp}/g, timestamp);
+    let bodyWithTimestamp = body.replace(/{timestamp}/g, timestamp);
+    if (body.includes('{timestamp}')) {
+        try {
+            const obj = JSON.parse(bodyWithTimestamp);
+            if (obj && obj.name) {
+                const templateMatch = body.match(/"name"\s*:\s*"([^"]*)"/);
+                const template = templateMatch ? templateMatch[1] : obj.name;
+                const ts = timestamp;
+                const prefix = template.replace('{timestamp}', '');
+                const allowedPrefixLen = Math.max(0, 10 - ts.length);
+                obj.name = (prefix.slice(0, allowedPrefixLen) + ts).slice(0, 10);
+                bodyWithTimestamp = JSON.stringify(obj);
+            }
+        } catch (e) {
+            // ignore parse errors, keep original body
+        }
+    }
 
     cy.get('@authToken', { log: false }).then((authToken) => {
         cy.request({
@@ -55,7 +71,8 @@ When("I request {string} {string} with body:", (method, url, body) => {
 Then("the response status should be {int}", (statusCode) => {
     cy.get('@response').then((res) => {
         if (res.status !== statusCode) {
-            cy.log('Error Response:', JSON.stringify(res.body));
+            const bodyText = JSON.stringify(res.body, null, 2);
+            throw new Error(`Expected status ${statusCode} but got ${res.status}. Response body:\n${bodyText}`);
         }
         expect(res.status).to.eq(statusCode);
     });
@@ -115,9 +132,23 @@ When("I request {string} {string} with {string} as {string}", (method, url, alia
 
 When("I request {string} {string} with {string} as {string} and body:", (method, url, alias, placeholder, body) => {
     const val = sharedState[alias] || 1;
-    const timestamp = new Date().getTime().toString().slice(-5);
+    const timestamp = new Date().getTime().toString().slice(-2);
     const finalUrl = url.replace(`{${placeholder}}`, val);
-    const bodyWithTimestamp = body.replace(/{timestamp}/g, timestamp);
+    let bodyWithTimestamp = body.replace(/{timestamp}/g, timestamp);
+    try {
+        const obj = JSON.parse(bodyWithTimestamp);
+            if (obj && obj.name) {
+                const templateMatch = body.match(/"name"\s*:\s*"([^"]*)"/);
+                const template = templateMatch ? templateMatch[1] : obj.name;
+                const ts = timestamp;
+                const prefix = template.replace('{timestamp}', '');
+                const allowedPrefixLen = Math.max(0, 10 - ts.length);
+                obj.name = (prefix.slice(0, allowedPrefixLen) + ts).slice(0, 10);
+                bodyWithTimestamp = JSON.stringify(obj);
+            }
+    } catch (e) {
+        // ignore parse errors
+    }
 
     cy.get('@authToken', { log: false }).then((authToken) => {
         cy.request({
@@ -135,9 +166,25 @@ When("I request {string} {string} with {string} as {string} and body:", (method,
 
 When("I request {string} {string} with body using {string} as {string}:", (method, url, alias, placeholder, body) => {
     const val = sharedState[alias];
-    const timestamp = new Date().getTime().toString().slice(-5);
+    const timestamp = new Date().getTime().toString().slice(-2);
     let bodyWithReplacement = body.replace(new RegExp(`{${placeholder}}`, 'g'), val);
     bodyWithReplacement = bodyWithReplacement.replace(/{timestamp}/g, timestamp);
+
+    try {
+        const obj = JSON.parse(bodyWithReplacement);
+        if (obj && obj.name) {
+            // Attempt to preserve timestamp digits for uniqueness
+            const templateMatch = body.match(/"name"\s*:\s*"([^"]*)"/);
+            const template = templateMatch ? templateMatch[1] : obj.name;
+            const ts = timestamp;
+            const prefix = template.replace('{timestamp}', '');
+            const allowedPrefixLen = Math.max(0, 10 - ts.length);
+            obj.name = (prefix.slice(0, allowedPrefixLen) + ts).slice(0, 10);
+            bodyWithReplacement = JSON.stringify(obj);
+        }
+    } catch (e) {
+        // ignore parse errors
+    }
 
     const finalUrl = url.replace(/{timestamp}/g, timestamp);
 

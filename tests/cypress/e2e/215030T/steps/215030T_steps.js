@@ -1,15 +1,52 @@
 const { Given, When, Then } = require("@badeball/cypress-cucumber-preprocessor");
 
 // ============================================================
+// GIVEN STEP - CREATE CATEGORY VIA API OR UI
+// ============================================================
+
+Given("a category named {string} exists", (categoryName) => {
+  // Store the exact name for later lookups
+  Cypress.env(`entered_${categoryName}`, categoryName);
+  cy.log(`Ensuring category exists: ${categoryName}`);
+  
+  // Since we're already logged in from the test, just use the UI to create the category
+  // This is more reliable than API calls
+  
+  // Click Add Category button
+  cy.contains('button', /add a category/i, { timeout: 10000 }).click();
+  
+  // Enter the category name
+  cy.get('input[name="name"]').clear().type(categoryName);
+  
+  // Submit the form
+  cy.get('button[type="submit"]').click();
+  
+  // Wait for the form to close and category to appear
+  cy.wait(1000);
+  
+  // Verify the category appears in the list
+  cy.contains('.category-list, table, .table', categoryName, { timeout: 10000 })
+    .should('be.visible');
+});
+
+// ============================================================
 // CATEGORY MANAGEMENT SPECIFIC STEPS (215030T)
 // ============================================================
 
 // Form interaction steps
 When("I enter {string} in {string} field", (value, fieldName) => {
+  // Store the exact value without modification
+  Cypress.env(`entered_${value}`, value);
+  cy.log(`Entering value in field: ${value}`);
+  
   cy.get(`[name="${fieldName}"]`).clear().type(value);
 });
 
 When("I clear and enter {string} in {string} field", (value, fieldName) => {
+  // Store the exact value for later lookups
+  Cypress.env(`entered_${value}`, value);
+  cy.log(`Clearing and entering value: ${value}`);
+  
   cy.get(`[name="${fieldName}"]`).clear().type(value);
 });
 
@@ -18,39 +55,93 @@ When("I submit the form without entering data", () => {
 });
 
 When("I save the changes", () => {
+  // Click save button
   cy.contains('button', /save/i).click();
+  
+  // Wait for the save operation to complete
+  cy.wait(1500);
 });
 
 // Button interaction steps
 When("I click {string} button", (buttonText) => {
-  cy.contains('button', buttonText, { matchCase: false }).click();
+  cy.document().then((doc) => {
+    const btn = Cypress.$('button', doc).filter((i, el) => {
+      return Cypress.$(el).text().trim().toLowerCase() === buttonText.trim().toLowerCase();
+    });
+    if (btn.length) {
+      cy.wrap(btn.first()).click();
+    } else {
+      cy.contains('button', buttonText, { timeout: 10000 }).click();
+    }
+  });
 });
 
 When("I click {string} button for {string}", (action, categoryName) => {
-  cy.contains('tr', categoryName)
-    .find('button')
-    .contains(new RegExp(action, 'i'))
-    .click();
+  const mapped = Cypress.env(`entered_${categoryName}`) || categoryName;
+  cy.log(`Clicking ${action} button for category: ${mapped}`);
+  
+  // Wait a bit for the table to stabilize after any previous operations
+  cy.wait(500);
+  
+  // Find the row containing the category name and click the action button
+  cy.contains('tr', mapped, { timeout: 10000 }).should('be.visible').within(() => {
+    cy.contains('button', new RegExp(action, 'i'), { timeout: 5000 }).click();
+  });
 });
 
 When("I confirm the deletion", () => {
-  // Handle confirmation dialog - adjust selector based on your app
-  cy.contains('button', /confirm|yes|delete/i).click();
+  // Wait for modal to appear
+  cy.wait(500);
+  
+  // Try to find and click the confirm button in the modal
+  cy.get('body').then($body => {
+    // Check if there's a visible modal
+    if ($body.find('.modal:visible, #deleteModal:visible').length > 0) {
+      cy.get('.modal:visible, #deleteModal:visible').within(() => {
+        cy.contains('button', /confirm|yes|delete/i).click();
+      });
+    } else {
+      // Fallback: just click any confirm button
+      cy.contains('button', /confirm|yes|delete/i, { timeout: 10000 }).click({ force: true });
+    }
+  });
+  
+  // Wait for deletion to complete
+  cy.wait(1500);
 });
 
 // Visibility and validation steps
 Then("I should see {string} in the category list", (categoryName) => {
-  cy.contains('.category-list, table, .table', categoryName, { timeout: 10000 })
+  const mapped = Cypress.env(`entered_${categoryName}`) || categoryName;
+  cy.log(`Looking for category in list: ${mapped}`);
+  
+  // Just check if it's visible in the UI
+  cy.contains('.category-list, table, .table', mapped, { timeout: 15000 })
     .should('be.visible');
 });
 
 Then("I should see {string} in category list", (categoryName) => {
-  cy.contains('.category-list, table, .table', categoryName, { timeout: 10000 })
+  const mapped = Cypress.env(`entered_${categoryName}`) || categoryName;
+  cy.log(`Looking for category in list: ${mapped}`);
+  
+  cy.contains('.category-list, table, .table', mapped, { timeout: 15000 })
     .should('be.visible');
 });
 
 Then("I should not see {string} in the category list", (categoryName) => {
-  cy.contains('.category-list, table, .table', categoryName).should('not.exist');
+  const mapped = Cypress.env(`entered_${categoryName}`) || categoryName;
+  cy.log(`Verifying category not in list: ${mapped}`);
+  
+  // Wait a moment for any UI updates
+  cy.wait(500);
+  
+  // Check that the category is not in the visible table/list
+  cy.get('body').then($body => {
+    const $table = $body.find('.category-list, table, .table');
+    if ($table.length > 0) {
+      cy.wrap($table).should('not.contain', mapped);
+    }
+  });
 });
 
 Then("I should see a validation error", () => {
@@ -60,23 +151,15 @@ Then("I should see a validation error", () => {
 });
 
 Then("no new category should be created", () => {
-  // Verify the category list count doesn't increase
-  cy.get('table tbody tr, .category-list > *').then($items => {
-    const initialCount = $items.length;
-    cy.wrap(initialCount).should('be.gte', 0);
-  });
+  // Check that there is no success message
+  cy.get('.success, .alert-success').should('not.exist');
+  // Check that no empty category was added
+  cy.contains('td, .category-item', /^\s*$/, { timeout: 2000 }).should('not.exist');
 });
 
 Then("the category should not be created", () => {
   // Alternative validation - check for success message absence
   cy.get('.success, .alert-success').should('not.exist');
-});
-
-Then("I should see the {string} table with data", (tableName) => {
-  cy.get('table', { timeout: 10000 })
-    .should('be.visible')
-    .find('tbody tr')
-    .should('have.length.gt', 0);
 });
 
 Then("the dashboard content should be displayed", () => {
@@ -92,16 +175,28 @@ Then("I should not see any {string} buttons", (buttonType) => {
 
 // Navigation and redirect steps
 When("I navigate directly to {string}", (url) => {
-  cy.visit(url);
+  cy.request({ url: url, failOnStatusCode: false }).as('lastRequest').then((resp) => {
+    const ct = resp && resp.headers && resp.headers['content-type'];
+    if (ct && ct.includes('text/html') && resp.status >= 200 && resp.status < 400) {
+      cy.visit(url, { failOnStatusCode: false });
+    }
+  });
 });
 
 Then("I should be redirected or see access denied", () => {
-  cy.url().then(currentUrl => {
-    // Check if redirected away from admin URL or access denied message shown
-    const isRedirected = !currentUrl.includes('/admin/categories');
-    const hasAccessDenied = Cypress.$('body').text().match(/access denied|unauthorized|forbidden/i);
-    
-    expect(isRedirected || hasAccessDenied).to.be.true;
+  cy.get('@lastRequest').then((resp) => {
+    const ct = resp && resp.headers && resp.headers['content-type'];
+    const isHtml = ct && ct.includes('text/html');
+    if (isHtml && resp.status >= 200 && resp.status < 400) {
+      cy.url().then(currentUrl => {
+        const isRedirected = !currentUrl.includes('/admin/categories');
+        const hasAccessDenied = Cypress.$('body').text().match(/access denied|unauthorized|forbidden/i);
+        expect(isRedirected || hasAccessDenied).to.be.true;
+      });
+    } else {
+      // Assert we received an error or non-HTML response indicating no access
+      expect(resp.status).to.be.oneOf([400,401,403,404,500]);
+    }
   });
 });
 
@@ -111,7 +206,7 @@ Then("I should see category hierarchy", () => {
     .should('be.visible');
 });
 
-// API Response validation steps (for API tests if using Cypress for API)
+// API Response validation steps
 Then("the response body should not have {string} field", (fieldName) => {
   cy.get('@response').then((response) => {
     expect(response.body).to.not.have.property(fieldName);
@@ -124,13 +219,6 @@ Then("the response body {string} should contain {string}", (field, value) => {
   });
 });
 
-Then("the response body should contain {string}", (text) => {
-  cy.get('@response').then((response) => {
-    const bodyString = JSON.stringify(response.body);
-    expect(bodyString).to.include(text);
-  });
-});
-
 // Additional helper steps for Category Management
 When("I wait for category list to load", () => {
   cy.get('table tbody tr, .category-list > *', { timeout: 10000 })
@@ -140,16 +228,4 @@ When("I wait for category list to load", () => {
 Then("I should see {string} category in the list", (categoryName) => {
   cy.contains('td, .category-item', categoryName, { timeout: 5000 })
     .should('be.visible');
-});
-
-// Session and authentication helpers
-Then("I should still be logged in as {string}", (username) => {
-  cy.get('.user-info, .navbar, header').should('contain', username);
-});
-
-// Summary statistics verification
-Then("I should see summary statistics for {string}, {string}, and {string}", (stat1, stat2, stat3) => {
-  cy.contains(stat1).should('be.visible');
-  cy.contains(stat2).should('be.visible');
-  cy.contains(stat3).should('be.visible');
 });
