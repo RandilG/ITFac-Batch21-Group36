@@ -62,7 +62,7 @@ When("I clear and enter {string} in {string} field", (value, fieldName) => {
   if (Cypress.env('api_edit_mode')) {
     const editing = Cypress.env('current_editing');
     if (editing) {
-      sharedState[`pending_new_${editing}`] = value;
+      Cypress.env(`pending_new_${editing}`, value);
       return;
     }
   }
@@ -81,8 +81,8 @@ When("I save the changes", () => {
   // If in API edit mode, perform the update via API
   if (Cypress.env('api_edit_mode')) {
     const editing = Cypress.env('current_editing');
-    const id = sharedState[`editing_${editing}`];
-    const newName = sharedState[`pending_new_${editing}`] || Cypress.env(`entered_${editing}`) || null;
+    const id = Cypress.env(`editing_${editing}`);
+    const newName = Cypress.env(`pending_new_${editing}`) || Cypress.env(`entered_${editing}`) || null;
     if (id && newName) {
       cy.request({ method: 'POST', url: '/api/auth/login', body: { username: 'admin', password: 'admin123' }, headers: { 'Content-Type': 'application/json' } }).then((authRes) => {
         const token = authRes && authRes.body && authRes.body.token ? `Bearer ${authRes.body.token}` : null;
