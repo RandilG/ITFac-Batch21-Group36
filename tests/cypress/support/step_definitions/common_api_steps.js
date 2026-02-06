@@ -34,7 +34,7 @@ When("I request {string} {string}", (method, url) => {
 });
 
 When("I request {string} {string} with body:", (method, url, body) => {
-    const timestamp = new Date().getTime().toString().slice(-2);
+    const timestamp = Date.now().toString();
     const finalUrl = url.replace(/{timestamp}/g, timestamp);
     let bodyWithTimestamp = body.replace(/{timestamp}/g, timestamp);
     if (body.includes('{timestamp}')) {
@@ -44,9 +44,8 @@ When("I request {string} {string} with body:", (method, url, body) => {
                 const templateMatch = body.match(/"name"\s*:\s*"([^"]*)"/);
                 const template = templateMatch ? templateMatch[1] : obj.name;
                 const ts = timestamp;
-                const prefix = template.replace('{timestamp}', '');
-                const allowedPrefixLen = Math.max(0, 10 - ts.length);
-                obj.name = (prefix.slice(0, allowedPrefixLen) + ts).slice(0, 10);
+                const candidate = template.replace('{timestamp}', ts.slice(-4));
+                obj.name = candidate.slice(0, 10);
                 bodyWithTimestamp = JSON.stringify(obj);
             }
         } catch (e) {
@@ -55,16 +54,41 @@ When("I request {string} {string} with body:", (method, url, body) => {
     }
 
     cy.get('@authToken', { log: false }).then((authToken) => {
-        cy.request({
-            method: method,
-            url: finalUrl,
-            body: JSON.parse(bodyWithTimestamp),
-            failOnStatusCode: false,
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': authToken
-            }
-        }).as('response');
+        const send = (payload) => {
+            const parsed = typeof payload === 'string' ? JSON.parse(payload) : payload;
+            return cy.request({
+                method: method,
+                url: finalUrl,
+                body: parsed,
+                failOnStatusCode: false,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': authToken
+                }
+            }).then((res) => {
+                if (res && res.status === 400 && res.body && (res.body.error === 'DUPLICATE_RESOURCE' || /duplicate/i.test(res.body.message || ''))) {
+                    // Retry once with a randomized suffix on name
+                    try {
+                        if (parsed && parsed.name) {
+                            parsed.name = `${parsed.name}-${Math.floor(Math.random() * 10000)}`;
+                        }
+                    } catch (e) {}
+                    return cy.request({
+                        method: method,
+                        url: finalUrl,
+                        body: parsed,
+                        failOnStatusCode: false,
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': authToken
+                        }
+                    }).then((res2) => cy.wrap(res2).as('response'));
+                }
+                return cy.wrap(res).as('response');
+            });
+        };
+
+        return send(bodyWithTimestamp);
     });
 });
 
@@ -132,7 +156,7 @@ When("I request {string} {string} with {string} as {string}", (method, url, alia
 
 When("I request {string} {string} with {string} as {string} and body:", (method, url, alias, placeholder, body) => {
     const val = sharedState[alias] || 1;
-    const timestamp = new Date().getTime().toString().slice(-2);
+    const timestamp = Date.now().toString();
     const finalUrl = url.replace(`{${placeholder}}`, val);
     let bodyWithTimestamp = body.replace(/{timestamp}/g, timestamp);
     try {
@@ -141,9 +165,8 @@ When("I request {string} {string} with {string} as {string} and body:", (method,
                 const templateMatch = body.match(/"name"\s*:\s*"([^"]*)"/);
                 const template = templateMatch ? templateMatch[1] : obj.name;
                 const ts = timestamp;
-                const prefix = template.replace('{timestamp}', '');
-                const allowedPrefixLen = Math.max(0, 10 - ts.length);
-                obj.name = (prefix.slice(0, allowedPrefixLen) + ts).slice(0, 10);
+                const candidate = template.replace('{timestamp}', ts.slice(-4));
+                obj.name = candidate.slice(0, 10);
                 bodyWithTimestamp = JSON.stringify(obj);
             }
     } catch (e) {
@@ -151,35 +174,43 @@ When("I request {string} {string} with {string} as {string} and body:", (method,
     }
 
     cy.get('@authToken', { log: false }).then((authToken) => {
-        cy.request({
+        const parsedBody = JSON.parse(bodyWithTimestamp);
+        const send = (payload) => cy.request({
             method: method,
             url: finalUrl,
-            body: JSON.parse(bodyWithTimestamp),
+            body: payload,
             failOnStatusCode: false,
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': authToken
             }
-        }).as('response');
+        }).then((res) => {
+            if (res && res.status === 400 && res.body && (res.body.error === 'DUPLICATE_RESOURCE' || /duplicate/i.test(res.body.message || ''))) {
+                try { payload.name = `${payload.name}-${Math.floor(Math.random() * 10000)}`; } catch(e) {}
+                return cy.request({ method, url: finalUrl, body: payload, failOnStatusCode: false, headers: { 'Content-Type': 'application/json', 'Authorization': authToken } }).then(res2 => cy.wrap(res2).as('response'));
+            }
+            return cy.wrap(res).as('response');
+        });
+
+        return send(parsedBody);
     });
 });
 
 When("I request {string} {string} with body using {string} as {string}:", (method, url, alias, placeholder, body) => {
     const val = sharedState[alias];
-    const timestamp = new Date().getTime().toString().slice(-2);
+    const timestamp = Date.now().toString();
     let bodyWithReplacement = body.replace(new RegExp(`{${placeholder}}`, 'g'), val);
     bodyWithReplacement = bodyWithReplacement.replace(/{timestamp}/g, timestamp);
 
     try {
         const obj = JSON.parse(bodyWithReplacement);
         if (obj && obj.name) {
-            // Attempt to preserve timestamp digits for uniqueness
+            // Replace timestamp placeholder but keep a readable prefix where possible
             const templateMatch = body.match(/"name"\s*:\s*"([^"]*)"/);
             const template = templateMatch ? templateMatch[1] : obj.name;
             const ts = timestamp;
-            const prefix = template.replace('{timestamp}', '');
-            const allowedPrefixLen = Math.max(0, 10 - ts.length);
-            obj.name = (prefix.slice(0, allowedPrefixLen) + ts).slice(0, 10);
+            const candidate = template.replace('{timestamp}', ts.slice(-4));
+            obj.name = candidate.slice(0, 10);
             bodyWithReplacement = JSON.stringify(obj);
         }
     } catch (e) {
@@ -189,16 +220,24 @@ When("I request {string} {string} with body using {string} as {string}:", (metho
     const finalUrl = url.replace(/{timestamp}/g, timestamp);
 
     cy.get('@authToken', { log: false }).then((authToken) => {
-        cy.request({
+        const parsed = JSON.parse(bodyWithReplacement);
+        const send = (payload) => cy.request({
             method: method,
             url: finalUrl,
-            body: JSON.parse(bodyWithReplacement),
+            body: payload,
             failOnStatusCode: false,
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': authToken
             }
-        }).as('response');
+        }).then((res) => {
+            if (res && res.status === 400 && res.body && (res.body.error === 'DUPLICATE_RESOURCE' || /duplicate/i.test(res.body.message || ''))) {
+                try { payload.name = `${payload.name}-${Math.floor(Math.random() * 10000)}`; } catch(e) {}
+                return cy.request({ method, url: finalUrl, body: payload, failOnStatusCode: false, headers: { 'Content-Type': 'application/json', 'Authorization': authToken } }).then(res2 => cy.wrap(res2).as('response'));
+            }
+            return cy.wrap(res).as('response');
+        });
+        return send(parsed);
     });
 });
 

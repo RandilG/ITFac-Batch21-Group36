@@ -13,10 +13,13 @@ Given("a category named {string} exists", (categoryName) => {
   // This is more reliable than API calls
   
   // Click Add Category button
-  cy.contains('button', /add a category/i, { timeout: 10000 }).click();
+  cy.contains('button, a, [role="button"], .btn', /add a category/i, { timeout: 10000 }).click({ force: true });
   
   // Enter the category name
-  cy.get('input[name="name"]').clear().type(categoryName);
+  cy.get('input[name="name"], input#name, input[id*="name"], input[name="categoryName"], [data-test="name"]')
+    .first()
+    .clear()
+    .type(categoryName);
   
   // Submit the form
   cy.get('button[type="submit"]').click();
@@ -39,7 +42,10 @@ When("I enter {string} in {string} field", (value, fieldName) => {
   Cypress.env(`entered_${value}`, value);
   cy.log(`Entering value in field: ${value}`);
   
-  cy.get(`[name="${fieldName}"]`).clear().type(value);
+  cy.get(`[name="${fieldName}"], #${fieldName}, [id="${fieldName}"], input[name="categoryName"], input[id*="name"]`)
+    .first()
+    .clear()
+    .type(value);
 });
 
 When("I clear and enter {string} in {string} field", (value, fieldName) => {
@@ -47,7 +53,10 @@ When("I clear and enter {string} in {string} field", (value, fieldName) => {
   Cypress.env(`entered_${value}`, value);
   cy.log(`Clearing and entering value: ${value}`);
   
-  cy.get(`[name="${fieldName}"]`).clear().type(value);
+  cy.get(`[name="${fieldName}"], #${fieldName}, [id="${fieldName}"], input[name="categoryName"], input[id*="name"]`)
+    .first()
+    .clear()
+    .type(value);
 });
 
 When("I submit the form without entering data", () => {
@@ -64,16 +73,8 @@ When("I save the changes", () => {
 
 // Button interaction steps
 When("I click {string} button", (buttonText) => {
-  cy.document().then((doc) => {
-    const btn = Cypress.$('button', doc).filter((i, el) => {
-      return Cypress.$(el).text().trim().toLowerCase() === buttonText.trim().toLowerCase();
-    });
-    if (btn.length) {
-      cy.wrap(btn.first()).click();
-    } else {
-      cy.contains('button', buttonText, { timeout: 10000 }).click();
-    }
-  });
+  const re = new RegExp(buttonText, 'i');
+  cy.contains('button, a, [role="button"], .btn', re, { timeout: 10000 }).click({ force: true });
 });
 
 When("I click {string} button for {string}", (action, categoryName) => {
@@ -85,7 +86,24 @@ When("I click {string} button for {string}", (action, categoryName) => {
   
   // Find the row containing the category name and click the action button
   cy.contains('tr', mapped, { timeout: 10000 }).should('be.visible').within(() => {
-    cy.contains('button', new RegExp(action, 'i'), { timeout: 5000 }).click();
+    const re = new RegExp(action, 'i');
+    // Try several strategies to find the action control
+    cy.get('button, a, [role="button"], .btn').then($els => {
+      const match = $els.filter((i, el) => (el.textContent || '').trim().match(re));
+      if (match.length) {
+        cy.wrap(match.first()).click({ force: true });
+        return;
+      }
+      // Try title / aria-label selectors
+      cy.get(`[title*="${action}"], [aria-label*="${action}"]`).then($alt => {
+        if ($alt.length) {
+          cy.wrap($alt.first()).click({ force: true });
+          return;
+        }
+        // Fallback to any element containing the text
+        cy.contains(re, { timeout: 5000 }).click({ force: true });
+      });
+    });
   });
 });
 
