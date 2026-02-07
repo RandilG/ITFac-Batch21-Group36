@@ -1,0 +1,503 @@
+﻿
+node.exe : 
+At line:1 char:1
++ & "C:\Program Files
+\nodejs/node.exe" "C:
+\Users\uvher\AppData\
+Roaming\ ...
++ ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (:String   
+ ) [], RemoteExce    
+ption
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+DevTools listening 
+on ws://127.0.0.1:140
+1/devtools/browser/d6
+b345c3-88c9-41e0-a9d3
+-1127f2af0c30
+
+====================================================================================================
+
+  (Run Starting)
+
+  ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+  Γöé Cypress:        13.13.0                                                                        Γöé
+  Γöé Browser:        Electron 118 (headless)                                                        Γöé
+  Γöé Node Version:   v24.13.0 (C:\Program Files\nodejs\node.exe)                                    Γöé
+  Γöé Specs:          1 found (ui.feature)                                                           Γöé
+  Γöé Searched:       E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\e2e\214241H\ui.feature       Γöé
+  ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+
+
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+                                                                                                    
+  Running:  ui.feature                                                                      (1 of 1)
+
+
+  UI - Business Logic & Functional Tests - Student 214241H
+    1) UI-01 Pagination - Plants
+    2) UI-02 Pagination - Categories
+    3) UI-03 Pagination - Sales
+    4) UI-04 Plant Search Clear
+    5) UI-05 Search Case-Insensitive
+    6) UI-06 No Results Message
+    7) UI-07 Category Filter + Search
+    8) UI-08 Form Validation Retains Data
+    9) UI-09 Validation Clears on Fix
+    10) UI-10 Browser Back / Duplicate Prevention
+
+
+  0 passing (11s)
+  10 failing
+
+  1) UI - Business Logic & Functional Tests - Student 214241H
+       UI-01 Pagination - Plants:
+     Error: 
+Step implementation missing for "I navigate to the plants page".
+
+We tried searching for files containing step definitions using the following search pattern templates:
+
+  - cypress/e2e/**/*.{js,ts}
+  - cypress/e2e/*/steps/**/*.{js,ts}
+  - cypress/support/step_definitions/**/*.{js,ts}
+
+These templates resolved to the following search patterns:
+
+  - cypress\e2e\**\*.{js,ts}
+  - cypress\e2e\*\steps\**\*.{js,ts}
+  - cypress\support\step_definitions\**\*.{js,ts}
+
+These patterns matched the following files:
+
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\support\step_definitions\common_ui_steps.js
+  - cypress\support\step_definitions\common_api_steps.js
+
+However, none of these files contained a step definition matching "I navigate to the plants page".
+
+You can implement it using the suggestion(s) below.
+
+  When("I navigate to the plants page", function () {
+    return "pending";
+  });
+  
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\214241H\ui.feature:15847:29)
+
+  2) UI - Business Logic & Functional Tests - Student 214241H
+       UI-02 Pagination - Categories:
+     Error: 
+Step implementation missing for "I navigate to the categories page".
+
+We tried searching for files containing step definitions using the following search pattern templates:
+
+  - cypress/e2e/**/*.{js,ts}
+  - cypress/e2e/*/steps/**/*.{js,ts}
+  - cypress/support/step_definitions/**/*.{js,ts}
+
+These templates resolved to the following search patterns:
+
+  - cypress\e2e\**\*.{js,ts}
+  - cypress\e2e\*\steps\**\*.{js,ts}
+  - cypress\support\step_definitions\**\*.{js,ts}
+
+These patterns matched the following files:
+
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\support\step_definitions\common_ui_steps.js
+  - cypress\support\step_definitions\common_api_steps.js
+
+However, none of these files contained a step definition matching "I navigate to the categories page".
+
+You can implement it using the suggestion(s) below.
+
+  When("I navigate to the categories page", function () {
+    return "pending";
+  });
+  
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\214241H\ui.feature:15847:29)
+
+  3) UI - Business Logic & Functional Tests - Student 214241H
+       UI-03 Pagination - Sales:
+     Error: 
+Step implementation missing for "I navigate to the sales page".
+
+We tried searching for files containing step definitions using the following search pattern templates:
+
+  - cypress/e2e/**/*.{js,ts}
+  - cypress/e2e/*/steps/**/*.{js,ts}
+  - cypress/support/step_definitions/**/*.{js,ts}
+
+These templates resolved to the following search patterns:
+
+  - cypress\e2e\**\*.{js,ts}
+  - cypress\e2e\*\steps\**\*.{js,ts}
+  - cypress\support\step_definitions\**\*.{js,ts}
+
+These patterns matched the following files:
+
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\support\step_definitions\common_ui_steps.js
+  - cypress\support\step_definitions\common_api_steps.js
+
+However, none of these files contained a step definition matching "I navigate to the sales page".
+
+You can implement it using the suggestion(s) below.
+
+  When("I navigate to the sales page", function () {
+    return "pending";
+  });
+  
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\214241H\ui.feature:15847:29)
+
+  4) UI - Business Logic & Functional Tests - Student 214241H
+       UI-04 Plant Search Clear:
+     Error: 
+Step implementation missing for "I navigate to the plants page".
+
+We tried searching for files containing step definitions using the following search pattern templates:
+
+  - cypress/e2e/**/*.{js,ts}
+  - cypress/e2e/*/steps/**/*.{js,ts}
+  - cypress/support/step_definitions/**/*.{js,ts}
+
+These templates resolved to the following search patterns:
+
+  - cypress\e2e\**\*.{js,ts}
+  - cypress\e2e\*\steps\**\*.{js,ts}
+  - cypress\support\step_definitions\**\*.{js,ts}
+
+These patterns matched the following files:
+
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\support\step_definitions\common_ui_steps.js
+  - cypress\support\step_definitions\common_api_steps.js
+
+However, none of these files contained a step definition matching "I navigate to the plants page".
+
+You can implement it using the suggestion(s) below.
+
+  When("I navigate to the plants page", function () {
+    return "pending";
+  });
+  
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\214241H\ui.feature:15847:29)
+
+  5) UI - Business Logic & Functional Tests - Student 214241H
+       UI-05 Search Case-Insensitive:
+     Error: 
+Step implementation missing for "I navigate to the plants page".
+
+We tried searching for files containing step definitions using the following search pattern templates:
+
+  - cypress/e2e/**/*.{js,ts}
+  - cypress/e2e/*/steps/**/*.{js,ts}
+  - cypress/support/step_definitions/**/*.{js,ts}
+
+These templates resolved to the following search patterns:
+
+  - cypress\e2e\**\*.{js,ts}
+  - cypress\e2e\*\steps\**\*.{js,ts}
+  - cypress\support\step_definitions\**\*.{js,ts}
+
+These patterns matched the following files:
+
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\support\step_definitions\common_ui_steps.js
+  - cypress\support\step_definitions\common_api_steps.js
+
+However, none of these files contained a step definition matching "I navigate to the plants page".
+
+You can implement it using the suggestion(s) below.
+
+  When("I navigate to the plants page", function () {
+    return "pending";
+  });
+  
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\214241H\ui.feature:15847:29)
+
+  6) UI - Business Logic & Functional Tests - Student 214241H
+       UI-06 No Results Message:
+     Error: 
+Step implementation missing for "I navigate to the plants page".
+
+We tried searching for files containing step definitions using the following search pattern templates:
+
+  - cypress/e2e/**/*.{js,ts}
+  - cypress/e2e/*/steps/**/*.{js,ts}
+  - cypress/support/step_definitions/**/*.{js,ts}
+
+These templates resolved to the following search patterns:
+
+  - cypress\e2e\**\*.{js,ts}
+  - cypress\e2e\*\steps\**\*.{js,ts}
+  - cypress\support\step_definitions\**\*.{js,ts}
+
+These patterns matched the following files:
+
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\support\step_definitions\common_ui_steps.js
+  - cypress\support\step_definitions\common_api_steps.js
+
+However, none of these files contained a step definition matching "I navigate to the plants page".
+
+You can implement it using the suggestion(s) below.
+
+  When("I navigate to the plants page", function () {
+    return "pending";
+  });
+  
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\214241H\ui.feature:15847:29)
+
+  7) UI - Business Logic & Functional Tests - Student 214241H
+       UI-07 Category Filter + Search:
+     Error: 
+Step implementation missing for "I navigate to the plants page".
+
+We tried searching for files containing step definitions using the following search pattern templates:
+
+  - cypress/e2e/**/*.{js,ts}
+  - cypress/e2e/*/steps/**/*.{js,ts}
+  - cypress/support/step_definitions/**/*.{js,ts}
+
+These templates resolved to the following search patterns:
+
+  - cypress\e2e\**\*.{js,ts}
+  - cypress\e2e\*\steps\**\*.{js,ts}
+  - cypress\support\step_definitions\**\*.{js,ts}
+
+These patterns matched the following files:
+
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\support\step_definitions\common_ui_steps.js
+  - cypress\support\step_definitions\common_api_steps.js
+
+However, none of these files contained a step definition matching "I navigate to the plants page".
+
+You can implement it using the suggestion(s) below.
+
+  When("I navigate to the plants page", function () {
+    return "pending";
+  });
+  
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\214241H\ui.feature:15847:29)
+
+  8) UI - Business Logic & Functional Tests - Student 214241H
+       UI-08 Form Validation Retains Data:
+     Error: 
+Step implementation missing for "I navigate to the plants page".
+
+We tried searching for files containing step definitions using the following search pattern templates:
+
+  - cypress/e2e/**/*.{js,ts}
+  - cypress/e2e/*/steps/**/*.{js,ts}
+  - cypress/support/step_definitions/**/*.{js,ts}
+
+These templates resolved to the following search patterns:
+
+  - cypress\e2e\**\*.{js,ts}
+  - cypress\e2e\*\steps\**\*.{js,ts}
+  - cypress\support\step_definitions\**\*.{js,ts}
+
+These patterns matched the following files:
+
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\support\step_definitions\common_ui_steps.js
+  - cypress\support\step_definitions\common_api_steps.js
+
+However, none of these files contained a step definition matching "I navigate to the plants page".
+
+You can implement it using the suggestion(s) below.
+
+  When("I navigate to the plants page", function () {
+    return "pending";
+  });
+  
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\214241H\ui.feature:15847:29)
+
+  9) UI - Business Logic & Functional Tests - Student 214241H
+       UI-09 Validation Clears on Fix:
+     Error: 
+Step implementation missing for "I navigate to the plants page".
+
+We tried searching for files containing step definitions using the following search pattern templates:
+
+  - cypress/e2e/**/*.{js,ts}
+  - cypress/e2e/*/steps/**/*.{js,ts}
+  - cypress/support/step_definitions/**/*.{js,ts}
+
+These templates resolved to the following search patterns:
+
+  - cypress\e2e\**\*.{js,ts}
+  - cypress\e2e\*\steps\**\*.{js,ts}
+  - cypress\support\step_definitions\**\*.{js,ts}
+
+These patterns matched the following files:
+
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\support\step_definitions\common_ui_steps.js
+  - cypress\support\step_definitions\common_api_steps.js
+
+However, none of these files contained a step definition matching "I navigate to the plants page".
+
+You can implement it using the suggestion(s) below.
+
+  When("I navigate to the plants page", function () {
+    return "pending";
+  });
+  
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\214241H\ui.feature:15847:29)
+
+  10) UI - Business Logic & Functional Tests - Student 214241H
+       UI-10 Browser Back / Duplicate Prevention:
+     Error: 
+Step implementation missing for "I navigate to the plants page".
+
+We tried searching for files containing step definitions using the following search pattern templates:
+
+  - cypress/e2e/**/*.{js,ts}
+  - cypress/e2e/*/steps/**/*.{js,ts}
+  - cypress/support/step_definitions/**/*.{js,ts}
+
+These templates resolved to the following search patterns:
+
+  - cypress\e2e\**\*.{js,ts}
+  - cypress\e2e\*\steps\**\*.{js,ts}
+  - cypress\support\step_definitions\**\*.{js,ts}
+
+These patterns matched the following files:
+
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\support\step_definitions\common_ui_steps.js
+  - cypress\support\step_definitions\common_api_steps.js
+
+However, none of these files contained a step definition matching "I navigate to the plants page".
+
+You can implement it using the suggestion(s) below.
+
+  When("I navigate to the plants page", function () {
+    return "pending";
+  });
+  
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\214241H\ui.feature:15847:29)
+
+
+
+
+  (Results)
+
+  ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+  Γöé Tests:        10                                                                               Γöé
+  Γöé Passing:      0                                                                                Γöé
+  Γöé Failing:      10                                                                               Γöé
+  Γöé Pending:      0                                                                                Γöé
+  Γöé Skipped:      0                                                                                Γöé
+  Γöé Screenshots:  10                                                                               Γöé
+  Γöé Video:        false                                                                            Γöé
+  Γöé Duration:     11 seconds                                                                       Γöé
+  Γöé Spec Ran:     ui.feature                                                                       Γöé
+  ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+
+
+  (Screenshots)
+
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\ui.feature\UI - Bu     (1280x720)
+     siness Logic & Functional Tests - Student 214241H -- UI-01 Pagination - Plants (               
+     failed).png                                                                                    
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\ui.feature\UI - Bu     (1280x720)
+     siness Logic & Functional Tests - Student 214241H -- UI-02 Pagination - Categori               
+     es (failed).png                                                                                
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\ui.feature\UI - Bu     (1280x720)
+     siness Logic & Functional Tests - Student 214241H -- UI-03 Pagination - Sales (f               
+     ailed).png                                                                                     
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\ui.feature\UI - Bu     (1280x720)
+     siness Logic & Functional Tests - Student 214241H -- UI-04 Plant Search Clear (f               
+     ailed).png                                                                                     
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\ui.feature\UI - Bu     (1280x720)
+     siness Logic & Functional Tests - Student 214241H -- UI-05 Search Case-Insensiti               
+     ve (failed).png                                                                                
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\ui.feature\UI - Bu     (1280x720)
+     siness Logic & Functional Tests - Student 214241H -- UI-06 No Results Message (f               
+     ailed).png                                                                                     
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\ui.feature\UI - Bu     (1280x720)
+     siness Logic & Functional Tests - Student 214241H -- UI-07 Category Filter + Sea               
+     rch (failed).png                                                                               
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\ui.feature\UI - Bu     (1280x720)
+     siness Logic & Functional Tests - Student 214241H -- UI-08 Form Validation Retai               
+     ns Data (failed).png                                                                           
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\ui.feature\UI - Bu     (1280x720)
+     siness Logic & Functional Tests - Student 214241H -- UI-09 Validation Clears on                
+     Fix (failed).png                                                                               
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\ui.feature\UI - Bu     (1280x720)
+     siness Logic & Functional Tests - Student 214241H -- UI-10 Browser Back  Duplica               
+     te Prevention (failed).png                                                                     
+
+
+====================================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped  
+  ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+  Γöé ├ù  ui.feature                               00:11       10        -       10        -        - Γöé
+  ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+    ├ù  1 of 1 failed (100%)                     00:11       10        -       10        -        -  
+

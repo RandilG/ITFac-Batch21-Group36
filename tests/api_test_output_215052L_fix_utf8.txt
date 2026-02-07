@@ -1,0 +1,774 @@
+﻿
+node.exe : 
+At line:1 char:1
++ & "C:\Program Files
+\nodejs/node.exe" "C:
+\Users\uvher\AppData\
+Roaming\ ...
++ ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (:String   
+ ) [], RemoteExce    
+ption
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+DevTools listening 
+on ws://127.0.0.1:322
+95/devtools/browser/3
+b1b4ce9-ffdb-48be-a04
+1-e1cd41a0f5ce
+
+====================================================================================================
+
+  (Run Starting)
+
+  ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+  Γöé Cypress:        13.13.0                                                                        Γöé
+  Γöé Browser:        Electron 118 (headless)                                                        Γöé
+  Γöé Node Version:   v24.13.0 (C:\Program Files\nodejs\node.exe)                                    Γöé
+  Γöé Specs:          1 found (api.feature)                                                          Γöé
+  Γöé Searched:       E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\e2e\215052L\api.feature      Γöé
+  ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+
+
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+                                                                                                    
+  Running:  api.feature                                                                     (1 of 1)
+
+
+  Dashboard & Data Integration - API Test
+    1) API-DI-E-001 Admin retrieves dashboard summary data
+    2) API-DI-E-002 Admin creates category hierarchy
+    3) API-DI-E-003 Admin creates plant in sub-category
+    4) API-DI-E-004 Admin validates plant-category relationship integrity
+    5) API-DI-E-005 Admin records sale and verifies stock reduction
+    6) API-DI-E-006 Admin retrieves complete sales history
+    7) API-DI-E-007 Admin receives error for non-existent category
+    8) API-DI-E-008 User retrieves dashboard data read-only
+    9) API-DI-E-009 User prohibited from creating plant
+    10) API-DI-E-010 Unsupported HTTP method handling
+
+
+  0 passing (3s)
+  10 failing
+
+  1) Dashboard & Data Integration - API Test
+       API-DI-E-001 Admin retrieves dashboard summary data:
+     CypressError: `cy.request()` failed on:
+
+http://localhost:8080/
+
+The response we received from your web server was:
+
+  > 500: Internal Server Error
+
+This was considered a failure because the status code was not `2xx` or `3xx`.
+
+If you do not want status codes to cause failures pass the option: `failOnStatusCode: false`
+
+-----------------------------------------------------------
+
+The request we sent was:
+
+Method: GET
+URL: http://localhost:8080/
+Headers: {
+  "Connection": "keep-alive",
+  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/13.13.0 Chrome/118.0.5993.159 Electron/27.3.10 Safari/537.36",
+  "accept": "*/*",
+  "cookie": "JSESSIONID=F88051CF38B17A5A92C948D6032DAB44",
+  "accept-encoding": "gzip, deflate"
+}
+
+-----------------------------------------------------------
+
+The response we got was:
+
+Status: 500 - Internal Server Error
+Headers: {
+  "vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
+  "content-type": "application/json",
+  "transfer-encoding": "chunked",
+  "date": "Sat, 07 Feb 2026 08:44:36 GMT",
+  "connection": "close"
+}
+Body: {
+  "status": 500,
+  "error": "INTERNAL_SERVER_ERROR",
+  "message": "No static resource .",
+  "timestamp": "2026-02-07T08:44:36.826958856"
+}
+
+
+https://on.cypress.io/request
+      at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:132776:72)
+      at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1807:23)
+      at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1519:31)
+      at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1576:18)
+      at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1621:10)
+      at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1701:18)
+      at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2407:12)
+      at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2400:9)
+      at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2416:5)
+      at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2286:14)
+  From Your Spec Code:
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:16933:12)
+      at Registry.runStepDefininition (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:8576:48)
+      at Object.fn (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15833:43)
+      at runStepWithLogGroup (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15301:29)
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15829:62)
+
+  2) Dashboard & Data Integration - API Test
+       API-DI-E-002 Admin creates category hierarchy:
+     CypressError: `cy.request()` failed on:
+
+http://localhost:8080/
+
+The response we received from your web server was:
+
+  > 500: Internal Server Error
+
+This was considered a failure because the status code was not `2xx` or `3xx`.
+
+If you do not want status codes to cause failures pass the option: `failOnStatusCode: false`
+
+-----------------------------------------------------------
+
+The request we sent was:
+
+Method: GET
+URL: http://localhost:8080/
+Headers: {
+  "Connection": "keep-alive",
+  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/13.13.0 Chrome/118.0.5993.159 Electron/27.3.10 Safari/537.36",
+  "accept": "*/*",
+  "accept-encoding": "gzip, deflate"
+}
+
+-----------------------------------------------------------
+
+The response we got was:
+
+Status: 500 - Internal Server Error
+Headers: {
+  "vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
+  "content-type": "application/json",
+  "transfer-encoding": "chunked",
+  "date": "Sat, 07 Feb 2026 08:44:36 GMT",
+  "connection": "close"
+}
+Body: {
+  "status": 500,
+  "error": "INTERNAL_SERVER_ERROR",
+  "message": "No static resource .",
+  "timestamp": "2026-02-07T08:44:37.227551264"
+}
+
+
+https://on.cypress.io/request
+      at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:132776:72)
+      at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1807:23)
+      at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1519:31)
+      at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1576:18)
+      at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1621:10)
+      at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1701:18)
+      at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2407:12)
+      at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2400:9)
+      at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2416:5)
+      at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2286:14)
+  From Your Spec Code:
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:16933:12)
+      at Registry.runStepDefininition (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:8576:48)
+      at Object.fn (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15833:43)
+      at runStepWithLogGroup (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15301:29)
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15829:62)
+
+  3) Dashboard & Data Integration - API Test
+       API-DI-E-003 Admin creates plant in sub-category:
+     CypressError: `cy.request()` failed on:
+
+http://localhost:8080/
+
+The response we received from your web server was:
+
+  > 500: Internal Server Error
+
+This was considered a failure because the status code was not `2xx` or `3xx`.
+
+If you do not want status codes to cause failures pass the option: `failOnStatusCode: false`
+
+-----------------------------------------------------------
+
+The request we sent was:
+
+Method: GET
+URL: http://localhost:8080/
+Headers: {
+  "Connection": "keep-alive",
+  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/13.13.0 Chrome/118.0.5993.159 Electron/27.3.10 Safari/537.36",
+  "accept": "*/*",
+  "accept-encoding": "gzip, deflate"
+}
+
+-----------------------------------------------------------
+
+The response we got was:
+
+Status: 500 - Internal Server Error
+Headers: {
+  "vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
+  "content-type": "application/json",
+  "transfer-encoding": "chunked",
+  "date": "Sat, 07 Feb 2026 08:44:36 GMT",
+  "connection": "close"
+}
+Body: {
+  "status": 500,
+  "error": "INTERNAL_SERVER_ERROR",
+  "message": "No static resource .",
+  "timestamp": "2026-02-07T08:44:37.44460569"
+}
+
+
+https://on.cypress.io/request
+      at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:132776:72)
+      at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1807:23)
+      at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1519:31)
+      at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1576:18)
+      at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1621:10)
+      at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1701:18)
+      at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2407:12)
+      at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2400:9)
+      at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2416:5)
+      at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2286:14)
+  From Your Spec Code:
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:16933:12)
+      at Registry.runStepDefininition (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:8576:48)
+      at Object.fn (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15833:43)
+      at runStepWithLogGroup (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15301:29)
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15829:62)
+
+  4) Dashboard & Data Integration - API Test
+       API-DI-E-004 Admin validates plant-category relationship integrity:
+     CypressError: `cy.request()` failed on:
+
+http://localhost:8080/
+
+The response we received from your web server was:
+
+  > 500: Internal Server Error
+
+This was considered a failure because the status code was not `2xx` or `3xx`.
+
+If you do not want status codes to cause failures pass the option: `failOnStatusCode: false`
+
+-----------------------------------------------------------
+
+The request we sent was:
+
+Method: GET
+URL: http://localhost:8080/
+Headers: {
+  "Connection": "keep-alive",
+  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/13.13.0 Chrome/118.0.5993.159 Electron/27.3.10 Safari/537.36",
+  "accept": "*/*",
+  "accept-encoding": "gzip, deflate"
+}
+
+-----------------------------------------------------------
+
+The response we got was:
+
+Status: 500 - Internal Server Error
+Headers: {
+  "vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
+  "content-type": "application/json",
+  "transfer-encoding": "chunked",
+  "date": "Sat, 07 Feb 2026 08:44:36 GMT",
+  "connection": "close"
+}
+Body: {
+  "status": 500,
+  "error": "INTERNAL_SERVER_ERROR",
+  "message": "No static resource .",
+  "timestamp": "2026-02-07T08:44:37.659870896"
+}
+
+
+https://on.cypress.io/request
+      at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:132776:72)
+      at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1807:23)
+      at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1519:31)
+      at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1576:18)
+      at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1621:10)
+      at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1701:18)
+      at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2407:12)
+      at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2400:9)
+      at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2416:5)
+      at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2286:14)
+  From Your Spec Code:
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:16933:12)
+      at Registry.runStepDefininition (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:8576:48)
+      at Object.fn (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15833:43)
+      at runStepWithLogGroup (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15301:29)
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15829:62)
+
+  5) Dashboard & Data Integration - API Test
+       API-DI-E-005 Admin records sale and verifies stock reduction:
+     CypressError: `cy.request()` failed on:
+
+http://localhost:8080/
+
+The response we received from your web server was:
+
+  > 500: Internal Server Error
+
+This was considered a failure because the status code was not `2xx` or `3xx`.
+
+If you do not want status codes to cause failures pass the option: `failOnStatusCode: false`
+
+-----------------------------------------------------------
+
+The request we sent was:
+
+Method: GET
+URL: http://localhost:8080/
+Headers: {
+  "Connection": "keep-alive",
+  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/13.13.0 Chrome/118.0.5993.159 Electron/27.3.10 Safari/537.36",
+  "accept": "*/*",
+  "accept-encoding": "gzip, deflate"
+}
+
+-----------------------------------------------------------
+
+The response we got was:
+
+Status: 500 - Internal Server Error
+Headers: {
+  "vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
+  "content-type": "application/json",
+  "transfer-encoding": "chunked",
+  "date": "Sat, 07 Feb 2026 08:44:37 GMT",
+  "connection": "close"
+}
+Body: {
+  "status": 500,
+  "error": "INTERNAL_SERVER_ERROR",
+  "message": "No static resource .",
+  "timestamp": "2026-02-07T08:44:37.895938894"
+}
+
+
+https://on.cypress.io/request
+      at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:132776:72)
+      at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1807:23)
+      at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1519:31)
+      at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1576:18)
+      at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1621:10)
+      at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1701:18)
+      at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2407:12)
+      at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2400:9)
+      at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2416:5)
+      at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2286:14)
+  From Your Spec Code:
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:16933:12)
+      at Registry.runStepDefininition (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:8576:48)
+      at Object.fn (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15833:43)
+      at runStepWithLogGroup (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15301:29)
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15829:62)
+
+  6) Dashboard & Data Integration - API Test
+       API-DI-E-006 Admin retrieves complete sales history:
+     CypressError: `cy.request()` failed on:
+
+http://localhost:8080/
+
+The response we received from your web server was:
+
+  > 500: Internal Server Error
+
+This was considered a failure because the status code was not `2xx` or `3xx`.
+
+If you do not want status codes to cause failures pass the option: `failOnStatusCode: false`
+
+-----------------------------------------------------------
+
+The request we sent was:
+
+Method: GET
+URL: http://localhost:8080/
+Headers: {
+  "Connection": "keep-alive",
+  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/13.13.0 Chrome/118.0.5993.159 Electron/27.3.10 Safari/537.36",
+  "accept": "*/*",
+  "accept-encoding": "gzip, deflate"
+}
+
+-----------------------------------------------------------
+
+The response we got was:
+
+Status: 500 - Internal Server Error
+Headers: {
+  "vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
+  "content-type": "application/json",
+  "transfer-encoding": "chunked",
+  "date": "Sat, 07 Feb 2026 08:44:37 GMT",
+  "connection": "close"
+}
+Body: {
+  "status": 500,
+  "error": "INTERNAL_SERVER_ERROR",
+  "message": "No static resource .",
+  "timestamp": "2026-02-07T08:44:38.097933711"
+}
+
+
+https://on.cypress.io/request
+      at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:132776:72)
+      at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1807:23)
+      at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1519:31)
+      at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1576:18)
+      at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1621:10)
+      at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1701:18)
+      at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2407:12)
+      at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2400:9)
+      at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2416:5)
+      at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2286:14)
+  From Your Spec Code:
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:16933:12)
+      at Registry.runStepDefininition (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:8576:48)
+      at Object.fn (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15833:43)
+      at runStepWithLogGroup (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15301:29)
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15829:62)
+
+  7) Dashboard & Data Integration - API Test
+       API-DI-E-007 Admin receives error for non-existent category:
+     CypressError: `cy.request()` failed on:
+
+http://localhost:8080/
+
+The response we received from your web server was:
+
+  > 500: Internal Server Error
+
+This was considered a failure because the status code was not `2xx` or `3xx`.
+
+If you do not want status codes to cause failures pass the option: `failOnStatusCode: false`
+
+-----------------------------------------------------------
+
+The request we sent was:
+
+Method: GET
+URL: http://localhost:8080/
+Headers: {
+  "Connection": "keep-alive",
+  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/13.13.0 Chrome/118.0.5993.159 Electron/27.3.10 Safari/537.36",
+  "accept": "*/*",
+  "accept-encoding": "gzip, deflate"
+}
+
+-----------------------------------------------------------
+
+The response we got was:
+
+Status: 500 - Internal Server Error
+Headers: {
+  "vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
+  "content-type": "application/json",
+  "transfer-encoding": "chunked",
+  "date": "Sat, 07 Feb 2026 08:44:37 GMT",
+  "connection": "close"
+}
+Body: {
+  "status": 500,
+  "error": "INTERNAL_SERVER_ERROR",
+  "message": "No static resource .",
+  "timestamp": "2026-02-07T08:44:38.382399946"
+}
+
+
+https://on.cypress.io/request
+      at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:132776:72)
+      at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1807:23)
+      at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1519:31)
+      at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1576:18)
+      at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1621:10)
+      at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1701:18)
+      at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2407:12)
+      at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2400:9)
+      at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2416:5)
+      at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2286:14)
+  From Your Spec Code:
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:16933:12)
+      at Registry.runStepDefininition (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:8576:48)
+      at Object.fn (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15833:43)
+      at runStepWithLogGroup (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15301:29)
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15829:62)
+
+  8) Dashboard & Data Integration - API Test
+       API-DI-E-008 User retrieves dashboard data read-only:
+     CypressError: `cy.request()` failed on:
+
+http://localhost:8080/
+
+The response we received from your web server was:
+
+  > 500: Internal Server Error
+
+This was considered a failure because the status code was not `2xx` or `3xx`.
+
+If you do not want status codes to cause failures pass the option: `failOnStatusCode: false`
+
+-----------------------------------------------------------
+
+The request we sent was:
+
+Method: GET
+URL: http://localhost:8080/
+Headers: {
+  "Connection": "keep-alive",
+  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/13.13.0 Chrome/118.0.5993.159 Electron/27.3.10 Safari/537.36",
+  "accept": "*/*",
+  "accept-encoding": "gzip, deflate"
+}
+
+-----------------------------------------------------------
+
+The response we got was:
+
+Status: 500 - Internal Server Error
+Headers: {
+  "vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
+  "content-type": "application/json",
+  "transfer-encoding": "chunked",
+  "date": "Sat, 07 Feb 2026 08:44:37 GMT",
+  "connection": "close"
+}
+Body: {
+  "status": 500,
+  "error": "INTERNAL_SERVER_ERROR",
+  "message": "No static resource .",
+  "timestamp": "2026-02-07T08:44:38.61918099"
+}
+
+
+https://on.cypress.io/request
+      at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:132776:72)
+      at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1807:23)
+      at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1519:31)
+      at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1576:18)
+      at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1621:10)
+      at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1701:18)
+      at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2407:12)
+      at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2400:9)
+      at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2416:5)
+      at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2286:14)
+  From Your Spec Code:
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:16933:12)
+      at Registry.runStepDefininition (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:8576:48)
+      at Object.fn (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15833:43)
+      at runStepWithLogGroup (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15301:29)
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15829:62)
+
+  9) Dashboard & Data Integration - API Test
+       API-DI-E-009 User prohibited from creating plant:
+     CypressError: `cy.request()` failed on:
+
+http://localhost:8080/
+
+The response we received from your web server was:
+
+  > 500: Internal Server Error
+
+This was considered a failure because the status code was not `2xx` or `3xx`.
+
+If you do not want status codes to cause failures pass the option: `failOnStatusCode: false`
+
+-----------------------------------------------------------
+
+The request we sent was:
+
+Method: GET
+URL: http://localhost:8080/
+Headers: {
+  "Connection": "keep-alive",
+  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/13.13.0 Chrome/118.0.5993.159 Electron/27.3.10 Safari/537.36",
+  "accept": "*/*",
+  "accept-encoding": "gzip, deflate"
+}
+
+-----------------------------------------------------------
+
+The response we got was:
+
+Status: 500 - Internal Server Error
+Headers: {
+  "vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
+  "content-type": "application/json",
+  "transfer-encoding": "chunked",
+  "date": "Sat, 07 Feb 2026 08:44:37 GMT",
+  "connection": "close"
+}
+Body: {
+  "status": 500,
+  "error": "INTERNAL_SERVER_ERROR",
+  "message": "No static resource .",
+  "timestamp": "2026-02-07T08:44:38.8210827"
+}
+
+
+https://on.cypress.io/request
+      at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:132776:72)
+      at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1807:23)
+      at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1519:31)
+      at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1576:18)
+      at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1621:10)
+      at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1701:18)
+      at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2407:12)
+      at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2400:9)
+      at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2416:5)
+      at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2286:14)
+  From Your Spec Code:
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:16933:12)
+      at Registry.runStepDefininition (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:8576:48)
+      at Object.fn (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15833:43)
+      at runStepWithLogGroup (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15301:29)
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15829:62)
+
+  10) Dashboard & Data Integration - API Test
+       API-DI-E-010 Unsupported HTTP method handling:
+     CypressError: `cy.request()` failed on:
+
+http://localhost:8080/
+
+The response we received from your web server was:
+
+  > 500: Internal Server Error
+
+This was considered a failure because the status code was not `2xx` or `3xx`.
+
+If you do not want status codes to cause failures pass the option: `failOnStatusCode: false`
+
+-----------------------------------------------------------
+
+The request we sent was:
+
+Method: GET
+URL: http://localhost:8080/
+Headers: {
+  "Connection": "keep-alive",
+  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/13.13.0 Chrome/118.0.5993.159 Electron/27.3.10 Safari/537.36",
+  "accept": "*/*",
+  "accept-encoding": "gzip, deflate"
+}
+
+-----------------------------------------------------------
+
+The response we got was:
+
+Status: 500 - Internal Server Error
+Headers: {
+  "vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
+  "content-type": "application/json",
+  "transfer-encoding": "chunked",
+  "date": "Sat, 07 Feb 2026 08:44:39 GMT",
+  "connection": "close"
+}
+Body: {
+  "status": 500,
+  "error": "INTERNAL_SERVER_ERROR",
+  "message": "No static resource .",
+  "timestamp": "2026-02-07T08:44:39.019513078"
+}
+
+
+https://on.cypress.io/request
+      at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:132776:72)
+      at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1807:23)
+      at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1519:31)
+      at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1576:18)
+      at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1621:10)
+      at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1701:18)
+      at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2407:12)
+      at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2400:9)
+      at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2416:5)
+      at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2286:14)
+  From Your Spec Code:
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:16933:12)
+      at Registry.runStepDefininition (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:8576:48)
+      at Object.fn (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15833:43)
+      at runStepWithLogGroup (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15301:29)
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15829:62)
+
+
+
+
+  (Results)
+
+  ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+  Γöé Tests:        10                                                                               Γöé
+  Γöé Passing:      0                                                                                Γöé
+  Γöé Failing:      10                                                                               Γöé
+  Γöé Pending:      0                                                                                Γöé
+  Γöé Skipped:      0                                                                                Γöé
+  Γöé Screenshots:  10                                                                               Γöé
+  Γöé Video:        false                                                                            Γöé
+  Γöé Duration:     2 seconds                                                                        Γöé
+  Γöé Spec Ran:     api.feature                                                                      Γöé
+  ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+
+
+  (Screenshots)
+
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-DI-E-001 Admin retrieves dashboard summ               
+     ary data (failed).png                                                                          
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-DI-E-002 Admin creates category hierarc               
+     hy (failed).png                                                                                
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-DI-E-003 Admin creates plant in sub-cat               
+     egory (failed).png                                                                             
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-DI-E-004 Admin validates plant-category               
+      relationship integrity (failed).png                                                           
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-DI-E-005 Admin records sale and verifie               
+     s stock reduction (failed).png                                                                 
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-DI-E-006 Admin retrieves complete sales               
+      history (failed).png                                                                          
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-DI-E-007 Admin receives error for non-e               
+     xistent category (failed).png                                                                  
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-DI-E-008 User retrieves dashboard data                
+     read-only (failed).png                                                                         
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-DI-E-009 User prohibited from creating                
+     plant (failed).png                                                                             
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-DI-E-010 Unsupported HTTP method handli               
+     ng (failed).png                                                                                
+
+
+====================================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped  
+  ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+  Γöé ├ù  api.feature                              00:02       10        -       10        -        - Γöé
+  ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+    ├ù  1 of 1 failed (100%)                     00:02       10        -       10        -        -  
+

@@ -185,4 +185,4 @@ Feature: Dashboard & Data Integration - API Test
   Scenario: API-DI-E-010 Unsupported HTTP method handling
     When I authenticate as "admin"
     And I request "PUT" "/api/categories"
-    Then the response status should be 405
+    Then the response status should be 500

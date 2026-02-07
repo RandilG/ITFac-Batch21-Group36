@@ -1,0 +1,503 @@
+﻿
+node.exe : 
+At line:1 char:1
++ & "C:\Program Files
+\nodejs/node.exe" "C:
+\Users\uvher\AppData\
+Roaming\ ...
++ ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (:String   
+ ) [], RemoteExce    
+ption
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+DevTools listening 
+on ws://127.0.0.1:322
+35/devtools/browser/4
+6fb40d9-d6d2-4124-ab0
+0-352df9caf4d2
+
+====================================================================================================
+
+  (Run Starting)
+
+  ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+  Γöé Cypress:        13.13.0                                                                        Γöé
+  Γöé Browser:        Electron 118 (headless)                                                        Γöé
+  Γöé Node Version:   v24.13.0 (C:\Program Files\nodejs\node.exe)                                    Γöé
+  Γöé Specs:          1 found (api.feature)                                                          Γöé
+  Γöé Searched:       E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\e2e\215052L\api.feature      Γöé
+  ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+
+
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+                                                                                                    
+  Running:  api.feature                                                                     (1 of 1)
+
+
+  Dashboard & Data Integration - API Test
+    1) API-DI-E-001 Admin retrieves dashboard summary data
+    2) API-DI-E-002 Admin creates category hierarchy
+    3) API-DI-E-003 Admin creates plant in sub-category
+    4) API-DI-E-004 Admin validates plant-category relationship integrity
+    5) API-DI-E-005 Admin records sale and verifies stock reduction
+    6) API-DI-E-006 Admin retrieves complete sales history
+    7) API-DI-E-007 Admin receives error for non-existent category
+    8) API-DI-E-008 User retrieves dashboard data read-only
+    9) API-DI-E-009 User prohibited from creating plant
+    10) API-DI-E-010 Unsupported HTTP method handling
+
+
+  0 passing (2s)
+  10 failing
+
+  1) Dashboard & Data Integration - API Test
+       API-DI-E-001 Admin retrieves dashboard summary data:
+     Error: 
+Step implementation missing for "I assume the application is running".
+
+We tried searching for files containing step definitions using the following search pattern templates:
+
+  - cypress/e2e/**/*.{js,ts}
+  - cypress/e2e/*/steps/**/*.{js,ts}
+  - cypress/support/step_definitions/**/*.{js,ts}
+
+These templates resolved to the following search patterns:
+
+  - cypress\e2e\**\*.{js,ts}
+  - cypress\e2e\*\steps\**\*.{js,ts}
+  - cypress\support\step_definitions\**\*.{js,ts}
+
+These patterns matched the following files:
+
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\support\step_definitions\common_ui_steps.js
+  - cypress\support\step_definitions\common_api_steps.js
+
+However, none of these files contained a step definition matching "I assume the application is running".
+
+You can implement it using the suggestion(s) below.
+
+  Given("I assume the application is running", function () {
+    return "pending";
+  });
+  
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15847:29)
+
+  2) Dashboard & Data Integration - API Test
+       API-DI-E-002 Admin creates category hierarchy:
+     Error: 
+Step implementation missing for "I assume the application is running".
+
+We tried searching for files containing step definitions using the following search pattern templates:
+
+  - cypress/e2e/**/*.{js,ts}
+  - cypress/e2e/*/steps/**/*.{js,ts}
+  - cypress/support/step_definitions/**/*.{js,ts}
+
+These templates resolved to the following search patterns:
+
+  - cypress\e2e\**\*.{js,ts}
+  - cypress\e2e\*\steps\**\*.{js,ts}
+  - cypress\support\step_definitions\**\*.{js,ts}
+
+These patterns matched the following files:
+
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\support\step_definitions\common_ui_steps.js
+  - cypress\support\step_definitions\common_api_steps.js
+
+However, none of these files contained a step definition matching "I assume the application is running".
+
+You can implement it using the suggestion(s) below.
+
+  Given("I assume the application is running", function () {
+    return "pending";
+  });
+  
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15847:29)
+
+  3) Dashboard & Data Integration - API Test
+       API-DI-E-003 Admin creates plant in sub-category:
+     Error: 
+Step implementation missing for "I assume the application is running".
+
+We tried searching for files containing step definitions using the following search pattern templates:
+
+  - cypress/e2e/**/*.{js,ts}
+  - cypress/e2e/*/steps/**/*.{js,ts}
+  - cypress/support/step_definitions/**/*.{js,ts}
+
+These templates resolved to the following search patterns:
+
+  - cypress\e2e\**\*.{js,ts}
+  - cypress\e2e\*\steps\**\*.{js,ts}
+  - cypress\support\step_definitions\**\*.{js,ts}
+
+These patterns matched the following files:
+
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\support\step_definitions\common_ui_steps.js
+  - cypress\support\step_definitions\common_api_steps.js
+
+However, none of these files contained a step definition matching "I assume the application is running".
+
+You can implement it using the suggestion(s) below.
+
+  Given("I assume the application is running", function () {
+    return "pending";
+  });
+  
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15847:29)
+
+  4) Dashboard & Data Integration - API Test
+       API-DI-E-004 Admin validates plant-category relationship integrity:
+     Error: 
+Step implementation missing for "I assume the application is running".
+
+We tried searching for files containing step definitions using the following search pattern templates:
+
+  - cypress/e2e/**/*.{js,ts}
+  - cypress/e2e/*/steps/**/*.{js,ts}
+  - cypress/support/step_definitions/**/*.{js,ts}
+
+These templates resolved to the following search patterns:
+
+  - cypress\e2e\**\*.{js,ts}
+  - cypress\e2e\*\steps\**\*.{js,ts}
+  - cypress\support\step_definitions\**\*.{js,ts}
+
+These patterns matched the following files:
+
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\support\step_definitions\common_ui_steps.js
+  - cypress\support\step_definitions\common_api_steps.js
+
+However, none of these files contained a step definition matching "I assume the application is running".
+
+You can implement it using the suggestion(s) below.
+
+  Given("I assume the application is running", function () {
+    return "pending";
+  });
+  
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15847:29)
+
+  5) Dashboard & Data Integration - API Test
+       API-DI-E-005 Admin records sale and verifies stock reduction:
+     Error: 
+Step implementation missing for "I assume the application is running".
+
+We tried searching for files containing step definitions using the following search pattern templates:
+
+  - cypress/e2e/**/*.{js,ts}
+  - cypress/e2e/*/steps/**/*.{js,ts}
+  - cypress/support/step_definitions/**/*.{js,ts}
+
+These templates resolved to the following search patterns:
+
+  - cypress\e2e\**\*.{js,ts}
+  - cypress\e2e\*\steps\**\*.{js,ts}
+  - cypress\support\step_definitions\**\*.{js,ts}
+
+These patterns matched the following files:
+
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\support\step_definitions\common_ui_steps.js
+  - cypress\support\step_definitions\common_api_steps.js
+
+However, none of these files contained a step definition matching "I assume the application is running".
+
+You can implement it using the suggestion(s) below.
+
+  Given("I assume the application is running", function () {
+    return "pending";
+  });
+  
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15847:29)
+
+  6) Dashboard & Data Integration - API Test
+       API-DI-E-006 Admin retrieves complete sales history:
+     Error: 
+Step implementation missing for "I assume the application is running".
+
+We tried searching for files containing step definitions using the following search pattern templates:
+
+  - cypress/e2e/**/*.{js,ts}
+  - cypress/e2e/*/steps/**/*.{js,ts}
+  - cypress/support/step_definitions/**/*.{js,ts}
+
+These templates resolved to the following search patterns:
+
+  - cypress\e2e\**\*.{js,ts}
+  - cypress\e2e\*\steps\**\*.{js,ts}
+  - cypress\support\step_definitions\**\*.{js,ts}
+
+These patterns matched the following files:
+
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\support\step_definitions\common_ui_steps.js
+  - cypress\support\step_definitions\common_api_steps.js
+
+However, none of these files contained a step definition matching "I assume the application is running".
+
+You can implement it using the suggestion(s) below.
+
+  Given("I assume the application is running", function () {
+    return "pending";
+  });
+  
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15847:29)
+
+  7) Dashboard & Data Integration - API Test
+       API-DI-E-007 Admin receives error for non-existent category:
+     Error: 
+Step implementation missing for "I assume the application is running".
+
+We tried searching for files containing step definitions using the following search pattern templates:
+
+  - cypress/e2e/**/*.{js,ts}
+  - cypress/e2e/*/steps/**/*.{js,ts}
+  - cypress/support/step_definitions/**/*.{js,ts}
+
+These templates resolved to the following search patterns:
+
+  - cypress\e2e\**\*.{js,ts}
+  - cypress\e2e\*\steps\**\*.{js,ts}
+  - cypress\support\step_definitions\**\*.{js,ts}
+
+These patterns matched the following files:
+
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\support\step_definitions\common_ui_steps.js
+  - cypress\support\step_definitions\common_api_steps.js
+
+However, none of these files contained a step definition matching "I assume the application is running".
+
+You can implement it using the suggestion(s) below.
+
+  Given("I assume the application is running", function () {
+    return "pending";
+  });
+  
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15847:29)
+
+  8) Dashboard & Data Integration - API Test
+       API-DI-E-008 User retrieves dashboard data read-only:
+     Error: 
+Step implementation missing for "I assume the application is running".
+
+We tried searching for files containing step definitions using the following search pattern templates:
+
+  - cypress/e2e/**/*.{js,ts}
+  - cypress/e2e/*/steps/**/*.{js,ts}
+  - cypress/support/step_definitions/**/*.{js,ts}
+
+These templates resolved to the following search patterns:
+
+  - cypress\e2e\**\*.{js,ts}
+  - cypress\e2e\*\steps\**\*.{js,ts}
+  - cypress\support\step_definitions\**\*.{js,ts}
+
+These patterns matched the following files:
+
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\support\step_definitions\common_ui_steps.js
+  - cypress\support\step_definitions\common_api_steps.js
+
+However, none of these files contained a step definition matching "I assume the application is running".
+
+You can implement it using the suggestion(s) below.
+
+  Given("I assume the application is running", function () {
+    return "pending";
+  });
+  
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15847:29)
+
+  9) Dashboard & Data Integration - API Test
+       API-DI-E-009 User prohibited from creating plant:
+     Error: 
+Step implementation missing for "I assume the application is running".
+
+We tried searching for files containing step definitions using the following search pattern templates:
+
+  - cypress/e2e/**/*.{js,ts}
+  - cypress/e2e/*/steps/**/*.{js,ts}
+  - cypress/support/step_definitions/**/*.{js,ts}
+
+These templates resolved to the following search patterns:
+
+  - cypress\e2e\**\*.{js,ts}
+  - cypress\e2e\*\steps\**\*.{js,ts}
+  - cypress\support\step_definitions\**\*.{js,ts}
+
+These patterns matched the following files:
+
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\support\step_definitions\common_ui_steps.js
+  - cypress\support\step_definitions\common_api_steps.js
+
+However, none of these files contained a step definition matching "I assume the application is running".
+
+You can implement it using the suggestion(s) below.
+
+  Given("I assume the application is running", function () {
+    return "pending";
+  });
+  
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15847:29)
+
+  10) Dashboard & Data Integration - API Test
+       API-DI-E-010 Unsupported HTTP method handling:
+     Error: 
+Step implementation missing for "I assume the application is running".
+
+We tried searching for files containing step definitions using the following search pattern templates:
+
+  - cypress/e2e/**/*.{js,ts}
+  - cypress/e2e/*/steps/**/*.{js,ts}
+  - cypress/support/step_definitions/**/*.{js,ts}
+
+These templates resolved to the following search patterns:
+
+  - cypress\e2e\**\*.{js,ts}
+  - cypress\e2e\*\steps\**\*.{js,ts}
+  - cypress\support\step_definitions\**\*.{js,ts}
+
+These patterns matched the following files:
+
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\e2e\215052L\steps\215052L_steps.js
+  - cypress\e2e\214241H\steps\214241H_ui_steps.js
+  - cypress\e2e\214241H\steps\214241H_api_steps.js
+  - cypress\support\step_definitions\common_ui_steps.js
+  - cypress\support\step_definitions\common_api_steps.js
+
+However, none of these files contained a step definition matching "I assume the application is running".
+
+You can implement it using the suggestion(s) below.
+
+  Given("I assume the application is running", function () {
+    return "pending";
+  });
+  
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\215052L\api.feature:15847:29)
+
+
+
+
+  (Results)
+
+  ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+  Γöé Tests:        10                                                                               Γöé
+  Γöé Passing:      0                                                                                Γöé
+  Γöé Failing:      10                                                                               Γöé
+  Γöé Pending:      0                                                                                Γöé
+  Γöé Skipped:      0                                                                                Γöé
+  Γöé Screenshots:  10                                                                               Γöé
+  Γöé Video:        false                                                                            Γöé
+  Γöé Duration:     2 seconds                                                                        Γöé
+  Γöé Spec Ran:     api.feature                                                                      Γöé
+  ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+
+
+  (Screenshots)
+
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-DI-E-001 Admin retrieves dashboard summ               
+     ary data (failed).png                                                                          
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-DI-E-002 Admin creates category hierarc               
+     hy (failed).png                                                                                
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-DI-E-003 Admin creates plant in sub-cat               
+     egory (failed).png                                                                             
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-DI-E-004 Admin validates plant-category               
+      relationship integrity (failed).png                                                           
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-DI-E-005 Admin records sale and verifie               
+     s stock reduction (failed).png                                                                 
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-DI-E-006 Admin retrieves complete sales               
+      history (failed).png                                                                          
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-DI-E-007 Admin receives error for non-e               
+     xistent category (failed).png                                                                  
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-DI-E-008 User retrieves dashboard data                
+     read-only (failed).png                                                                         
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-DI-E-009 User prohibited from creating                
+     plant (failed).png                                                                             
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\api.feature\Dashbo     (1280x720)
+     ard & Data Integration - API Test -- API-DI-E-010 Unsupported HTTP method handli               
+     ng (failed).png                                                                                
+
+
+====================================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped  
+  ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+  Γöé ├ù  api.feature                              00:02       10        -       10        -        - Γöé
+  ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+    ├ù  1 of 1 failed (100%)                     00:02       10        -       10        -        -  
+

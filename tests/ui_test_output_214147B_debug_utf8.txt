@@ -1,0 +1,133 @@
+﻿
+node.exe : 
+At line:1 char:1
++ & "C:\Program Files
+\nodejs/node.exe" "C:
+\Users\uvher\AppData\
+Roaming\ ...
++ ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (:String   
+ ) [], RemoteExce    
+ption
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+DevTools listening 
+on ws://127.0.0.1:517
+16/devtools/browser/d
+f9219d5-0b6b-432b-b41
+5-094b7b51bfc5
+
+====================================================================================================
+
+  (Run Starting)
+
+  ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+  Γöé Cypress:        13.13.0                                                                        Γöé
+  Γöé Browser:        Electron 118 (headless)                                                        Γöé
+  Γöé Node Version:   v24.13.0 (C:\Program Files\nodejs\node.exe)                                    Γöé
+  Γöé Specs:          1 found (ui.feature)                                                           Γöé
+  Γöé Searched:       E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\e2e\214147B\ui.feature       Γöé
+  ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+
+
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+                                                                                                    
+  Running:  ui.feature                                                                      (1 of 1)
+
+
+  Plant Management - UI Test
+    ΓêÜ UI-PM-001 Admin accesses plant management dashboard (2713ms)
+    1) UI-PM-002 Admin adds new plant via form
+    2) UI-PM-003 Plant form validates empty fields
+    ΓêÜ UI-PM-004 Admin edits existing plant price (1580ms)
+    ΓêÜ UI-PM-005 Admin deletes plant from list (1895ms)
+    ΓêÜ UI-PM-006 User views plant listing page (863ms)
+    ΓêÜ UI-PM-007 User cannot see Add Plant button (806ms)
+    ΓêÜ UI-PM-008 User cannot see edit/delete actions (899ms)
+    ΓêÜ UI-PM-009 User blocked from plant addition URL (699ms)
+    3) UI-PM-010 Plant image default placeholder behavior
+
+
+  7 passing (13s)
+  3 failing
+
+  1) Plant Management - UI Test
+       UI-PM-002 Admin adds new plant via form:
+     Error: Multiple matching step definitions for: I click "Add a"
+ I click {string}
+ I click {string}
+      at Registry.resolveStepDefintion (http://localhost:8080/__cypress/tests?p=cypress\e2e\214147B\ui.feature:8556:19)
+      at Registry.runStepDefininition (http://localhost:8080/__cypress/tests?p=cypress\e2e\214147B\ui.feature:8571:39)
+      at Object.fn (http://localhost:8080/__cypress/tests?p=cypress\e2e\214147B\ui.feature:15833:43)
+      at runStepWithLogGroup (http://localhost:8080/__cypress/tests?p=cypress\e2e\214147B\ui.feature:15301:29)
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\214147B\ui.feature:15829:62)
+
+  2) Plant Management - UI Test
+       UI-PM-003 Plant form validates empty fields:
+     Error: Multiple matching step definitions for: I click "Add a"
+ I click {string}
+ I click {string}
+      at Registry.resolveStepDefintion (http://localhost:8080/__cypress/tests?p=cypress\e2e\214147B\ui.feature:8556:19)
+      at Registry.runStepDefininition (http://localhost:8080/__cypress/tests?p=cypress\e2e\214147B\ui.feature:8571:39)
+      at Object.fn (http://localhost:8080/__cypress/tests?p=cypress\e2e\214147B\ui.feature:15833:43)
+      at runStepWithLogGroup (http://localhost:8080/__cypress/tests?p=cypress\e2e\214147B\ui.feature:15301:29)
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\214147B\ui.feature:15829:62)
+
+  3) Plant Management - UI Test
+       UI-PM-010 Plant image default placeholder behavior:
+     Error: Multiple matching step definitions for: I click "Add a"
+ I click {string}
+ I click {string}
+      at Registry.resolveStepDefintion (http://localhost:8080/__cypress/tests?p=cypress\e2e\214147B\ui.feature:8556:19)
+      at Registry.runStepDefininition (http://localhost:8080/__cypress/tests?p=cypress\e2e\214147B\ui.feature:8571:39)
+      at Object.fn (http://localhost:8080/__cypress/tests?p=cypress\e2e\214147B\ui.feature:15833:43)
+      at runStepWithLogGroup (http://localhost:8080/__cypress/tests?p=cypress\e2e\214147B\ui.feature:15301:29)
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\214147B\ui.feature:15829:62)
+
+
+
+
+  (Results)
+
+  ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+  Γöé Tests:        10                                                                               Γöé
+  Γöé Passing:      7                                                                                Γöé
+  Γöé Failing:      3                                                                                Γöé
+  Γöé Pending:      0                                                                                Γöé
+  Γöé Skipped:      0                                                                                Γöé
+  Γöé Screenshots:  3                                                                                Γöé
+  Γöé Video:        false                                                                            Γöé
+  Γöé Duration:     13 seconds                                                                       Γöé
+  Γöé Spec Ran:     ui.feature                                                                       Γöé
+  ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+
+
+  (Screenshots)
+
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\ui.feature\Plant M     (1280x720)
+     anagement - UI Test -- UI-PM-002 Admin adds new plant via form (failed).png                    
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\ui.feature\Plant M     (1280x720)
+     anagement - UI Test -- UI-PM-003 Plant form validates empty fields (failed).png                
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\ui.feature\Plant M     (1280x720)
+     anagement - UI Test -- UI-PM-010 Plant image default placeholder behavior (faile               
+     d).png                                                                                         
+
+
+====================================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped  
+  ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+  Γöé ├ù  ui.feature                               00:13       10        7        3        -        - Γöé
+  ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+    ├ù  1 of 1 failed (100%)                     00:13       10        7        3        -        -  
+
