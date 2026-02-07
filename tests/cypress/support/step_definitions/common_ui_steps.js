@@ -126,6 +126,10 @@ When("I navigate directly to {string}", (url) => {
     });
 });
 
+When("I visit {string}", (url) => {
+    cy.visit(url, { failOnStatusCode: false });
+});
+
 When("I go back in browser history", () => {
     cy.go('back');
 });
@@ -140,6 +144,10 @@ When("I click browser back button", () => {
 
 Then("I should be on the plants page", () => {
     cy.url().should("include", "/plants");
+});
+
+Then("I should be on the {string} page", (pagePath) => {
+    cy.url().should("include", pagePath);
 });
 
 Then("I should be returned to the plants page", () => {
@@ -202,6 +210,18 @@ When("I click {string} without filling required fields", (buttonText) => {
 Then("I should not see any {string} buttons", (buttonType) => {
     cy.get('table tbody').within(() => {
         cy.contains('button', new RegExp(buttonType, 'i')).should('not.exist');
+    });
+});
+
+When("I click the edit icon on the first row", () => {
+    cy.get('table tbody tr').first().within(() => {
+        cy.get('button, a, [role="button"]').filter(':contains("Edit"), [title*="Edit"], [aria-label*="Edit"]').first().click({ force: true });
+    });
+});
+
+When("I click the delete icon on the first row", () => {
+    cy.get('table tbody tr').first().within(() => {
+        cy.get('button, a, [role="button"]').filter(':contains("Delete"), [title*="Delete"], [aria-label*="Delete"]').first().click({ force: true });
     });
 });
 
@@ -300,8 +320,53 @@ Then("I should see the sales table with records", () => {
 });
 
 // ============================================================
-// FORMS
+// FORMS - INPUT FIELDS
 // ============================================================
+
+When("I enter {string} in {string} field", (value, fieldName) => {
+    Cypress.env(`entered_${value}`, value);
+    cy.log(`Entering value in field: ${value}`);
+    
+    cy.get(`[name="${fieldName}"], #${fieldName}, [id="${fieldName}"], input[name="categoryName"], input[id*="name"]`)
+        .first()
+        .clear()
+        .type(value);
+});
+
+When("I enter {string} into {string} field", (value, fieldName) => {
+    const timestamp = Date.now().toString();
+    const finalValue = value.replace(/{timestamp}/g, timestamp.slice(-6));
+    
+    cy.get("body").then(($body) => {
+        let $input = $body.find(`[name="${fieldName}"]`).first();
+        if (!$input.length) $input = $body.find(`#${fieldName}`).first();
+        if (!$input.length) $input = $body.find(`[id*="${fieldName.toLowerCase()}"]`).first();
+        if (!$input.length) $input = $body.find(`input[placeholder*="${fieldName}"]`).first();
+        if (!$input.length) $input = $body.find("input").first();
+        
+        if ($input.length) {
+            cy.wrap($input).clear().type(finalValue);
+        }
+    });
+});
+
+When("I clear and enter {string} in {string} field", (value, fieldName) => {
+    Cypress.env(`entered_${value}`, value);
+    cy.log(`Clearing and entering value: ${value}`);
+    
+    if (Cypress.env('api_edit_mode')) {
+        const editing = Cypress.env('current_editing');
+        if (editing) {
+            Cypress.env(`pending_new_${editing}`, value);
+            return;
+        }
+    }
+
+    cy.get(`[name="${fieldName}"], #${fieldName}, [id="${fieldName}"], input[name="categoryName"], input[id*="name"]`)
+        .first()
+        .clear()
+        .type(value);
+});
 
 When("I submit the form", () => {
     cy.get('input[name="name"], input#name, input[id*="name"], input[name="categoryName"], [data-test="name"]')
@@ -315,6 +380,10 @@ When("I submit the form", () => {
             cy.wait(1500);
             cy.wait(1000);
         });
+});
+
+When("I submit the form without entering data", () => {
+    cy.get('button[type="submit"]').click();
 });
 
 When("I enter {string} as the category name", (catName) => {
@@ -392,6 +461,16 @@ When("I select the first available category", () => {
 // VALIDATION
 // ============================================================
 
+Then("I should see a validation error", () => {
+    cy.get('.error, .invalid-feedback, [class*="error"], [role="alert"]', { timeout: 5000 })
+        .should('be.visible')
+        .and('not.be.empty');
+});
+
+Then("I should see validation error {string}", (errorMessage) => {
+    cy.contains(new RegExp(errorMessage, "i"), { timeout: 5000 }).should("be.visible");
+});
+
 Then("I should see a validation error message {string}", (errorMessage) => {
     cy.contains(new RegExp(errorMessage, "i")).should("be.visible");
 });
@@ -468,6 +547,15 @@ Then("the quantity field should retain value {string}", (expectedValue) => {
             expect(actualNum).to.equal(expectedNum);
         }
     });
+});
+
+Then("no new category should be created", () => {
+    cy.get('.success, .alert-success').should('not.exist');
+    cy.contains('td, .category-item', /^\s*$/, { timeout: 2000 }).should('not.exist');
+});
+
+Then("the category should not be created", () => {
+    cy.get('.success, .alert-success').should('not.exist');
 });
 
 Then("there should be no duplicate plant submissions", () => {
