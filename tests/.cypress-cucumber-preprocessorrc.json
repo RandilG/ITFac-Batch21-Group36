@@ -2,6 +2,7 @@
     "stepDefinitions": [
         "cypress/e2e/**/*.{js,ts}",
         "cypress/e2e/*/steps/**/*.{js,ts}",
-        "cypress/support/step_definitions/**/*.{js,ts}"
+        "cypress/support/pages/**/*.{js,ts}",
+        "cypress/support/api/**/*.{js,ts}"
     ]
 }

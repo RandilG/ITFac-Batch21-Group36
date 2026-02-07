@@ -1,9 +1,12 @@
-//common api steps
-
 const { Given, When, Then } = require("@badeball/cypress-cucumber-preprocessor");
 
 // Variables are handled via Cypress aliases @response and @authToken
 const sharedState = {};
+
+// Make sharedState globally accessible for other step files
+if (typeof global !== 'undefined') {
+    global.sharedState = sharedState;
+}
 
 Given("I assume the application is running", () => {
     // Implicit check could be done here if needed
@@ -179,12 +182,15 @@ Then("the response body {string} should contain {string}", (field, value) => {
 When("I capture the id as {string}", (alias) => {
     cy.get('@response').its('body.id').then((id) => {
         sharedState[alias] = id;
+        if (typeof global !== 'undefined') {
+            global.sharedState = sharedState;
+        }
         cy.wrap(id).as(alias);
     });
 });
 
 When("I request {string} {string} with {string} as {string}", (method, url, alias, placeholder) => {
-    const val = sharedState[alias] || 1;
+    const val = sharedState[alias] || (typeof global !== 'undefined' && global.sharedState ? global.sharedState[alias] : null) || 1;
     const finalUrl = url.replace(`{${placeholder}}`, val);
     cy.get('@authToken', { log: false }).then((authToken) => {
         cy.request({
@@ -197,7 +203,7 @@ When("I request {string} {string} with {string} as {string}", (method, url, alia
 });
 
 When("I request {string} {string} with {string} as {string} and body:", (method, url, alias, placeholder, body) => {
-    const val = sharedState[alias] || 1;
+    const val = sharedState[alias] || (typeof global !== 'undefined' && global.sharedState ? global.sharedState[alias] : null) || 1;
     const timestamp = Date.now().toString();
     const finalUrl = url.replace(`{${placeholder}}`, val);
     let bodyWithTimestamp = body.replace(/{timestamp}/g, timestamp);
@@ -239,7 +245,7 @@ When("I request {string} {string} with {string} as {string} and body:", (method,
 });
 
 When("I request {string} {string} with body using {string} as {string}:", (method, url, alias, placeholder, body) => {
-    const val = sharedState[alias];
+    const val = sharedState[alias] || (typeof global !== 'undefined' && global.sharedState ? global.sharedState[alias] : null);
     const timestamp = Date.now().toString();
     let bodyWithReplacement = body.replace(new RegExp(`{${placeholder}}`, 'g'), val);
     bodyWithReplacement = bodyWithReplacement.replace(/{timestamp}/g, timestamp);
@@ -283,21 +289,9 @@ When("I request {string} {string} with body using {string} as {string}:", (metho
 });
 
 Then("the response body {string} should match captured {string}", (property, alias) => {
-    const expectedVal = sharedState[alias];
+    const expectedVal = sharedState[alias] || (typeof global !== 'undefined' && global.sharedState ? global.sharedState[alias] : null);
     cy.get('@response').its('body').then((body) => {
         const actualVal = property.split('.').reduce((obj, key) => obj && obj[key], body);
         expect(actualVal).to.eq(expectedVal);
-    });
-});
-
-When("I POST a sale to {string} with quantity {int}", (url, qty) => {
-    const finalUrl = url.replace("{plantId}", sharedState.plantId || 1);
-    cy.get('@authToken', { log: false }).then((authToken) => {
-        cy.request({
-            method: 'POST',
-            url: finalUrl,
-            headers: { 'Authorization': authToken },
-            failOnStatusCode: false
-        }).as('response');
     });
 });
