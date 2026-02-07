@@ -80,17 +80,16 @@ Feature: Plant Management - UI Test
     And I visit "/ui/plants/add"
     And I should see the message "403 - Access Denied"
 
-#   Feature Missing: Plant image is not displayed in table or edit page.
-#   Scenario: UI-PM-010 Plant image default placeholder behavior
-#     Given I am on the login page
-#     When I login as "admin" with password "admin123"
-#     And I click "Plants" in navigation
-#     And I click "Add a"
-#     And I enter "P10_{timestamp}" into "Name" field
-#     And I enter "100.0" into "Price" field
-#     And I enter "10" into "Quantity" field
-#     And I select the first option from "Category" dropdown
-#     And I click "Save" button
-#     Then I should see a success message "Plant added successfully"
-#     And I should see "P10_" in the table
-#     And the plant "P10_" should have the default image
+  Scenario: UI-PM-010 Plant image default placeholder behavior
+     Given I am on the login page
+     When I login as "admin" with password "admin123"
+     And I click "Plants" in navigation
+     And I click "Add a"
+     And I enter "P10_{timestamp}" into "Name" field
+     And I enter "100.0" into "Price" field
+     And I enter "10" into "Quantity" field
+     And I select the first option from "Category" dropdown
+     And I click "Save" button
+     Then I should see a success message "Plant added successfully"
+     And I should see "P10_" in the table
+     And the plant "P10_" should have the default image

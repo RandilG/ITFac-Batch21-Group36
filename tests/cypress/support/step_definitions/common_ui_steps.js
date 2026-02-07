@@ -1,3 +1,5 @@
+//common ui steps
+
 const { Given, When, Then } = require("@badeball/cypress-cucumber-preprocessor");
 
 // ============================================================
@@ -403,6 +405,127 @@ When("I enter plant name {string}", (plantName) => {
     });
 });
 
+// Additional plant-related step synonyms and helpers
+When("I clear and enter {string} into {string} field", (value, fieldName) => {
+    const needle = fieldName.toLowerCase();
+    cy.get('body').then(($body) => {
+        let $input = $body.find(`[name="${fieldName}"]`).first();
+        if (!$input.length) $input = $body.find(`#${fieldName}`).first();
+
+        if (!$input.length) {
+            // find inputs whose name/id/placeholder/label contains the field name (case-insensitive)
+            $input = $body.find('input').filter((i, el) => {
+                const $el = Cypress.$(el);
+                const name = ($el.attr('name') || '').toLowerCase();
+                const id = ($el.attr('id') || '').toLowerCase();
+                const ph = ($el.attr('placeholder') || '').toLowerCase();
+                let labelText = '';
+                try { labelText = ($body.find(`label[for="${el.id}"]`).text() || '').toLowerCase(); } catch(e) {}
+                return name.includes(needle) || id.includes(needle) || ph.includes(needle) || labelText.includes(needle);
+            }).first();
+        }
+
+        if (!$input.length) {
+            // fallback: inputs with attribute containing the field name
+            $input = $body.find(`input[name*="${needle}" i], input[id*="${needle}" i], input[placeholder*="${needle}" i]`).first();
+        }
+
+        if (!$input.length) $input = $body.find('input').first();
+
+        if ($input.length) {
+            cy.wrap($input).clear().type(value);
+        } else {
+            throw new Error(`Unable to find input field for '${fieldName}'`);
+        }
+    });
+});
+
+When("I select the first option from {string} dropdown", (dropdownName) => {
+    cy.get('body').then(($body) => {
+        const nameLower = dropdownName.toLowerCase();
+        let $select = $body.find(`select[name*="${nameLower}"], select[id*="${nameLower}"]`).first();
+        if (!$select.length) $select = $body.find('select').first();
+
+        if ($select.length) {
+            cy.wrap($select).find('option').then(($opts) => {
+                if ($opts.length > 0) {
+                    const val = $opts.eq(0).attr('value');
+                    if (typeof val !== 'undefined') cy.wrap($select).select(val);
+                }
+            });
+        } else {
+            // fallback for custom dropdowns
+            cy.contains('label, .dropdown, [data-test*="category"]', new RegExp(dropdownName, 'i')).click({ force: true });
+            cy.get('.dropdown-menu, .options, li').first().click({ force: true });
+        }
+    });
+    cy.wait(500);
+});
+
+When("I select the second option from {string} dropdown", (dropdownName) => {
+    cy.get('body').then(($body) => {
+        const nameLower = dropdownName.toLowerCase();
+        let $select = $body.find(`select[name*="${nameLower}"], select[id*="${nameLower}"]`).first();
+        if (!$select.length) $select = $body.find('select').first();
+
+        if ($select.length) {
+            cy.wrap($select).find('option').then(($opts) => {
+                if ($opts.length > 1) {
+                    const val = $opts.eq(1).attr('value');
+                    if (typeof val !== 'undefined') cy.wrap($select).select(val);
+                }
+            });
+        } else {
+            cy.contains('label, .dropdown, [data-test*="category"]', new RegExp(dropdownName, 'i')).click({ force: true });
+            cy.get('.dropdown-menu, .options, li').eq(1).click({ force: true });
+        }
+    });
+    cy.wait(500);
+});
+
+Then("I should see {string} column in the table", (colName) => {
+    cy.get('table thead th, table thead td', { timeout: 10000 }).then(($ths) => {
+        const headers = $ths.map((i, el) => Cypress.$(el).text().trim()).get();
+        const found = headers.some(h => new RegExp(colName, 'i').test(h));
+        expect(found).to.be.true;
+    });
+});
+
+Then("I should not see any action buttons in the table", () => {
+    cy.get('table tbody').within(() => {
+        cy.contains('button, a, [role="button"]', /edit|delete|remove|actions|sell|buy/i).should('not.exist');
+    });
+});
+
+Then("I should see a success message {string}", (msg) => {
+    const re = new RegExp(msg, 'i');
+    cy.get('body', { timeout: 10000 }).then(($body) => {
+        const selectors = ['.alert-success', '.toast-success', '.toast', '.success', '.alert', '[role="alert"]'];
+        for (const sel of selectors) {
+            const $found = $body.find(sel).filter(':visible');
+            if ($found.length > 0) {
+                return cy.contains(sel, re, { timeout: 10000 }).should('be.visible');
+            }
+        }
+        // fallback to any visible text match
+        return cy.contains(re, { timeout: 10000 }).should('be.visible');
+    });
+});
+
+Then("I should see {string} in the table", (text) => {
+    cy.get('table', { timeout: 10000 }).should('exist');
+    cy.get('table').contains('td, tr', new RegExp(text, 'i'), { timeout: 10000 }).should('be.visible');
+});
+
+Then(/the plant "([^"]+)" should have the default image/, (plantName) => {
+    cy.contains('tr, td', new RegExp(plantName, 'i')).closest('tr').within(() => {
+        cy.get('img').then(($img) => {
+            const src = ($img.attr('src') || '').toLowerCase();
+            expect(src).to.match(/default|placeholder|no-image|default-image|\/images\//i);
+        });
+    });
+});
+
 When("I enter price {string}", (priceValue) => {
     cy.get("body").then(($body) => {
         let $priceInput = $body.find('input[name="price"]').first();
@@ -755,4 +878,135 @@ Then("I should see the list of sub-categories", () => {
 
 Then("I should see category hierarchy", () => {
     cy.get('table, .category-tree, .hierarchy', { timeout: 10000 }).should('be.visible');
+});
+
+// ============================================================
+// CATEGORY LIST VISIBILITY
+// ============================================================
+
+Then("I should see {string} in the category list", (categoryName) => {
+    // Wait for any VISIBLE modals/dialogs to close
+    cy.wait(500);
+    
+    // Check if there are visible modals, if so wait for them to close
+    cy.get("body").then(($body) => {
+        const visibleModals = $body.find(".modal.show, .modal:visible, [role='dialog']:visible, .modal-content:visible").length;
+        if (visibleModals > 0) {
+            // Wait for visible modals to close
+            cy.get(".modal.show, .modal:visible, [role='dialog']:visible, .modal-content:visible", { timeout: 5000 }).should("not.be.visible");
+        }
+    });
+    
+    // Wait a bit for the page to settle
+    cy.wait(800);
+    
+    // Try to find any table or list container
+    cy.get("body").then(($body) => {
+        const hasTable = $body.find("table").length > 0;
+        const hasList = $body.find("[class*='list'], [class*='grid']").length > 0;
+        
+        if (!hasTable && !hasList) {
+            // Try clicking Categories navigation again if table not found
+            cy.contains("a, button, [role='button']", /categories/i, { timeout: 5000 }).click({ force: true });
+            cy.wait(800);
+        }
+    });
+    
+    // Now look for the table
+    cy.get("table, [class*='category-list'], [class*='table']", { timeout: 15000 }).should("exist");
+    
+    // Wait for table body to have rows
+    cy.get("table tbody, [class*='body'] tr, [class*='list-item']", { timeout: 10000 }).should("have.length.at.least", 1);
+    
+    // Now check if the category exists in the table/list
+    cy.contains("table tr, [class*='list-item'], [class*='row']", new RegExp(categoryName, 'i'), { timeout: 10000 }).should("be.visible");
+});
+
+Then("I should not see {string} in the category list", (categoryName) => {
+    cy.wait(1000);
+    cy.get("body").then(($body) => {
+        // Check in the visible text of the page
+        const pageText = $body.text();
+        
+        // More thorough check - look for the exact category name
+        const isVisible = pageText.includes(categoryName);
+        
+        if (isVisible) {
+            // If it appears somewhere, specifically check it's not in the table
+            cy.get("table tbody, [class*='list']").then(($container) => {
+                if ($container.length > 0) {
+                    cy.wrap($container).within(() => {
+                        cy.contains("tr, [class*='item']", new RegExp(categoryName, 'i')).should("not.exist");
+                    });
+                }
+            });
+        }
+    });
+});
+
+// ============================================================
+// CATEGORY EDIT & DELETE OPERATIONS
+// ============================================================
+
+When("I click {string} button for {string}", (action, categoryName) => {
+    const isDelete = /delete/i.test(action);
+    const isEdit = /edit/i.test(action);
+    
+    cy.wait(500);
+    
+    // Wait for table to be visible
+    cy.get("table tbody", { timeout: 10000 }).should("be.visible");
+    
+    // Find the row containing the category name
+    cy.get("table tbody tr").each(($row) => {
+        const rowText = $row.text();
+        if (rowText.includes(categoryName)) {
+            // Found the row, now find the action button
+            cy.wrap($row).within(() => {
+                if (isEdit) {
+                    cy.contains("button, a, [role='button']", /edit/i, { timeout: 5000 })
+                        .click({ force: true });
+                } else if (isDelete) {
+                    cy.contains("button, a, [role='button']", /delete/i, { timeout: 5000 })
+                        .click({ force: true });
+                }
+            });
+            return false; // Exit each loop
+        }
+    });
+    
+    cy.wait(800);
+});
+
+When("I save the changes", () => {
+    // Try to find and click the save/update button
+    cy.get("button:contains('Save'), button:contains('Update'), button[type='submit'], .btn-primary").first().then(($btn) => {
+        if ($btn.length) {
+            cy.wrap($btn).click({ force: true });
+        } else {
+            // Fallback: search by text content
+            cy.contains("button, [type='submit'], .btn", /save|update/i, { timeout: 10000 })
+                .click({ force: true });
+        }
+    });
+    cy.wait(1500);
+});
+
+When("I confirm the deletion", () => {
+    cy.wait(500);
+    cy.get("body").then(($body) => {
+        // Check if there's a modal or confirmation dialog
+        const hasModal = $body.find(".modal, .dialog, [role='dialog'], .modal-dialog").length > 0;
+        if (hasModal) {
+            cy.get(".modal, .dialog, [role='dialog'], .modal-dialog").first().within(() => {
+                cy.contains("button", /confirm|yes|delete|ok/i, { timeout: 5000 })
+                    .click({ force: true });
+            });
+        } else {
+            // Try to find and click a confirmation button without a modal
+            cy.contains("button", /confirm|delete|yes/i, { timeout: 5000 })
+                .click({ force: true });
+        }
+    });
+    cy.wait(1500);
 });
