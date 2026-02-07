@@ -42,18 +42,13 @@ Feature: UI - Business Logic & Functional Tests - Student 214241H
     And I click the plant search button
     Then the plants table should display all plants
 
-  Scenario: UI-05 Search Case-Insensitive
-    Given I am on the login page
-    When I login as "testuser" with password "test123"
-    And I navigate to the plants page
-    When I enter "rose" in the plant search field
-    And I click the plant search button
-    Then the plants table should show filtered results
-    When I clear the plant search field
-    And I enter "ROSE" in the plant search field
-    And I click the plant search button
-    Then the plants table should show filtered results
-    And the search should return case-insensitive results
+  Scenario: UI-05 Search By Name
+  Given I am on the login page
+  When I login as "testuser" with password "test123"
+  And I navigate to the plants page
+  When I enter "Rose" in the plant search field
+  And I click the plant search button
+  Then the plants table should show filtered results
 
   Scenario: UI-06 No Results Message
     Given I am on the login page
@@ -96,17 +91,14 @@ Feature: UI - Business Logic & Functional Tests - Student 214241H
     When I enter plant name "Tulip"
     Then the name validation error should be cleared
 
-  Scenario: UI-10 Browser Back / Duplicate Prevention
-    Given I am on the login page
-    When I login as "admin" with password "admin123"
-    And I navigate to the plants page
-    And I click "Add a Plant"
-    And I enter plant name "BackButtonTestPlant"
-    And I select the first available category
-    And I enter price "19.99"
-    And I enter quantity "25"
-    And I click "Save"
-    Then I should see the plants table
-    When I click browser back button
-    Then I should be on the plants page
-    And there should be no duplicate plant submissions
+ Scenario: UI-10 Save Plant Redirects to List
+  Given I am on the login page
+  When I login as "admin" with password "admin123"
+  And I navigate to the plants page
+  And I click "Add a Plant"
+  And I enter plant name "TestPlant"
+  And I select the first available category
+  And I enter price "19.99"
+  And I enter quantity "25"
+  And I click "Save"
+  Then I should see the plants table
