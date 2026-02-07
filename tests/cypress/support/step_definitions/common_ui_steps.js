@@ -758,3 +758,134 @@ Then("I should see the list of sub-categories", () => {
 Then("I should see category hierarchy", () => {
     cy.get('table, .category-tree, .hierarchy', { timeout: 10000 }).should('be.visible');
 });
+
+// ============================================================
+// CATEGORY LIST VISIBILITY
+// ============================================================
+
+Then("I should see {string} in the category list", (categoryName) => {
+    // Wait for any VISIBLE modals/dialogs to close
+    cy.wait(500);
+    
+    // Check if there are visible modals, if so wait for them to close
+    cy.get("body").then(($body) => {
+        const visibleModals = $body.find(".modal.show, .modal:visible, [role='dialog']:visible, .modal-content:visible").length;
+        if (visibleModals > 0) {
+            // Wait for visible modals to close
+            cy.get(".modal.show, .modal:visible, [role='dialog']:visible, .modal-content:visible", { timeout: 5000 }).should("not.be.visible");
+        }
+    });
+    
+    // Wait a bit for the page to settle
+    cy.wait(800);
+    
+    // Try to find any table or list container
+    cy.get("body").then(($body) => {
+        const hasTable = $body.find("table").length > 0;
+        const hasList = $body.find("[class*='list'], [class*='grid']").length > 0;
+        
+        if (!hasTable && !hasList) {
+            // Try clicking Categories navigation again if table not found
+            cy.contains("a, button, [role='button']", /categories/i, { timeout: 5000 }).click({ force: true });
+            cy.wait(800);
+        }
+    });
+    
+    // Now look for the table
+    cy.get("table, [class*='category-list'], [class*='table']", { timeout: 15000 }).should("exist");
+    
+    // Wait for table body to have rows
+    cy.get("table tbody, [class*='body'] tr, [class*='list-item']", { timeout: 10000 }).should("have.length.at.least", 1);
+    
+    // Now check if the category exists in the table/list
+    cy.contains("table tr, [class*='list-item'], [class*='row']", new RegExp(categoryName, 'i'), { timeout: 10000 }).should("be.visible");
+});
+
+Then("I should not see {string} in the category list", (categoryName) => {
+    cy.wait(1000);
+    cy.get("body").then(($body) => {
+        // Check in the visible text of the page
+        const pageText = $body.text();
+        
+        // More thorough check - look for the exact category name
+        const isVisible = pageText.includes(categoryName);
+        
+        if (isVisible) {
+            // If it appears somewhere, specifically check it's not in the table
+            cy.get("table tbody, [class*='list']").then(($container) => {
+                if ($container.length > 0) {
+                    cy.wrap($container).within(() => {
+                        cy.contains("tr, [class*='item']", new RegExp(categoryName, 'i')).should("not.exist");
+                    });
+                }
+            });
+        }
+    });
+});
+
+// ============================================================
+// CATEGORY EDIT & DELETE OPERATIONS
+// ============================================================
+
+When("I click {string} button for {string}", (action, categoryName) => {
+    const isDelete = /delete/i.test(action);
+    const isEdit = /edit/i.test(action);
+    
+    cy.wait(500);
+    
+    // Wait for table to be visible
+    cy.get("table tbody", { timeout: 10000 }).should("be.visible");
+    
+    // Find the row containing the category name
+    cy.get("table tbody tr").each(($row) => {
+        const rowText = $row.text();
+        if (rowText.includes(categoryName)) {
+            // Found the row, now find the action button
+            cy.wrap($row).within(() => {
+                if (isEdit) {
+                    cy.contains("button, a, [role='button']", /edit/i, { timeout: 5000 })
+                        .click({ force: true });
+                } else if (isDelete) {
+                    cy.contains("button, a, [role='button']", /delete/i, { timeout: 5000 })
+                        .click({ force: true });
+                }
+            });
+            return false; // Exit each loop
+        }
+    });
+    
+    cy.wait(800);
+});
+
+When("I save the changes", () => {
+    // Try to find and click the save/update button
+    cy.get("button:contains('Save'), button:contains('Update'), button[type='submit'], .btn-primary").first().then(($btn) => {
+        if ($btn.length) {
+            cy.wrap($btn).click({ force: true });
+        } else {
+            // Fallback: search by text content
+            cy.contains("button, [type='submit'], .btn", /save|update/i, { timeout: 10000 })
+                .click({ force: true });
+        }
+    });
+    cy.wait(1500);
+});
+
+When("I confirm the deletion", () => {
+    cy.wait(500);
+    cy.get("body").then(($body) => {
+        // Check if there's a modal or confirmation dialog
+        const hasModal = $body.find(".modal, .dialog, [role='dialog'], .modal-dialog").length > 0;
+        if (hasModal) {
+            cy.get(".modal, .dialog, [role='dialog'], .modal-dialog").first().within(() => {
+                cy.contains("button", /confirm|yes|delete|ok/i, { timeout: 5000 })
+                    .click({ force: true });
+            });
+        } else {
+            // Try to find and click a confirmation button without a modal
+            cy.contains("button", /confirm|delete|yes/i, { timeout: 5000 })
+                .click({ force: true });
+        }
+    });
+    cy.wait(1500);
+});
