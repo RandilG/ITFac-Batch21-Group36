@@ -7,6 +7,10 @@ const {
 // Variables are handled via Cypress aliases @response and @authToken
 const sharedState = {};
 
+Given("I assume the application is running", () => {
+  cy.log("Application is assumed to be running");
+});
+
 When("I authenticate as {string}", (role) => {
     const username = role === "admin" ? "admin" : "testuser";
     const password = role === "admin" ? "admin123" : "test123";
@@ -231,3 +235,15 @@ Then("the response body {string} should be {int}", (property, expectedVal) => {
             expect(actualVal).to.eq(expectedVal);
         });
 });
+
+Then("the response body {string} should contain {string}", (property, expectedContent) => {
+  cy.get("@response")
+    .its("body")
+    .then((body) => {
+      const actualVal = property
+        .split(".")
+        .reduce((obj, key) => obj && obj[key], body);
+      expect(actualVal.toString()).to.include(expectedContent);
+    });
+});
+
