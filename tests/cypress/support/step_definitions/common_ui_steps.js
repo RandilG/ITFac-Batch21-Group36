@@ -219,39 +219,12 @@ Then("I should not see {string} button", (btnText) => {
   const re = new RegExp(btnText, "i");
   cy.contains('button, a, [role="button"], .btn', re).should("not.exist");
 });
-//edited here
+
 When("I click {string} button", (buttonText) => {
   const re = new RegExp(buttonText, "i");
-  const selector =
-    'button, a, [role="button"], .btn, input[type="submit"], input[type="button"]';
-
-  cy.get("body").then(($body) => {
-    const $matches = $body.find(selector).filter((i, el) => {
-      const $el = Cypress.$(el);
-      const text = ($el.text() || "").trim();
-      const value = ($el.val() || "").toString().trim();
-      const aria = ($el.attr("aria-label") || "").trim();
-      return re.test(text) || re.test(value) || re.test(aria);
-    });
-
-    //edited here again
-    if ($matches.length > 0) {
-      cy.wrap($matches.first()).click({ force: true });
-      return;
-    }
-
-    const $form = $body.find("form").first();
-    if ($form.length > 0) {
-      cy.wrap($form).submit();
-      return;
-    }
-
-    cy.get('button[type="submit"], input[type="submit"], [type="submit"]', {
-      timeout: 10000,
-    })
-      .first()
-      .click({ force: true });
-  });
+  cy.contains('button, a, [role="button"], .btn', re, { timeout: 10000 }).click(
+    { force: true },
+  );
 });
 
 When("I click {string}", (buttonText) => {
@@ -1257,106 +1230,4 @@ When("I confirm the deletion", () => {
     }
   });
   cy.wait(1500);
-});
-
-// ============================================================
-// SALES SPECIFIC STEPS
-// ============================================================
-
-Then("I should see {string} in the body", (text) => {
-  cy.get("body").contains(text).should("be.visible");
-});
-
-Then("the sales table should display the column {string}", (colName) => {
-  cy.get("table th").contains(colName).should("be.visible");
-});
-
-Then("I should see the sale form", () => {
-  cy.get("form, .modal-body, .sale-form").should("be.visible");
-});
-
-Then("the plant dropdown should be visible", () => {
-  cy.get('select[name*="plant"], .plant-select, select#plantId').should(
-    "be.visible",
-  );
-});
-
-Then("the plant dropdown should contain available plants", () => {
-  // SRS 7.2: Ensure dropdown has at least the placeholder + 1 plant
-  cy.get('select#plantId, select[name*="plant"]')
-    .find("option")
-    .should("have.length.at.least", 2);
-});
-
-When("I select a plant from the dropdown", () => {
-  cy.get('select#plantId, select[name*="plant"]').then(($select) => {
-    if ($select.length > 0) {
-      cy.wrap($select).select(1); // Selects the second option (first actual plant)
-    } else {
-      cy.get(".dropdown-toggle").click();
-      cy.get(".dropdown-item").first().click();
-    }
-  });
-});
-
-Then("I should see the quantity input field", () => {
-  cy.get('input[name*="quantity"], #quantity')
-    .should("be.visible")
-    .and("have.attr", "type", "number");
-});
-
-Then("a confirmation dialog should appear", () => {
-  cy.get(".modal, .dialog, [role='dialog'], .swal2-container").should(
-    "be.visible",
-  );
-});
-//edited here 4
-When("I click the {string} column header", (headerName) => {
-  cy.get("th").contains(headerName).click();
-});
-
-// FIX: Corrected .or() logic for Scenario 08
-Then("the sales should be sorted by {string}", (column) => {
-  cy.get("th")
-    .contains(column)
-    .should(($el) => {
-      const className = $el.attr("class") || "";
-      expect(className).to.match(/sorting_asc|sorting_desc/);
-    });
-});
-
-Then("I should see the sale in the sales list", () => {
-  cy.get("table tbody tr", { timeout: 10000 }).should(
-    "have.length.at.least",
-    1,
-  );
-});
-
-Then(
-  "the sales table should display only sales matching the search term",
-  () => {
-    cy.get("table tbody tr").each(($row) => {
-      cy.wrap($row).should("contain", "Rose");
-    });
-  },
-);
-
-// --- Dropdown & Selection ---
-
-When("I select a plant from the dropdown", () => {
-  // Wait for options to load, then pick the 2nd one (index 1)
-  // Index 0 is usually the "Select a Plant" placeholder
-  cy.get('select#plantId, select[name*="plant"]')
-    .should("be.visible")
-    .find("option")
-    .should("have.length.at.least", 2); // Ensure data is loaded
-
-  cy.get('select#plantId, select[name*="plant"]').select(1);
-});
-
-Then("the plant dropdown should contain available plants", () => {
-  cy.get('select#plantId, select[name*="plant"]')
-    .should("be.visible")
-    .find("option")
-    .should("have.length.at.least", 2);
 });
