@@ -94,6 +94,18 @@ When("I request {string} {string} with body:", (method, url, body) => {
     });
 });
 
+When("I send a POST request to {string} with body:", (url, docString) => {
+    cy.get('@authToken', { log: false }).then((authToken) => {
+        cy.request({
+            method: 'POST',
+            url: url,
+            headers: { 'Authorization': authToken },
+            body: JSON.parse(docString),
+            failOnStatusCode: false
+        }).as('response');
+    });
+});
+
 Then("the response status should be {int}", (statusCode) => {
     cy.get('@response').then((res) => {
         if (res.status !== statusCode) {
@@ -136,6 +148,34 @@ Then("the response body should contain {string}", (content) => {
     });
 });
 
+Then("the response body should not have {string} field", (fieldName) => {
+    cy.get('@response').then((response) => {
+        expect(response.body).to.not.have.property(fieldName);
+    });
+});
+
+Then("the response body {string} should be {string}", (path, value) => {
+    cy.get('@response').its(`body.${path}`).should('eq', value);
+});
+
+Then("the response body {string} should be {int}", (property, expectedVal) => {
+    cy.get('@response').its('body').then((body) => {
+        const actualVal = property.split('.').reduce((obj, key) => obj && obj[key], body);
+        expect(actualVal).to.eq(expectedVal);
+    });
+});
+
+Then(/the response body "([^"]+)" should be ([0-9]*\.[0-9]+)/, (path, value) => {
+    const num = parseFloat(value);
+    cy.get('@response').its(`body.${path}`).should('eq', num);
+});
+
+Then("the response body {string} should contain {string}", (field, value) => {
+    cy.get('@response').then((response) => {
+        expect(response.body[field]).to.include(value);
+    });
+});
+
 When("I capture the id as {string}", (alias) => {
     cy.get('@response').its('body.id').then((id) => {
         sharedState[alias] = id;
@@ -163,14 +203,14 @@ When("I request {string} {string} with {string} as {string} and body:", (method,
     let bodyWithTimestamp = body.replace(/{timestamp}/g, timestamp);
     try {
         const obj = JSON.parse(bodyWithTimestamp);
-            if (obj && obj.name) {
-                const templateMatch = body.match(/"name"\s*:\s*"([^"]*)"/);
-                const template = templateMatch ? templateMatch[1] : obj.name;
-                const ts = timestamp;
-                const candidate = template.replace('{timestamp}', ts.slice(-4));
-                obj.name = candidate.slice(0, 10);
-                bodyWithTimestamp = JSON.stringify(obj);
-            }
+        if (obj && obj.name) {
+            const templateMatch = body.match(/"name"\s*:\s*"([^"]*)"/);
+            const template = templateMatch ? templateMatch[1] : obj.name;
+            const ts = timestamp;
+            const candidate = template.replace('{timestamp}', ts.slice(-4));
+            obj.name = candidate.slice(0, 10);
+            bodyWithTimestamp = JSON.stringify(obj);
+        }
     } catch (e) {
         // ignore parse errors
     }
@@ -207,7 +247,6 @@ When("I request {string} {string} with body using {string} as {string}:", (metho
     try {
         const obj = JSON.parse(bodyWithReplacement);
         if (obj && obj.name) {
-            // Replace timestamp placeholder but keep a readable prefix where possible
             const templateMatch = body.match(/"name"\s*:\s*"([^"]*)"/);
             const template = templateMatch ? templateMatch[1] : obj.name;
             const ts = timestamp;
@@ -246,15 +285,19 @@ When("I request {string} {string} with body using {string} as {string}:", (metho
 Then("the response body {string} should match captured {string}", (property, alias) => {
     const expectedVal = sharedState[alias];
     cy.get('@response').its('body').then((body) => {
-        // Handle nested properties like 'category.id'
         const actualVal = property.split('.').reduce((obj, key) => obj && obj[key], body);
         expect(actualVal).to.eq(expectedVal);
     });
 });
 
-Then("the response body {string} should be {int}", (property, expectedVal) => {
-    cy.get('@response').its('body').then((body) => {
-        const actualVal = property.split('.').reduce((obj, key) => obj && obj[key], body);
-        expect(actualVal).to.eq(expectedVal);
+When("I POST a sale to {string} with quantity {int}", (url, qty) => {
+    const finalUrl = url.replace("{plantId}", sharedState.plantId || 1);
+    cy.get('@authToken', { log: false }).then((authToken) => {
+        cy.request({
+            method: 'POST',
+            url: finalUrl,
+            headers: { 'Authorization': authToken },
+            failOnStatusCode: false
+        }).as('response');
     });
 });
