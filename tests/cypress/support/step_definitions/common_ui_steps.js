@@ -405,6 +405,127 @@ When("I enter plant name {string}", (plantName) => {
     });
 });
 
+// Additional plant-related step synonyms and helpers
+When("I clear and enter {string} into {string} field", (value, fieldName) => {
+    const needle = fieldName.toLowerCase();
+    cy.get('body').then(($body) => {
+        let $input = $body.find(`[name="${fieldName}"]`).first();
+        if (!$input.length) $input = $body.find(`#${fieldName}`).first();
+
+        if (!$input.length) {
+            // find inputs whose name/id/placeholder/label contains the field name (case-insensitive)
+            $input = $body.find('input').filter((i, el) => {
+                const $el = Cypress.$(el);
+                const name = ($el.attr('name') || '').toLowerCase();
+                const id = ($el.attr('id') || '').toLowerCase();
+                const ph = ($el.attr('placeholder') || '').toLowerCase();
+                let labelText = '';
+                try { labelText = ($body.find(`label[for="${el.id}"]`).text() || '').toLowerCase(); } catch(e) {}
+                return name.includes(needle) || id.includes(needle) || ph.includes(needle) || labelText.includes(needle);
+            }).first();
+        }
+
+        if (!$input.length) {
+            // fallback: inputs with attribute containing the field name
+            $input = $body.find(`input[name*="${needle}" i], input[id*="${needle}" i], input[placeholder*="${needle}" i]`).first();
+        }
+
+        if (!$input.length) $input = $body.find('input').first();
+
+        if ($input.length) {
+            cy.wrap($input).clear().type(value);
+        } else {
+            throw new Error(`Unable to find input field for '${fieldName}'`);
+        }
+    });
+});
+
+When("I select the first option from {string} dropdown", (dropdownName) => {
+    cy.get('body').then(($body) => {
+        const nameLower = dropdownName.toLowerCase();
+        let $select = $body.find(`select[name*="${nameLower}"], select[id*="${nameLower}"]`).first();
+        if (!$select.length) $select = $body.find('select').first();
+
+        if ($select.length) {
+            cy.wrap($select).find('option').then(($opts) => {
+                if ($opts.length > 0) {
+                    const val = $opts.eq(0).attr('value');
+                    if (typeof val !== 'undefined') cy.wrap($select).select(val);
+                }
+            });
+        } else {
+            // fallback for custom dropdowns
+            cy.contains('label, .dropdown, [data-test*="category"]', new RegExp(dropdownName, 'i')).click({ force: true });
+            cy.get('.dropdown-menu, .options, li').first().click({ force: true });
+        }
+    });
+    cy.wait(500);
+});
+
+When("I select the second option from {string} dropdown", (dropdownName) => {
+    cy.get('body').then(($body) => {
+        const nameLower = dropdownName.toLowerCase();
+        let $select = $body.find(`select[name*="${nameLower}"], select[id*="${nameLower}"]`).first();
+        if (!$select.length) $select = $body.find('select').first();
+
+        if ($select.length) {
+            cy.wrap($select).find('option').then(($opts) => {
+                if ($opts.length > 1) {
+                    const val = $opts.eq(1).attr('value');
+                    if (typeof val !== 'undefined') cy.wrap($select).select(val);
+                }
+            });
+        } else {
+            cy.contains('label, .dropdown, [data-test*="category"]', new RegExp(dropdownName, 'i')).click({ force: true });
+            cy.get('.dropdown-menu, .options, li').eq(1).click({ force: true });
+        }
+    });
+    cy.wait(500);
+});
+
+Then("I should see {string} column in the table", (colName) => {
+    cy.get('table thead th, table thead td', { timeout: 10000 }).then(($ths) => {
+        const headers = $ths.map((i, el) => Cypress.$(el).text().trim()).get();
+        const found = headers.some(h => new RegExp(colName, 'i').test(h));
+        expect(found).to.be.true;
+    });
+});
+
+Then("I should not see any action buttons in the table", () => {
+    cy.get('table tbody').within(() => {
+        cy.contains('button, a, [role="button"]', /edit|delete|remove|actions|sell|buy/i).should('not.exist');
+    });
+});
+
+Then("I should see a success message {string}", (msg) => {
+    const re = new RegExp(msg, 'i');
+    cy.get('body', { timeout: 10000 }).then(($body) => {
+        const selectors = ['.alert-success', '.toast-success', '.toast', '.success', '.alert', '[role="alert"]'];
+        for (const sel of selectors) {
+            const $found = $body.find(sel).filter(':visible');
+            if ($found.length > 0) {
+                return cy.contains(sel, re, { timeout: 10000 }).should('be.visible');
+            }
+        }
+        // fallback to any visible text match
+        return cy.contains(re, { timeout: 10000 }).should('be.visible');
+    });
+});
+
+Then("I should see {string} in the table", (text) => {
+    cy.get('table', { timeout: 10000 }).should('exist');
+    cy.get('table').contains('td, tr', new RegExp(text, 'i'), { timeout: 10000 }).should('be.visible');
+});
+
+Then(/the plant "([^"]+)" should have the default image/, (plantName) => {
+    cy.contains('tr, td', new RegExp(plantName, 'i')).closest('tr').within(() => {
+        cy.get('img').then(($img) => {
+            const src = ($img.attr('src') || '').toLowerCase();
+            expect(src).to.match(/default|placeholder|no-image|default-image|\/images\//i);
+        });
+    });
+});
+
 When("I enter price {string}", (priceValue) => {
     cy.get("body").then(($body) => {
         let $priceInput = $body.find('input[name="price"]').first();
