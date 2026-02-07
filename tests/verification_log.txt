@@ -1,0 +1,1007 @@
+
+
+DevTools listening on ws://127.0.0.1:23975/devtools/browser/e7906f12-399b-4928-84e3-61fad22047b6
+
+====================================================================================================
+
+  (Run Starting)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Cypress:        13.13.0                                                                        │
+  │ Browser:        Electron 118 (headless)                                                        │
+  │ Node Version:   v24.13.0 (C:\Program Files\nodejs\node.exe)                                    │
+  │ Specs:          10 found (API/busines_logic/api.feature, API/dashboard/api.feature, API/plant/ │
+  │                 api.feature, API/sales/api.feature, UI/busines_logic/ui.feature, UI/category/u │
+  │                 i.feature, API/category/api.feature, UI/dashboard/ui.feature, UI/plant/ui.feat │
+  │                 ure, UI/sales/ui.feature)                                                      │
+  │ Searched:       **/*.feature                                                                   │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  API/busines_logic/api.feature                                                  (1 of 10)
+
+
+  API Business Logic & Boundary Tests - 214241H
+    √ API-BL-001 Admin creates plant with minimum valid price (0.01) (906ms)
+    √ API-BL-002 - Admin creates plant with exact minimum name length (3 chars) (284ms)
+    √ API-BL-003 Admin creates plant with maximum name length (25 chars) (242ms)
+    √ API-BL-004 Admin updates plant and verifies category remains associated (300ms)
+    √ API-BL-005 Verify plants are queryable by category ID (237ms)
+    √ API-BL-006 Admin verifies multiple plants exist in one category (294ms)
+    √ API-BL-007 Verify plant list returns consistent data structure (701ms)
+    √ API-BL-008 Verify total price calculation (quantity x price) (669ms)
+    √ API-BL-009 Verify inventory decrements correctly after multiple sales (374ms)
+    √ API-BL-010 Admin creates plant with special characters in name and verifies handling (317ms)
+
+
+  10 passing (5s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        10                                                                               │
+  │ Passing:      10                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     5 seconds                                                                        │
+  │ Spec Ran:     API/busines_logic/api.feature                                                    │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  API/dashboard/api.feature                                                      (2 of 10)
+
+
+  Dashboard & Data Integration - API Test
+    √ API-DI-E-001 Admin retrieves dashboard summary data (1010ms)
+    √ API-DI-E-002 Admin creates category hierarchy (312ms)
+    √ API-DI-E-003 Admin creates plant in sub-category (245ms)
+    √ API-DI-E-004 Admin validates plant-category relationship integrity (260ms)
+    √ API-DI-E-005 Admin records sale and verifies stock reduction (339ms)
+    √ API-DI-E-006 Admin retrieves complete sales history (205ms)
+    √ API-DI-E-007 Admin receives error for non-existent category (149ms)
+    √ API-DI-E-008 User retrieves dashboard data read-only (690ms)
+    √ API-DI-E-009 User prohibited from creating plant (178ms)
+    1) API-DI-E-010 Unsupported HTTP method handling
+
+
+  9 passing (5s)
+  1 failing
+
+  1) Dashboard & Data Integration - API Test
+       API-DI-E-010 Unsupported HTTP method handling:
+     Error: Expected status 405 but got 500. Response body:
+{
+  "status": 500,
+  "error": "INTERNAL_SERVER_ERROR",
+  "message": "Request method 'PUT' is not supported",
+  "timestamp": "2026-02-07T19:22:14.113641806"
+}
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\API\dashboard\api.feature:17497:19)
+
+
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        10                                                                               │
+  │ Passing:      9                                                                                │
+  │ Failing:      1                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  1                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     4 seconds                                                                        │
+  │ Spec Ran:     API/dashboard/api.feature                                                        │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\API\dashboard\api.     (1280x720)
+     feature\Dashboard & Data Integration - API Test -- API-DI-E-010 Unsupported HTTP               
+      method handling (failed).png                                                                  
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  API/plant/api.feature                                                          (3 of 10)
+
+
+  Plant Management - API Test
+    √ API-PM-001 Admin creates plant with valid data (265ms)
+    √ API-PM-002 Admin updates plant price and quantity (375ms)
+    √ API-PM-003 Admin deletes plant successfully (262ms)
+    √ API-PM-004 Validate negative price prevention (210ms)
+    √ API-PM-005 Prevent plant creation with invalid category (120ms)
+    √ API-PM-006 User retrieves all plants (553ms)
+    √ API-PM-007 User retrieves specific plant details (312ms)
+    √ API-PM-008 User prohibited from creating plants (306ms)
+    √ API-PM-009 User prohibited from updating plants (332ms)
+    √ API-PM-010 User prohibited from deleting plants (391ms)
+
+
+  10 passing (4s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        10                                                                               │
+  │ Passing:      10                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     3 seconds                                                                        │
+  │ Spec Ran:     API/plant/api.feature                                                            │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  API/sales/api.feature                                                          (4 of 10)
+
+
+  Sales Management - API Test
+    √ API-SM-E-001 Admin retrieves sales history (283ms)
+    √ API-SM-E-002 User retrieves sales history (257ms)
+    √ API-SM-E-003 Admin successfully creates a sale (227ms)
+    1) API-SM-E-004 User prohibited from creating a sale
+    √ API-SM-E-005 Sale creation fails with zero quantity (173ms)
+    √ API-SM-E-006 Sale creation fails with negative quantity (164ms)
+    √ API-SM-E-007 Sale creation fails on insufficient stock (131ms)
+    2) API-SM-E-008 Admin successfully deletes a sale
+    3) API-SM-E-009 User prohibited from deleting a sale
+
+
+  6 passing (3s)
+  3 failing
+
+  1) Sales Management - API Test
+       API-SM-E-004 User prohibited from creating a sale:
+     Error: Expected status 403 but got 201. Response body:
+{
+  "id": 202,
+  "plant": {
+    "id": 1,
+    "name": "Plant_60748",
+    "price": 50,
+    "quantity": 62,
+    "category": {
+      "id": 13,
+      "name": "Sub_60708",
+      "subCategories": []
+    }
+  },
+  "quantity": 1,
+  "totalPrice": 50,
+  "soldAt": "2026-02-07T19:22:23.443911282"
+}
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\API\sales\api.feature:17497:19)
+
+  2) Sales Management - API Test
+       API-SM-E-008 Admin successfully deletes a sale:
+     Error: Expected status 200 but got 204. Response body:
+""
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\API\sales\api.feature:17497:19)
+
+  3) Sales Management - API Test
+       API-SM-E-009 User prohibited from deleting a sale:
+     Error: Expected status 403 but got 204. Response body:
+""
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\API\sales\api.feature:17497:19)
+
+
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        9                                                                                │
+  │ Passing:      6                                                                                │
+  │ Failing:      3                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  3                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     3 seconds                                                                        │
+  │ Spec Ran:     API/sales/api.feature                                                            │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\API\sales\api.feat     (1280x720)
+     ure\Sales Management - API Test -- API-SM-E-004 User prohibited from creating a                
+     sale (failed).png                                                                              
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\API\sales\api.feat     (1280x720)
+     ure\Sales Management - API Test -- API-SM-E-008 Admin successfully deletes a sal               
+     e (failed).png                                                                                 
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\API\sales\api.feat     (1280x720)
+     ure\Sales Management - API Test -- API-SM-E-009 User prohibited from deleting a                
+     sale (failed).png                                                                              
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  UI/busines_logic/ui.feature                                                    (5 of 10)
+
+
+  UI - Business Logic & Functional Tests - Student 214241H
+    √ UI-01 Pagination - Plants (4642ms)
+    √ UI-02 Pagination - Categories (3060ms)
+    √ UI-03 Pagination - Sales (1914ms)
+    √ UI-04 Plant Search Clear (5071ms)
+    √ UI-05 Search Case-Insensitive (4190ms)
+    √ UI-06 No Results Message (2800ms)
+    √ UI-07 Category Filter + Search (3638ms)
+    √ UI-08 Form Validation Retains Data (3694ms)
+    √ UI-09 Validation Clears on Fix (3801ms)
+    1) UI-10 Browser Back / Duplicate Prevention
+
+
+  9 passing (45s)
+  1 failing
+
+  1) UI - Business Logic & Functional Tests - Student 214241H
+       UI-10 Browser Back / Duplicate Prevention:
+     AssertionError: Timed out retrying after 5000ms: Expected to find element: `table, .plants-list, [class*='plant'], main, .container`, but never found it.
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\UI\busines_logic\ui.feature:16561:97)
+
+
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        10                                                                               │
+  │ Passing:      9                                                                                │
+  │ Failing:      1                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  1                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     45 seconds                                                                       │
+  │ Spec Ran:     UI/busines_logic/ui.feature                                                      │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\UI\busines_logic\u     (1280x720)
+     i.feature\UI - Business Logic & Functional Tests - Student 214241H -- UI-10 Brow               
+     ser Back  Duplicate Prevention (failed).png                                                    
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  UI/category/ui.feature                                                         (6 of 10)
+
+
+  Category Management - UI Test
+    √ UI-CM-001 Add new category via UI (14620ms)
+    √ UI-CM-002 Validate category name length (3089ms)
+    √ UI-CM-003 View category hierarchy (2712ms)
+    1) UI-CM-004 Edit category via UI
+    √ UI-CM-005 Delete category via UI (12010ms)
+    √ UI-CM-006 Admin session persistence (2781ms)
+    √ UI-CM-007 Admin dashboard display (770ms)
+    √ UI-CM-008 User views categories only (4498ms)
+    √ UI-CM-009 Prevent direct admin URL access (995ms)
+    √ UI-CM-010 User dashboard navigation (792ms)
+
+
+  9 passing (56s)
+  1 failing
+
+  1) Category Management - UI Test
+       UI-CM-004 Edit category via UI:
+     CypressError: Timed out retrying after 4000ms: `cy.clear()` failed because the center of this element is hidden from view:
+
+`<input type="text" class="form-control" name="name" placeholder="Search sub category" value="">`
+
+Fix this problem, or use `{force: true}` to disable error checking.
+
+https://on.cypress.io/element-cannot-be-interacted-with
+      at ensureIsDescendent (http://localhost:8080/__cypress/runner/cypress_runner.js:112460:66)
+      at ensureDescendents (http://localhost:8080/__cypress/runner/cypress_runner.js:112496:5)
+      at ensureDescendentsAndScroll (http://localhost:8080/__cypress/runner/cypress_runner.js:112502:14)
+      at ensureElIsNotCovered (http://localhost:8080/__cypress/runner/cypress_runner.js:112633:5)
+      at runAllChecks (http://localhost:8080/__cypress/runner/cypress_runner.js:112832:52)
+      at retryActionability (http://localhost:8080/__cypress/runner/cypress_runner.js:112869:16)
+      at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1807:23)
+      at Promise.attempt.Promise.try (http://localhost:8080/__cypress/runner/cypress_runner.js:4315:29)
+      at whenStable (http://localhost:8080/__cypress/runner/cypress_runner.js:143646:68)
+      at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:143587:14)
+      at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1807:23)
+      at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1519:31)
+      at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1576:18)
+      at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1621:10)
+      at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1701:18)
+      at Promise._fulfill (http://localhost:8080/__cypress/runner/cypress_runner.js:1645:18)
+      at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:5450:46)
+  From Your Spec Code:
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\UI\category\ui.feature:17208:132)
+      at Registry.runStepDefininition (http://localhost:8080/__cypress/tests?p=cypress\e2e\UI\category\ui.feature:8551:48)
+      at Object.fn (http://localhost:8080/__cypress/tests?p=cypress\e2e\UI\category\ui.feature:15808:43)
+      at runStepWithLogGroup (http://localhost:8080/__cypress/tests?p=cypress\e2e\UI\category\ui.feature:15276:29)
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\UI\category\ui.feature:15804:62)
+
+
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        10                                                                               │
+  │ Passing:      9                                                                                │
+  │ Failing:      1                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  1                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     56 seconds                                                                       │
+  │ Spec Ran:     UI/category/ui.feature                                                           │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\UI\category\ui.fea     (1280x720)
+     ture\Category Management - UI Test -- UI-CM-004 Edit category via UI (failed).pn               
+     g                                                                                              
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  API/category/api.feature                                                       (7 of 10)
+
+
+  Category Management - API Test
+    √ API-CM-001 Admin creates category hierarchy (311ms)
+    √ API-CM-002 Validate category name length rules (295ms)
+    √ API-CM-003 Admin updates category with persistence (211ms)
+    √ API-CM-004 Parent deletion orphan handling (288ms)
+    √ API-CM-005 Required field enforcement (166ms)
+    √ API-CM-006 User retrieves category list (228ms)
+    √ API-CM-007 User retrieves single category (115ms)
+    √ API-CM-008 User prohibited from creating categories (111ms)
+    √ API-CM-009 User prohibited from updating categories (126ms)
+    √ API-CM-010 User prohibited from deleting categories (111ms)
+
+
+  10 passing (2s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        10                                                                               │
+  │ Passing:      10                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     2 seconds                                                                        │
+  │ Spec Ran:     API/category/api.feature                                                         │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  UI/dashboard/ui.feature                                                        (8 of 10)
+
+
+  Dashboard & Data Integration - UI Test
+    √ UI-ADM-E-01 Admin dashboard displays summary (1552ms)
+    √ UI-ADM-E-02 Admin navigates complete workflow (4811ms)
+    √ UI-ADM-E-03 Data tables display correctly (2189ms)
+    √ UI-ADM-E-04 Admin action buttons visible (2164ms)
+    √ UI-ADM-E-05 Admin session stability (2260ms)
+    √ UI-USR-E-01 User dashboard without admin actions (721ms)
+    √ UI-USR-E-02 User navigates read-only pages (2138ms)
+    √ UI-USR-E-03 User views tables without edit capabilities (2160ms)
+    √ UI-USR-E-04 User session stability (2209ms)
+    √ UI-USR-E-05 User browser navigation (2490ms)
+
+
+  10 passing (24s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        10                                                                               │
+  │ Passing:      10                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     23 seconds                                                                       │
+  │ Spec Ran:     UI/dashboard/ui.feature                                                          │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  UI/plant/ui.feature                                                            (9 of 10)
+
+
+  Plant Management - UI Test
+    √ UI-PM-001 Admin accesses plant management dashboard (3841ms)
+    1) UI-PM-002 Admin adds new plant via form
+    √ UI-PM-003 Plant form validates empty fields (1779ms)
+    √ UI-PM-004 Admin edits existing plant price (3370ms)
+    √ UI-PM-005 Admin deletes plant from list (4155ms)
+    √ UI-PM-006 User views plant listing page (1374ms)
+    √ UI-PM-007 User cannot see Add Plant button (1515ms)
+    √ UI-PM-008 User cannot see edit/delete actions (1542ms)
+    √ UI-PM-009 User blocked from plant addition URL (764ms)
+    2) UI-PM-010 Plant image default placeholder behavior
+
+
+  8 passing (1m)
+  2 failing
+
+  1) Plant Management - UI Test
+       UI-PM-002 Admin adds new plant via form:
+     AssertionError: Timed out retrying after 20000ms: Expected to find content: '/P02_/i' but never did.
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\UI\plant\ui.feature:16582:106)
+
+  2) Plant Management - UI Test
+       UI-PM-010 Plant image default placeholder behavior:
+     AssertionError: Timed out retrying after 20000ms: Expected to find content: '/P10_/i' but never did.
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\UI\plant\ui.feature:16582:106)
+
+
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        10                                                                               │
+  │ Passing:      8                                                                                │
+  │ Failing:      2                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  2                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     1 minute, 10 seconds                                                             │
+  │ Spec Ran:     UI/plant/ui.feature                                                              │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\UI\plant\ui.featur     (1280x720)
+     e\Plant Management - UI Test -- UI-PM-002 Admin adds new plant via form (failed)               
+     .png                                                                                           
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\UI\plant\ui.featur     (1280x720)
+     e\Plant Management - UI Test -- UI-PM-010 Plant image default placeholder behavi               
+     or (failed).png                                                                                
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  UI/sales/ui.feature                                                           (10 of 10)
+
+
+  Sales Management - UI Test
+    1) UI-SM-E-01 Admin sales page displays action buttons
+    2) UI-SM-E-02 User sales page hides action buttons
+    3) UI-SM-E-03 Admin completes successful sale via UI
+    4) UI-SM-E-04 Submit empty form shows validation error
+    5) UI-SM-E-05 Submit invalid quantity shows validation error
+    6) UI-SM-E-06 Delete sale shows confirmation popup
+    7) UI-SM-E-07 Sales list sorted by date descending
+    8) UI-SM-E-08 Empty sales list displays message
+    9) UI-SM-E-09 Sales list sorting by plant name
+    10) UI-SM-E-10 Admin cancels sale process
+
+
+  0 passing (14s)
+  10 failing
+
+  1) Sales Management - UI Test
+       UI-SM-E-01 Admin sales page displays action buttons:
+     Error: 
+Step implementation missing for "I should see "Delete" icon".
+
+We tried searching for files containing step definitions using the following search pattern templates:
+
+  - cypress/e2e/**/*.{js,ts}
+  - cypress/e2e/*/steps/**/*.{js,ts}
+  - cypress/support/pages/**/*.{js,ts}
+  - cypress/support/api/**/*.{js,ts}
+
+These templates resolved to the following search patterns:
+
+  - cypress\e2e\**\*.{js,ts}
+  - cypress\e2e\*\steps\**\*.{js,ts}
+  - cypress\support\pages\**\*.{js,ts}
+  - cypress\support\api\**\*.{js,ts}
+
+These patterns matched the following files:
+
+  - cypress\support\pages\sales_steps.js
+  - cypress\support\pages\plant_steps.js
+  - cypress\support\pages\login_steps.js
+  - cypress\support\pages\dashboard_steps.js
+  - cypress\support\pages\category_steps.js
+  - cypress\support\api\sales_api_steps.js
+  - cypress\support\api\plant_api_steps.js
+  - cypress\support\api\common_api_steps.js
+  - cypress\support\api\category_api_steps.js
+
+However, none of these files contained a step definition matching "I should see "Delete" icon".
+
+You can implement it using the suggestion(s) below.
+
+  Then("I should see {string} icon", function (string) {
+    return "pending";
+  });
+  
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\UI\sales\ui.feature:15822:29)
+
+  2) Sales Management - UI Test
+       UI-SM-E-02 User sales page hides action buttons:
+     Error: 
+Step implementation missing for "I should not see "Delete" icon".
+
+We tried searching for files containing step definitions using the following search pattern templates:
+
+  - cypress/e2e/**/*.{js,ts}
+  - cypress/e2e/*/steps/**/*.{js,ts}
+  - cypress/support/pages/**/*.{js,ts}
+  - cypress/support/api/**/*.{js,ts}
+
+These templates resolved to the following search patterns:
+
+  - cypress\e2e\**\*.{js,ts}
+  - cypress\e2e\*\steps\**\*.{js,ts}
+  - cypress\support\pages\**\*.{js,ts}
+  - cypress\support\api\**\*.{js,ts}
+
+These patterns matched the following files:
+
+  - cypress\support\pages\sales_steps.js
+  - cypress\support\pages\plant_steps.js
+  - cypress\support\pages\login_steps.js
+  - cypress\support\pages\dashboard_steps.js
+  - cypress\support\pages\category_steps.js
+  - cypress\support\api\sales_api_steps.js
+  - cypress\support\api\plant_api_steps.js
+  - cypress\support\api\common_api_steps.js
+  - cypress\support\api\category_api_steps.js
+
+However, none of these files contained a step definition matching "I should not see "Delete" icon".
+
+You can implement it using the suggestion(s) below.
+
+  Then("I should not see {string} icon", function (string) {
+    return "pending";
+  });
+  
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\UI\sales\ui.feature:15822:29)
+
+  3) Sales Management - UI Test
+       UI-SM-E-03 Admin completes successful sale via UI:
+     Error: 
+Step implementation missing for "I select the second option from the plant dropdown".
+
+We tried searching for files containing step definitions using the following search pattern templates:
+
+  - cypress/e2e/**/*.{js,ts}
+  - cypress/e2e/*/steps/**/*.{js,ts}
+  - cypress/support/pages/**/*.{js,ts}
+  - cypress/support/api/**/*.{js,ts}
+
+These templates resolved to the following search patterns:
+
+  - cypress\e2e\**\*.{js,ts}
+  - cypress\e2e\*\steps\**\*.{js,ts}
+  - cypress\support\pages\**\*.{js,ts}
+  - cypress\support\api\**\*.{js,ts}
+
+These patterns matched the following files:
+
+  - cypress\support\pages\sales_steps.js
+  - cypress\support\pages\plant_steps.js
+  - cypress\support\pages\login_steps.js
+  - cypress\support\pages\dashboard_steps.js
+  - cypress\support\pages\category_steps.js
+  - cypress\support\api\sales_api_steps.js
+  - cypress\support\api\plant_api_steps.js
+  - cypress\support\api\common_api_steps.js
+  - cypress\support\api\category_api_steps.js
+
+However, none of these files contained a step definition matching "I select the second option from the plant dropdown".
+
+You can implement it using the suggestion(s) below.
+
+  When("I select the second option from the plant dropdown", function () {
+    return "pending";
+  });
+  
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\UI\sales\ui.feature:15822:29)
+
+  4) Sales Management - UI Test
+       UI-SM-E-04 Submit empty form shows validation error:
+     Error: 
+Step implementation missing for "I click the "Submit" button".
+
+We tried searching for files containing step definitions using the following search pattern templates:
+
+  - cypress/e2e/**/*.{js,ts}
+  - cypress/e2e/*/steps/**/*.{js,ts}
+  - cypress/support/pages/**/*.{js,ts}
+  - cypress/support/api/**/*.{js,ts}
+
+These templates resolved to the following search patterns:
+
+  - cypress\e2e\**\*.{js,ts}
+  - cypress\e2e\*\steps\**\*.{js,ts}
+  - cypress\support\pages\**\*.{js,ts}
+  - cypress\support\api\**\*.{js,ts}
+
+These patterns matched the following files:
+
+  - cypress\support\pages\sales_steps.js
+  - cypress\support\pages\plant_steps.js
+  - cypress\support\pages\login_steps.js
+  - cypress\support\pages\dashboard_steps.js
+  - cypress\support\pages\category_steps.js
+  - cypress\support\api\sales_api_steps.js
+  - cypress\support\api\plant_api_steps.js
+  - cypress\support\api\common_api_steps.js
+  - cypress\support\api\category_api_steps.js
+
+However, none of these files contained a step definition matching "I click the "Submit" button".
+
+You can implement it using the suggestion(s) below.
+
+  When("I click the {string} button", function (string) {
+    return "pending";
+  });
+  
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\UI\sales\ui.feature:15822:29)
+
+  5) Sales Management - UI Test
+       UI-SM-E-05 Submit invalid quantity shows validation error:
+     Error: 
+Step implementation missing for "I select the second option from the plant dropdown".
+
+We tried searching for files containing step definitions using the following search pattern templates:
+
+  - cypress/e2e/**/*.{js,ts}
+  - cypress/e2e/*/steps/**/*.{js,ts}
+  - cypress/support/pages/**/*.{js,ts}
+  - cypress/support/api/**/*.{js,ts}
+
+These templates resolved to the following search patterns:
+
+  - cypress\e2e\**\*.{js,ts}
+  - cypress\e2e\*\steps\**\*.{js,ts}
+  - cypress\support\pages\**\*.{js,ts}
+  - cypress\support\api\**\*.{js,ts}
+
+These patterns matched the following files:
+
+  - cypress\support\pages\sales_steps.js
+  - cypress\support\pages\plant_steps.js
+  - cypress\support\pages\login_steps.js
+  - cypress\support\pages\dashboard_steps.js
+  - cypress\support\pages\category_steps.js
+  - cypress\support\api\sales_api_steps.js
+  - cypress\support\api\plant_api_steps.js
+  - cypress\support\api\common_api_steps.js
+  - cypress\support\api\category_api_steps.js
+
+However, none of these files contained a step definition matching "I select the second option from the plant dropdown".
+
+You can implement it using the suggestion(s) below.
+
+  When("I select the second option from the plant dropdown", function () {
+    return "pending";
+  });
+  
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\UI\sales\ui.feature:15822:29)
+
+  6) Sales Management - UI Test
+       UI-SM-E-06 Delete sale shows confirmation popup:
+     Error: 
+Step implementation missing for "I click the delete icon for the first sale".
+
+We tried searching for files containing step definitions using the following search pattern templates:
+
+  - cypress/e2e/**/*.{js,ts}
+  - cypress/e2e/*/steps/**/*.{js,ts}
+  - cypress/support/pages/**/*.{js,ts}
+  - cypress/support/api/**/*.{js,ts}
+
+These templates resolved to the following search patterns:
+
+  - cypress\e2e\**\*.{js,ts}
+  - cypress\e2e\*\steps\**\*.{js,ts}
+  - cypress\support\pages\**\*.{js,ts}
+  - cypress\support\api\**\*.{js,ts}
+
+These patterns matched the following files:
+
+  - cypress\support\pages\sales_steps.js
+  - cypress\support\pages\plant_steps.js
+  - cypress\support\pages\login_steps.js
+  - cypress\support\pages\dashboard_steps.js
+  - cypress\support\pages\category_steps.js
+  - cypress\support\api\sales_api_steps.js
+  - cypress\support\api\plant_api_steps.js
+  - cypress\support\api\common_api_steps.js
+  - cypress\support\api\category_api_steps.js
+
+However, none of these files contained a step definition matching "I click the delete icon for the first sale".
+
+You can implement it using the suggestion(s) below.
+
+  When("I click the delete icon for the first sale", function () {
+    return "pending";
+  });
+  
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\UI\sales\ui.feature:15822:29)
+
+  7) Sales Management - UI Test
+       UI-SM-E-07 Sales list sorted by date descending:
+     Error: 
+Step implementation missing for "the first row in the sales table should have the most recent date".
+
+We tried searching for files containing step definitions using the following search pattern templates:
+
+  - cypress/e2e/**/*.{js,ts}
+  - cypress/e2e/*/steps/**/*.{js,ts}
+  - cypress/support/pages/**/*.{js,ts}
+  - cypress/support/api/**/*.{js,ts}
+
+These templates resolved to the following search patterns:
+
+  - cypress\e2e\**\*.{js,ts}
+  - cypress\e2e\*\steps\**\*.{js,ts}
+  - cypress\support\pages\**\*.{js,ts}
+  - cypress\support\api\**\*.{js,ts}
+
+These patterns matched the following files:
+
+  - cypress\support\pages\sales_steps.js
+  - cypress\support\pages\plant_steps.js
+  - cypress\support\pages\login_steps.js
+  - cypress\support\pages\dashboard_steps.js
+  - cypress\support\pages\category_steps.js
+  - cypress\support\api\sales_api_steps.js
+  - cypress\support\api\plant_api_steps.js
+  - cypress\support\api\common_api_steps.js
+  - cypress\support\api\category_api_steps.js
+
+However, none of these files contained a step definition matching "the first row in the sales table should have the most recent date".
+
+You can implement it using the suggestion(s) below.
+
+  Then("the first row in the sales table should have the most recent date", function () {
+    return "pending";
+  });
+  
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\UI\sales\ui.feature:15822:29)
+
+  8) Sales Management - UI Test
+       UI-SM-E-08 Empty sales list displays message:
+     Error: 
+Step implementation missing for "I navigate to a state with no sales".
+
+We tried searching for files containing step definitions using the following search pattern templates:
+
+  - cypress/e2e/**/*.{js,ts}
+  - cypress/e2e/*/steps/**/*.{js,ts}
+  - cypress/support/pages/**/*.{js,ts}
+  - cypress/support/api/**/*.{js,ts}
+
+These templates resolved to the following search patterns:
+
+  - cypress\e2e\**\*.{js,ts}
+  - cypress\e2e\*\steps\**\*.{js,ts}
+  - cypress\support\pages\**\*.{js,ts}
+  - cypress\support\api\**\*.{js,ts}
+
+These patterns matched the following files:
+
+  - cypress\support\pages\sales_steps.js
+  - cypress\support\pages\plant_steps.js
+  - cypress\support\pages\login_steps.js
+  - cypress\support\pages\dashboard_steps.js
+  - cypress\support\pages\category_steps.js
+  - cypress\support\api\sales_api_steps.js
+  - cypress\support\api\plant_api_steps.js
+  - cypress\support\api\common_api_steps.js
+  - cypress\support\api\category_api_steps.js
+
+However, none of these files contained a step definition matching "I navigate to a state with no sales".
+
+You can implement it using the suggestion(s) below.
+
+  When("I navigate to a state with no sales", function () {
+    return "pending";
+  });
+  
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\UI\sales\ui.feature:15822:29)
+
+  9) Sales Management - UI Test
+       UI-SM-E-09 Sales list sorting by plant name:
+     Error: 
+Step implementation missing for "I click the column header "Plant name"".
+
+We tried searching for files containing step definitions using the following search pattern templates:
+
+  - cypress/e2e/**/*.{js,ts}
+  - cypress/e2e/*/steps/**/*.{js,ts}
+  - cypress/support/pages/**/*.{js,ts}
+  - cypress/support/api/**/*.{js,ts}
+
+These templates resolved to the following search patterns:
+
+  - cypress\e2e\**\*.{js,ts}
+  - cypress\e2e\*\steps\**\*.{js,ts}
+  - cypress\support\pages\**\*.{js,ts}
+  - cypress\support\api\**\*.{js,ts}
+
+These patterns matched the following files:
+
+  - cypress\support\pages\sales_steps.js
+  - cypress\support\pages\plant_steps.js
+  - cypress\support\pages\login_steps.js
+  - cypress\support\pages\dashboard_steps.js
+  - cypress\support\pages\category_steps.js
+  - cypress\support\api\sales_api_steps.js
+  - cypress\support\api\plant_api_steps.js
+  - cypress\support\api\common_api_steps.js
+  - cypress\support\api\category_api_steps.js
+
+However, none of these files contained a step definition matching "I click the column header "Plant name"".
+
+You can implement it using the suggestion(s) below.
+
+  When("I click the column header {string}", function (string) {
+    return "pending";
+  });
+  
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\UI\sales\ui.feature:15822:29)
+
+  10) Sales Management - UI Test
+       UI-SM-E-10 Admin cancels sale process:
+     Error: 
+Step implementation missing for "I click the "Cancel" button".
+
+We tried searching for files containing step definitions using the following search pattern templates:
+
+  - cypress/e2e/**/*.{js,ts}
+  - cypress/e2e/*/steps/**/*.{js,ts}
+  - cypress/support/pages/**/*.{js,ts}
+  - cypress/support/api/**/*.{js,ts}
+
+These templates resolved to the following search patterns:
+
+  - cypress\e2e\**\*.{js,ts}
+  - cypress\e2e\*\steps\**\*.{js,ts}
+  - cypress\support\pages\**\*.{js,ts}
+  - cypress\support\api\**\*.{js,ts}
+
+These patterns matched the following files:
+
+  - cypress\support\pages\sales_steps.js
+  - cypress\support\pages\plant_steps.js
+  - cypress\support\pages\login_steps.js
+  - cypress\support\pages\dashboard_steps.js
+  - cypress\support\pages\category_steps.js
+  - cypress\support\api\sales_api_steps.js
+  - cypress\support\api\plant_api_steps.js
+  - cypress\support\api\common_api_steps.js
+  - cypress\support\api\category_api_steps.js
+
+However, none of these files contained a step definition matching "I click the "Cancel" button".
+
+You can implement it using the suggestion(s) below.
+
+  When("I click the {string} button", function (string) {
+    return "pending";
+  });
+  
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\UI\sales\ui.feature:15822:29)
+
+
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        10                                                                               │
+  │ Passing:      0                                                                                │
+  │ Failing:      10                                                                               │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  10                                                                               │
+  │ Video:        false                                                                            │
+  │ Duration:     14 seconds                                                                       │
+  │ Spec Ran:     UI/sales/ui.feature                                                              │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\UI\sales\ui.featur     (1280x720)
+     e\Sales Management - UI Test -- UI-SM-E-01 Admin sales page displays action butt               
+     ons (failed).png                                                                               
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\UI\sales\ui.featur     (1280x720)
+     e\Sales Management - UI Test -- UI-SM-E-02 User sales page hides action buttons                
+     (failed).png                                                                                   
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\UI\sales\ui.featur     (1280x720)
+     e\Sales Management - UI Test -- UI-SM-E-03 Admin completes successful sale via U               
+     I (failed).png                                                                                 
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\UI\sales\ui.featur     (1280x720)
+     e\Sales Management - UI Test -- UI-SM-E-04 Submit empty form shows validation er               
+     ror (failed).png                                                                               
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\UI\sales\ui.featur     (1280x720)
+     e\Sales Management - UI Test -- UI-SM-E-05 Submit invalid quantity shows validat               
+     ion error (failed).png                                                                         
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\UI\sales\ui.featur     (1280x720)
+     e\Sales Management - UI Test -- UI-SM-E-06 Delete sale shows confirmation popup                
+     (failed).png                                                                                   
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\UI\sales\ui.featur     (1280x720)
+     e\Sales Management - UI Test -- UI-SM-E-07 Sales list sorted by date descending                
+     (failed).png                                                                                   
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\UI\sales\ui.featur     (1280x720)
+     e\Sales Management - UI Test -- UI-SM-E-08 Empty sales list displays message (fa               
+     iled).png                                                                                      
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\UI\sales\ui.featur     (1280x720)
+     e\Sales Management - UI Test -- UI-SM-E-09 Sales list sorting by plant name (fai               
+     led).png                                                                                       
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\UI\sales\ui.featur     (1280x720)
+     e\Sales Management - UI Test -- UI-SM-E-10 Admin cancels sale process (failed).p               
+     ng                                                                                             
+
+
+====================================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped  
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ √  API/busines_logic/api.feature            00:05       10       10        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ×  API/dashboard/api.feature                00:04       10        9        1        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ √  API/plant/api.feature                    00:03       10       10        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ×  API/sales/api.feature                    00:03        9        6        3        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ×  UI/busines_logic/ui.feature              00:45       10        9        1        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ×  UI/category/ui.feature                   00:56       10        9        1        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ √  API/category/api.feature                 00:02       10       10        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ √  UI/dashboard/ui.feature                  00:23       10       10        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ×  UI/plant/ui.feature                      01:10       10        8        2        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ×  UI/sales/ui.feature                      00:14       10        -       10        -        - │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+    ×  6 of 10 failed (60%)                     03:48       99       81       18        -        -  
+

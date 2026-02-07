@@ -1,0 +1,663 @@
+
+
+DevTools listening on ws://127.0.0.1:30747/devtools/browser/a9e46fd2-bbaa-4510-a4b2-762879291d02
+
+====================================================================================================
+
+  (Run Starting)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Cypress:        13.13.0                                                                        │
+  │ Browser:        Electron 118 (headless)                                                        │
+  │ Node Version:   v24.13.0 (C:\Program Files\nodejs\node.exe)                                    │
+  │ Specs:          10 found (API/busines_logic/api.feature, API/category/api.feature, API/dashboa │
+  │                 rd/api.feature, API/plant/api.feature, UI/busines_logic/ui.feature, API/sales/ │
+  │                 api.feature, UI/category/ui.feature, UI/dashboard/ui.feature, UI/plant/ui.feat │
+  │                 ure, UI/sales/ui.feature)                                                      │
+  │ Searched:       **/*.feature                                                                   │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  API/busines_logic/api.feature                                                  (1 of 10)
+
+
+  API Business Logic & Boundary Tests - 214241H
+    √ API-BL-001 Admin creates plant with minimum valid price (0.01) (2614ms)
+    √ API-BL-002 - Admin creates plant with exact minimum name length (3 chars) (349ms)
+    √ API-BL-003 Admin creates plant with maximum name length (25 chars) (273ms)
+    √ API-BL-004 Admin updates plant and verifies category remains associated (494ms)
+    √ API-BL-005 Verify plants are queryable by category ID (289ms)
+    √ API-BL-006 Admin verifies multiple plants exist in one category (595ms)
+    √ API-BL-007 Verify plant list returns consistent data structure (1092ms)
+    √ API-BL-008 Verify total price calculation (quantity x price) (447ms)
+    √ API-BL-009 Verify inventory decrements correctly after multiple sales (454ms)
+    √ API-BL-010 Admin creates plant with special characters in name and verifies handling (283ms)
+
+
+  10 passing (7s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        10                                                                               │
+  │ Passing:      10                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     7 seconds                                                                        │
+  │ Spec Ran:     API/busines_logic/api.feature                                                    │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  API/category/api.feature                                                       (2 of 10)
+
+
+  Category Management - API Test
+    √ API-CM-001 Admin creates category hierarchy (460ms)
+    √ API-CM-002 Validate category name length rules (531ms)
+    √ API-CM-003 Admin updates category with persistence (243ms)
+    √ API-CM-004 Parent deletion orphan handling (322ms)
+    √ API-CM-005 Required field enforcement (191ms)
+    √ API-CM-006 User retrieves category list (232ms)
+    √ API-CM-007 User retrieves single category (114ms)
+    √ API-CM-008 User prohibited from creating categories (108ms)
+    √ API-CM-009 User prohibited from updating categories (294ms)
+    √ API-CM-010 User prohibited from deleting categories (104ms)
+
+
+  10 passing (3s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        10                                                                               │
+  │ Passing:      10                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     2 seconds                                                                        │
+  │ Spec Ran:     API/category/api.feature                                                         │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  API/dashboard/api.feature                                                      (3 of 10)
+
+
+  Dashboard & Data Integration - API Test
+    √ API-DI-E-001 Admin retrieves dashboard summary data (802ms)
+    √ API-DI-E-002 Admin creates category hierarchy (320ms)
+    √ API-DI-E-003 Admin creates plant in sub-category (266ms)
+    √ API-DI-E-004 Admin validates plant-category relationship integrity (224ms)
+    √ API-DI-E-005 Admin records sale and verifies stock reduction (300ms)
+    √ API-DI-E-006 Admin retrieves complete sales history (227ms)
+    √ API-DI-E-007 Admin receives error for non-existent category (132ms)
+    √ API-DI-E-008 User retrieves dashboard data read-only (627ms)
+    √ API-DI-E-009 User prohibited from creating plant (107ms)
+    1) API-DI-E-010 Unsupported HTTP method handling
+
+
+  9 passing (4s)
+  1 failing
+
+  1) Dashboard & Data Integration - API Test
+       API-DI-E-010 Unsupported HTTP method handling:
+     Error: Expected status 405 but got 500. Response body:
+{
+  "status": 500,
+  "error": "INTERNAL_SERVER_ERROR",
+  "message": "Request method 'PUT' is not supported",
+  "timestamp": "2026-02-07T19:18:43.260911188"
+}
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\API\dashboard\api.feature:17497:19)
+
+
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        10                                                                               │
+  │ Passing:      9                                                                                │
+  │ Failing:      1                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  1                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     3 seconds                                                                        │
+  │ Spec Ran:     API/dashboard/api.feature                                                        │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\API\dashboard\api.     (1280x720)
+     feature\Dashboard & Data Integration - API Test -- API-DI-E-010 Unsupported HTTP               
+      method handling (failed).png                                                                  
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  API/plant/api.feature                                                          (4 of 10)
+
+
+  Plant Management - API Test
+    √ API-PM-001 Admin creates plant with valid data (321ms)
+    √ API-PM-002 Admin updates plant price and quantity (266ms)
+    √ API-PM-003 Admin deletes plant successfully (244ms)
+    √ API-PM-004 Validate negative price prevention (182ms)
+    √ API-PM-005 Prevent plant creation with invalid category (121ms)
+    √ API-PM-006 User retrieves all plants (527ms)
+    √ API-PM-007 User retrieves specific plant details (363ms)
+    √ API-PM-008 User prohibited from creating plants (407ms)
+    √ API-PM-009 User prohibited from updating plants (401ms)
+    √ API-PM-010 User prohibited from deleting plants (267ms)
+
+
+  10 passing (3s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        10                                                                               │
+  │ Passing:      10                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     3 seconds                                                                        │
+  │ Spec Ran:     API/plant/api.feature                                                            │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  UI/busines_logic/ui.feature                                                    (5 of 10)
+
+
+  UI - Business Logic & Functional Tests - Student 214241H
+    √ UI-01 Pagination - Plants (8775ms)
+    √ UI-02 Pagination - Categories (16546ms)
+    √ UI-03 Pagination - Sales (1981ms)
+    √ UI-04 Plant Search Clear (4264ms)
+    √ UI-05 Search Case-Insensitive (5342ms)
+    √ UI-06 No Results Message (3135ms)
+    √ UI-07 Category Filter + Search (3303ms)
+    √ UI-08 Form Validation Retains Data (3593ms)
+    √ UI-09 Validation Clears on Fix (3442ms)
+    1) UI-10 Browser Back / Duplicate Prevention
+
+
+  9 passing (1m)
+  1 failing
+
+  1) UI - Business Logic & Functional Tests - Student 214241H
+       UI-10 Browser Back / Duplicate Prevention:
+     AssertionError: Timed out retrying after 5000ms: Expected to find element: `table, .plants-list, [class*='plant'], main, .container`, but never found it.
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\UI\busines_logic\ui.feature:16561:97)
+
+
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        10                                                                               │
+  │ Passing:      9                                                                                │
+  │ Failing:      1                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  1                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     1 minute, 1 second                                                               │
+  │ Spec Ran:     UI/busines_logic/ui.feature                                                      │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\UI\busines_logic\u     (1280x720)
+     i.feature\UI - Business Logic & Functional Tests - Student 214241H -- UI-10 Brow               
+     ser Back  Duplicate Prevention (failed).png                                                    
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  API/sales/api.feature                                                          (6 of 10)
+
+
+  Sales Management - API Test
+    √ API-SM-E-001 Admin retrieves sales history (253ms)
+    √ API-SM-E-002 User retrieves sales history (182ms)
+    √ API-SM-E-003 Admin successfully creates a sale (198ms)
+    1) API-SM-E-004 User prohibited from creating a sale
+    √ API-SM-E-005 Sale creation fails with zero quantity (132ms)
+    √ API-SM-E-006 Sale creation fails with negative quantity (118ms)
+    √ API-SM-E-007 Sale creation fails on insufficient stock (125ms)
+    2) API-SM-E-008 Admin successfully deletes a sale
+    3) API-SM-E-009 User prohibited from deleting a sale
+
+
+  6 passing (2s)
+  3 failing
+
+  1) Sales Management - API Test
+       API-SM-E-004 User prohibited from creating a sale:
+     Error: Expected status 403 but got 201. Response body:
+{
+  "id": 194,
+  "plant": {
+    "id": 1,
+    "name": "Plant_60748",
+    "price": 50,
+    "quantity": 67,
+    "category": {
+      "id": 13,
+      "name": "Sub_60708",
+      "subCategories": []
+    }
+  },
+  "quantity": 1,
+  "totalPrice": 50,
+  "soldAt": "2026-02-07T19:19:55.991201917"
+}
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\API\sales\api.feature:17497:19)
+
+  2) Sales Management - API Test
+       API-SM-E-008 Admin successfully deletes a sale:
+     Error: Expected status 200 but got 204. Response body:
+""
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\API\sales\api.feature:17497:19)
+
+  3) Sales Management - API Test
+       API-SM-E-009 User prohibited from deleting a sale:
+     Error: Expected status 403 but got 204. Response body:
+""
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\API\sales\api.feature:17497:19)
+
+
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        9                                                                                │
+  │ Passing:      6                                                                                │
+  │ Failing:      3                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  3                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     2 seconds                                                                        │
+  │ Spec Ran:     API/sales/api.feature                                                            │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\API\sales\api.feat     (1280x720)
+     ure\Sales Management - API Test -- API-SM-E-004 User prohibited from creating a                
+     sale (failed).png                                                                              
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\API\sales\api.feat     (1280x720)
+     ure\Sales Management - API Test -- API-SM-E-008 Admin successfully deletes a sal               
+     e (failed).png                                                                                 
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\API\sales\api.feat     (1280x720)
+     ure\Sales Management - API Test -- API-SM-E-009 User prohibited from deleting a                
+     sale (failed).png                                                                              
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  UI/category/ui.feature                                                         (7 of 10)
+
+
+  Category Management - UI Test
+    √ UI-CM-001 Add new category via UI (12375ms)
+    √ UI-CM-002 Validate category name length (3000ms)
+    √ UI-CM-003 View category hierarchy (1425ms)
+    1) UI-CM-004 Edit category via UI
+    √ UI-CM-005 Delete category via UI (11995ms)
+    √ UI-CM-006 Admin session persistence (3325ms)
+    √ UI-CM-007 Admin dashboard display (738ms)
+    √ UI-CM-008 User views categories only (1752ms)
+    √ UI-CM-009 Prevent direct admin URL access (686ms)
+    √ UI-CM-010 User dashboard navigation (705ms)
+
+
+  9 passing (51s)
+  1 failing
+
+  1) Category Management - UI Test
+       UI-CM-004 Edit category via UI:
+     CypressError: Timed out retrying after 4000ms: `cy.clear()` failed because the center of this element is hidden from view:
+
+`<input type="text" class="form-control" name="name" placeholder="Search sub category" value="">`
+
+Fix this problem, or use `{force: true}` to disable error checking.
+
+https://on.cypress.io/element-cannot-be-interacted-with
+      at ensureIsDescendent (http://localhost:8080/__cypress/runner/cypress_runner.js:112460:66)
+      at ensureDescendents (http://localhost:8080/__cypress/runner/cypress_runner.js:112496:5)
+      at ensureDescendentsAndScroll (http://localhost:8080/__cypress/runner/cypress_runner.js:112502:14)
+      at ensureElIsNotCovered (http://localhost:8080/__cypress/runner/cypress_runner.js:112633:5)
+      at runAllChecks (http://localhost:8080/__cypress/runner/cypress_runner.js:112832:52)
+      at retryActionability (http://localhost:8080/__cypress/runner/cypress_runner.js:112869:16)
+      at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1807:23)
+      at Promise.attempt.Promise.try (http://localhost:8080/__cypress/runner/cypress_runner.js:4315:29)
+      at whenStable (http://localhost:8080/__cypress/runner/cypress_runner.js:143646:68)
+      at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:143587:14)
+      at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1807:23)
+      at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1519:31)
+      at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1576:18)
+      at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1621:10)
+      at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1701:18)
+      at Promise._fulfill (http://localhost:8080/__cypress/runner/cypress_runner.js:1645:18)
+      at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:5450:46)
+  From Your Spec Code:
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\UI\category\ui.feature:17208:132)
+      at Registry.runStepDefininition (http://localhost:8080/__cypress/tests?p=cypress\e2e\UI\category\ui.feature:8551:48)
+      at Object.fn (http://localhost:8080/__cypress/tests?p=cypress\e2e\UI\category\ui.feature:15808:43)
+      at runStepWithLogGroup (http://localhost:8080/__cypress/tests?p=cypress\e2e\UI\category\ui.feature:15276:29)
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\UI\category\ui.feature:15804:62)
+
+
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        10                                                                               │
+  │ Passing:      9                                                                                │
+  │ Failing:      1                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  1                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     50 seconds                                                                       │
+  │ Spec Ran:     UI/category/ui.feature                                                           │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\UI\category\ui.fea     (1280x720)
+     ture\Category Management - UI Test -- UI-CM-004 Edit category via UI (failed).pn               
+     g                                                                                              
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  UI/dashboard/ui.feature                                                        (8 of 10)
+
+
+  Dashboard & Data Integration - UI Test
+    √ UI-ADM-E-01 Admin dashboard displays summary (1381ms)
+    √ UI-ADM-E-02 Admin navigates complete workflow (2874ms)
+    √ UI-ADM-E-03 Data tables display correctly (2010ms)
+    √ UI-ADM-E-04 Admin action buttons visible (2282ms)
+    √ UI-ADM-E-05 Admin session stability (4169ms)
+    √ UI-USR-E-01 User dashboard without admin actions (685ms)
+    √ UI-USR-E-02 User navigates read-only pages (3330ms)
+    √ UI-USR-E-03 User views tables without edit capabilities (2169ms)
+    √ UI-USR-E-04 User session stability (2222ms)
+    √ UI-USR-E-05 User browser navigation (3284ms)
+
+
+  10 passing (25s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        10                                                                               │
+  │ Passing:      10                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     24 seconds                                                                       │
+  │ Spec Ran:     UI/dashboard/ui.feature                                                          │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  UI/plant/ui.feature                                                            (9 of 10)
+
+
+  Plant Management - UI Test
+    √ UI-PM-001 Admin accesses plant management dashboard (2707ms)
+    1) UI-PM-002 Admin adds new plant via form
+    √ UI-PM-003 Plant form validates empty fields (12053ms)
+    √ UI-PM-004 Admin edits existing plant price (2890ms)
+    √ UI-PM-005 Admin deletes plant from list (5005ms)
+    √ UI-PM-006 User views plant listing page (2073ms)
+    √ UI-PM-007 User cannot see Add Plant button (1588ms)
+    √ UI-PM-008 User cannot see edit/delete actions (1410ms)
+    √ UI-PM-009 User blocked from plant addition URL (780ms)
+    2) UI-PM-010 Plant image default placeholder behavior
+
+
+  8 passing (1m)
+  2 failing
+
+  1) Plant Management - UI Test
+       UI-PM-002 Admin adds new plant via form:
+     AssertionError: Timed out retrying after 20000ms: Expected to find content: '/P02_/i' but never did.
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\UI\plant\ui.feature:16582:106)
+
+  2) Plant Management - UI Test
+       UI-PM-010 Plant image default placeholder behavior:
+     AssertionError: Timed out retrying after 20000ms: Expected to find content: '/P10_/i' but never did.
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\UI\plant\ui.feature:16582:106)
+
+
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        10                                                                               │
+  │ Passing:      8                                                                                │
+  │ Failing:      2                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  2                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     1 minute, 17 seconds                                                             │
+  │ Spec Ran:     UI/plant/ui.feature                                                              │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\UI\plant\ui.featur     (1280x720)
+     e\Plant Management - UI Test -- UI-PM-002 Admin adds new plant via form (failed)               
+     .png                                                                                           
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\UI\plant\ui.featur     (1280x720)
+     e\Plant Management - UI Test -- UI-PM-010 Plant image default placeholder behavi               
+     or (failed).png                                                                                
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  UI/sales/ui.feature                                                           (10 of 10)
+
+
+  Sales Management - UI Test
+    1) UI-SM-E-01 Admin sales page displays action buttons
+    2) "after each" hook: __allure_report_system_hook__ for "UI-SM-E-01 Admin sales page displays action buttons"
+
+  3) "after all" hook: __allure_report_system_hook__ for "UI-SM-E-01 Admin sales page displays action buttons"
+
+  0 passing (2s)
+  3 failing
+
+  1) Sales Management - UI Test
+       UI-SM-E-01 Admin sales page displays action buttons:
+     Error: 
+Step implementation missing for "I should see "Delete" icon".
+
+We tried searching for files containing step definitions using the following search pattern templates:
+
+  - cypress/e2e/**/*.{js,ts}
+  - cypress/e2e/*/steps/**/*.{js,ts}
+  - cypress/support/pages/**/*.{js,ts}
+  - cypress/support/api/**/*.{js,ts}
+
+These templates resolved to the following search patterns:
+
+  - cypress\e2e\**\*.{js,ts}
+  - cypress\e2e\*\steps\**\*.{js,ts}
+  - cypress\support\pages\**\*.{js,ts}
+  - cypress\support\api\**\*.{js,ts}
+
+These patterns matched the following files:
+
+  - cypress\support\pages\sales_steps.js
+  - cypress\support\pages\plant_steps.js
+  - cypress\support\pages\login_steps.js
+  - cypress\support\pages\dashboard_steps.js
+  - cypress\support\pages\category_steps.js
+  - cypress\support\api\sales_api_steps.js
+  - cypress\support\api\plant_api_steps.js
+  - cypress\support\api\common_api_steps.js
+  - cypress\support\api\category_api_steps.js
+
+However, none of these files contained a step definition matching "I should see "Delete" icon".
+
+You can implement it using the suggestion(s) below.
+
+  Then("I should see {string} icon", function (string) {
+    return "pending";
+  });
+  
+      at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\e2e\UI\sales\ui.feature:15822:29)
+
+  2) Sales Management - UI Test
+       "after each" hook: __allure_report_system_hook__ for "UI-SM-E-01 Admin sales page displays action buttons":
+     CypressError: `cy.task('reportAllureCypressSpecMessages')` failed with the following error:
+
+The task 'reportAllureCypressSpecMessages' was not handled in the setupNodeEvents method. The following tasks are registered: cypress-cucumber-preprocessor:spec-envelopes, cypress-cucumber-preprocessor:test-case-started, cypress-cucumber-preprocessor:test-step-started, cypress-cucumber-preprocessor:test-step-finished, cypress-cucumber-preprocessor:test-case-finished, cypress-cucumber-preprocessor:create-string-attachment
+
+Fix this in your setupNodeEvents method here:
+E:\Project\qa\ITFac-Batch21-Group36\tests\cypress.config.js
+
+https://on.cypress.io/api/task
+
+Because this error occurred during a `after each` hook we are skipping all of the remaining tests.
+      at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:135017:72)
+      at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1807:23)
+      at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1519:31)
+      at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1576:18)
+      at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1621:10)
+      at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1697:18)
+      at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2407:12)
+      at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2400:9)
+      at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2416:5)
+      at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2286:14)
+  From Your Spec Code:
+      at dt.flushAllureMessagesToTask (http://localhost:8080/__cypress/tests?p=cypress\support\e2e.js:609:22)
+      at Context.ut (http://localhost:8080/__cypress/tests?p=cypress\support\e2e.js:715:23)
+
+  3) Sales Management - UI Test
+       "after all" hook: __allure_report_system_hook__ for "UI-SM-E-01 Admin sales page displays action buttons":
+     CypressError: `cy.task('reportAllureCypressSpecMessages')` failed with the following error:
+
+The task 'reportAllureCypressSpecMessages' was not handled in the setupNodeEvents method. The following tasks are registered: cypress-cucumber-preprocessor:spec-envelopes, cypress-cucumber-preprocessor:test-case-started, cypress-cucumber-preprocessor:test-step-started, cypress-cucumber-preprocessor:test-step-finished, cypress-cucumber-preprocessor:test-case-finished, cypress-cucumber-preprocessor:create-string-attachment
+
+Fix this in your setupNodeEvents method here:
+E:\Project\qa\ITFac-Batch21-Group36\tests\cypress.config.js
+
+https://on.cypress.io/api/task
+
+Because this error occurred during a `after all` hook we are skipping all of the remaining tests.
+      at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:135017:72)
+      at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1807:23)
+      at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1519:31)
+      at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1576:18)
+      at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1621:10)
+      at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1697:18)
+      at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2407:12)
+      at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2400:9)
+      at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2416:5)
+      at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2286:14)
+  From Your Spec Code:
+      at dt.flushAllureMessagesToTask (http://localhost:8080/__cypress/tests?p=cypress\support\e2e.js:609:22)
+      at ut (http://localhost:8080/__cypress/tests?p=cypress\support\e2e.js:715:23)
+      at Context.Or (http://localhost:8080/__cypress/tests?p=cypress\support\e2e.js:453:5)
+
+
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        10                                                                               │
+  │ Passing:      0                                                                                │
+  │ Failing:      1                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      9                                                                                │
+  │ Screenshots:  3                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     2 seconds                                                                        │
+  │ Spec Ran:     UI/sales/ui.feature                                                              │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\UI\sales\ui.featur     (1280x720)
+     e\Sales Management - UI Test -- UI-SM-E-01 Admin sales page displays action butt               
+     ons (failed).png                                                                               
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\UI\sales\ui.featur     (1280x720)
+     e\UI-SM-E-01 Admin sales page displays action buttons -- after each hook __allur               
+     e_report_system_hook__ (failed).png                                                            
+  -  E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\screenshots\UI\sales\ui.featur     (1280x720)
+     e\UI-SM-E-01 Admin sales page displays action buttons -- after all hook __allure               
+     _report_system_hook__ (failed).png                                                             
+
+
+====================================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped  
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ √  API/busines_logic/api.feature            00:07       10       10        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ √  API/category/api.feature                 00:02       10       10        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ×  API/dashboard/api.feature                00:03       10        9        1        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ √  API/plant/api.feature                    00:03       10       10        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ×  UI/busines_logic/ui.feature              01:01       10        9        1        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ×  API/sales/api.feature                    00:02        9        6        3        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ×  UI/category/ui.feature                   00:50       10        9        1        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ √  UI/dashboard/ui.feature                  00:24       10       10        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ×  UI/plant/ui.feature                      01:17       10        8        2        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ×  UI/sales/ui.feature                      00:02       10        -        1        -        9 │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+    ×  6 of 10 failed (60%)                     03:55       99       81        9        -        9  
+

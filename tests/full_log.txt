@@ -1,0 +1,8 @@
+
+
+DevTools listening on ws://127.0.0.1:1818/devtools/browser/1c70d1f7-8997-4734-aec1-6b44fba43dcf
+Can't run because no spec files were found.
+
+We searched for specs matching this glob pattern:
+
+  > E:\Project\qa\ITFac-Batch21-Group36\tests\cypress\e2e\214104R\api\sales\sales.feature
