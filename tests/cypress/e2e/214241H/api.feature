@@ -1,9 +1,5 @@
 Feature: API Business Logic & Boundary Tests - 214241H
 
-  # ============================================================================
-  # PLANT BOUNDARY & VALIDATION (API-BL-001 to API-BL-003)
-  # ============================================================================
-
   Scenario: API-BL-001 Admin creates plant with minimum valid price (0.01)
     When I authenticate as "admin"
     # Step 1: Create Category hierarchy to ensure a valid sub-category exists
@@ -32,7 +28,7 @@ Feature: API Business Logic & Boundary Tests - 214241H
     And the response body "price" should be 0.01
 
 
-Scenario: API-BL-002 - Admin creates plant with exact minimum name length (3 chars)
+  Scenario: API-BL-002 - Admin creates plant with exact minimum name length (3 chars)
     Given I authenticate as "admin"
     
     # Step 1: Create a Main Category
@@ -93,17 +89,13 @@ Scenario: API-BL-002 - Admin creates plant with exact minimum name length (3 cha
     And I request "POST" "/api/plants/category/{id}" with "subCatId" as "id" and body:
       """
       {
-        "name": "Abcdefghij",
+        "name": "ABCDEFGHIJKLMNOPQRSTUVWXY",
         "price": 10.00,
         "quantity": 5
       }
       """
     Then the response status should be 201
     And the response body "name" should be "Abcdefghij"
-
-  # ============================================================================
-  # DATA PERSISTENCE & ASSOCIATION (API-BL-004 to API-BL-006)
-  # ============================================================================
 
   Scenario: API-BL-004 Admin updates plant and verifies category remains associated
     When I authenticate as "admin"
@@ -176,10 +168,6 @@ Scenario: API-BL-002 - Admin creates plant with exact minimum name length (3 cha
     And I request "GET" "/api/plants/category/{id}" with "testCatId" as "id"
     Then the response status should be 200
     And the response body should not be empty
-
-  # ============================================================================
-  # SYSTEM LOGIC & CALCULATIONS (API-BL-007 to API-BL-010)
-  # ============================================================================
 
   Scenario: API-BL-007 Verify plant list returns consistent data structure
     When I authenticate as "user"
@@ -270,4 +258,3 @@ Scenario: API-BL-002 - Admin creates plant with exact minimum name length (3 cha
     When I request "GET" "/api/plants/{id}" with "specialCharPlantId" as "id"
     Then the response status should be 200
     And the response body should contain "Rose & L"
-

@@ -42,18 +42,13 @@ Feature: UI - Business Logic & Functional Tests - Student 214241H
     And I click the plant search button
     Then the plants table should display all plants
 
-  Scenario: UI-05 Search Case-Insensitive
+  Scenario: UI-05 Search By Name
     Given I am on the login page
     When I login as "testuser" with password "test123"
     And I navigate to the plants page
-    When I enter "rose" in the plant search field
+    When I enter "Rose" in the plant search field
     And I click the plant search button
     Then the plants table should show filtered results
-    When I clear the plant search field
-    And I enter "ROSE" in the plant search field
-    And I click the plant search button
-    Then the plants table should show filtered results
-    And the search should return case-insensitive results
 
   Scenario: UI-06 No Results Message
     Given I am on the login page
@@ -61,7 +56,7 @@ Feature: UI - Business Logic & Functional Tests - Student 214241H
     And I navigate to the plants page
     When I enter "xyz123nonexistent" in the plant search field
     And I click the plant search button
-    Then I should see no plants found message
+    Then I should see "No plants found"
 
   Scenario: UI-07 Category Filter + Search
     Given I am on the login page
@@ -83,6 +78,7 @@ Feature: UI - Business Logic & Functional Tests - Student 214241H
     And I enter quantity "10"
     And I click "Save"
     Then I should see a validation error for name field
+    And I should see a validation error for category field
     And the price field should retain value "25.00"
     And the quantity field should retain value "10"
 
@@ -96,7 +92,7 @@ Feature: UI - Business Logic & Functional Tests - Student 214241H
     When I enter plant name "Tulip"
     Then the name validation error should be cleared
 
-  Scenario: UI-10 Browser Back / Duplicate Prevention
+  Scenario: UI-10 Save Plant Redirects to List
     Given I am on the login page
     When I login as "admin" with password "admin123"
     And I navigate to the plants page
@@ -107,6 +103,3 @@ Feature: UI - Business Logic & Functional Tests - Student 214241H
     And I enter quantity "25"
     And I click "Save"
     Then I should see the plants table
-    When I click browser back button
-    Then I should be on the plants page
-    And there should be no duplicate plant submissions

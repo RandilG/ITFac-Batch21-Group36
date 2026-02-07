@@ -109,3 +109,11 @@ Then("I should see the sales table with records", () => {
   cy.get("table").should("be.visible");
   cy.get("tbody tr").should("have.length.at.least", 1);
 });
+
+Then("I should see {string}", (text) => {
+  cy.contains(text, { timeout: 10000 }).should("be.visible");
+});
+
+Then("I should see a validation error for category field", () => {
+  cy.contains(/category is required/i).should("be.visible");
+});
