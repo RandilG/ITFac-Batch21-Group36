@@ -1,7 +1,11 @@
-const { Given, When, Then } = require("@badeball/cypress-cucumber-preprocessor");
+const {
+  Given,
+  When,
+  Then,
+} = require("@badeball/cypress-cucumber-preprocessor");
 
 Given("I am on the login page", () => {
-    cy.visit('/ui/login');
+  cy.visit("/ui/login");
 });
 
 When("I visit {string}", (url) => {
@@ -9,14 +13,14 @@ When("I visit {string}", (url) => {
 });
 
 When("I login as {string} with password {string}", (username, password) => {
-    cy.get('input').filter('[name="username"],#username').type(username);
-    cy.get('input').filter('[name="password"],#password').type(password);
-    cy.get('button').filter('[type="submit"],.btn-primary').click();
+  cy.get("input").filter('[name="username"],#username').type(username);
+  cy.get("input").filter('[name="password"],#password').type(password);
+  cy.get("button").filter('[type="submit"],.btn-primary').click();
 });
 
 Then("I should see the dashboard", () => {
-    cy.url().should('include', '/dashboard');
-    cy.contains('h3', 'Dashboard').should('be.visible');
+  cy.url().should("include", "/dashboard");
+  cy.contains("h3", "Dashboard").should("be.visible");
 });
 
 Then("I should be on the {string} page", (pathPart) => {
@@ -31,12 +35,12 @@ Then("I should see summary statistics for {string}, {string}, and {string}", (st
 });
 
 Then("I should see summary statistics", () => {
-    cy.get('.dashboard-card').should('exist');
+  cy.get(".dashboard-card").should("exist");
 });
 
 Then("I should see the navigation menu", () => {
-    cy.get('.sidebar').should('be.visible');
-    cy.get('.sidebar .nav-link').should('have.length.at.least', 4);
+  cy.get(".sidebar").should("be.visible");
+  cy.get(".sidebar .nav-link").should("have.length.at.least", 4);
 });
 
 Then("I click {string} in navigation", (linkText) => {
@@ -48,7 +52,7 @@ Then("I should see {string} button", (btnText) => {
 });
 
 Then("I should see the heading {string}", (headingText) => {
-    cy.get('h2, h3').contains(headingText).should('be.visible');
+  cy.get("h2, h3").contains(headingText).should("be.visible");
 });
 
 Then("I should not see {string} button", (btnText) => {
@@ -56,19 +60,22 @@ Then("I should not see {string} button", (btnText) => {
 });
 
 Then("I should see the {string} table with data", (tableName) => {
-    cy.get('table').should('be.visible');
-    cy.get('tbody tr').should('have.length.at.least', 1);
+  cy.get("table").should("be.visible");
+  cy.get("tbody tr").should("have.length.at.least", 1);
 });
 
-Then("I should see the {string} table displaying {string} and {string} columns", (tableName, col1, col2) => {
-    cy.get('table').should('be.visible');
+Then(
+  "I should see the {string} table displaying {string} and {string} columns",
+  (tableName, col1, col2) => {
+    cy.get("table").should("be.visible");
     // Check that both col1 and col2 are present in the headers
-    cy.get('thead th').then($ths => {
-        const texts = $ths.map((i, el) => Cypress.$(el).text().trim()).get();
-        expect(texts).to.include(col1);
-        expect(texts).to.include(col2);
+    cy.get("thead th").then(($ths) => {
+      const texts = $ths.map((i, el) => Cypress.$(el).text().trim()).get();
+      expect(texts).to.include(col1);
+      expect(texts).to.include(col2);
     });
-});
+  },
+);
 
 When("I click {string} button", (btnText) => {
     // Try finding by text in a button first, then any element
@@ -155,7 +162,7 @@ When("I clear and enter {string} into {string} field", (value, fieldLabel) => {
 });
 
 When("I go back in browser history", () => {
-    cy.go('back');
+  cy.go("back");
 });
 
 Then("I should still be logged in as {string}", (username) => {
