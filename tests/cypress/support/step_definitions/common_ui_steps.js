@@ -1,3 +1,5 @@
+//common ui steps
+
 const { Given, When, Then } = require("@badeball/cypress-cucumber-preprocessor");
 
 Given("I am on the login page", () => {

@@ -1,3 +1,5 @@
+//common api steps
+
 const { Given, When, Then } = require("@badeball/cypress-cucumber-preprocessor");
 
 // Variables are handled via Cypress aliases @response and @authToken
